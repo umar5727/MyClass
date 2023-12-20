@@ -1,10 +1,11 @@
 import { faBook } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Logo = () => {
   return (
-    <a href="#" className="cursor-pointer flex gap-2 items-center">
+    <Link to="/MyClass/" className="cursor-pointer flex gap-2 items-center">
       <FontAwesomeIcon icon={faBook} className="text-primary text-3xl" 
       />
       
@@ -12,7 +13,7 @@ const Logo = () => {
       >
         MyClass
       </h1>
-    </a>
+    </Link>
   );
 };
 

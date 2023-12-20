@@ -26,7 +26,7 @@ const Navigation = ({ navbtn }) => {
         <li key={item.name}>
           <NavLink
             to={item.slug}
-            className={`px-7  py-3 rounded-lg hover:bg-primary-light hover:text-primary cursor-pointer ${liClass} transition-colors duration-300 dark:text-dark-nav`}
+            className={`block px-7  py-3 rounded-lg hover:bg-primary-light hover:text-primary cursor-pointer ${liClass} transition-colors duration-300 dark:text-dark-nav`}
           >
             {item.name}
           </NavLink>
