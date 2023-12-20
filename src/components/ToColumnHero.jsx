@@ -54,7 +54,7 @@ const TwoColumnHero = () => {
         <div className="relative  ">
           <figure className=" absolute -left-28 -bottom-12 figure z-0">
             <img
-              src="/blob-haikei3.svg"
+              src="figure.svg"
               alt=""
               className="w-full h-full z-0 relative"
             />

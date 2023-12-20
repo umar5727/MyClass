@@ -16,11 +16,11 @@ export default {
         // 'primarylighthover': '#1e40af',
         // 'primarydarkhover' : '#374151',        
          
+        'primary'              : 'rgba(6, 106, 201, 1)', //#066ac9
         'primarydark' : '#222529',
         'primary-text-normal':'#747579',
         'primary-text-normal-dark':'#a1a1a8',
         'primary-text-heading': '#24292d',
-        'primary'              : 'rgba(6, 106, 201, 1)', //#066ac9
         'primary-light'        : 'rgba(6, 106, 201, 0.1)',
         'primary-dark-hover'   : 'rgba(6, 106, 201, 0.2)',
         'primary-border-light' : '#dde0e3',

@@ -1,6 +1,6 @@
 // Carousel.js
 
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 
 
 import Product from "../cards/Product";
@@ -152,47 +152,7 @@ const Carousel = () => {
       price: 300,
       mentors: "Umar Khan",
     },
-    // {
-    //   heading: "second",
-    //   image:
-    //     "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
-    // },
-    // {
-    //   heading: "third",
-    //   image:
-    //     "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
-    // },
-    // {
-    //   heading: "fourth",
-    //   image:
-    //     "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
-    // },
-    // {
-    //   heading: "five",
-    //   image:
-    //     "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
-    // },
-    // {
-    //   heading: "sixth",
-    //   image:
-    //     "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
-    // },
-    // { heading: "first", image: "/self-without-bg.png" },
-    // {
-    //   heading: "second",
-    //   image:
-    //     "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
-    // },
-    // {
-    //   heading: "third",
-    //   image:
-    //     "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
-    // },
-    // {
-    //   heading: "fourth",
-    //   image:
-    //     "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
-    // },
+    
   ];
 
   // const nextSlide = () => {
@@ -223,18 +183,19 @@ const Carousel = () => {
     }else{
       setwidth(100)
     }
-    if (currentIndex === 7) {
-      setCurrentIndex(0);
-      setDuration(0);
-      delay = 0;
-  
-    } else {
-      setDuration(500);
-      delay = 3000;
-      
-    }
+   
     
     if (autoSlider) {
+      if (currentIndex === 7) {
+        setCurrentIndex(0);
+        setDuration(0);
+        delay = 0;
+    
+      } else {
+        setDuration(500);
+        delay = 3000;
+        
+      }
       slider = setInterval(() => {
         setCurrentIndex(currentIndex + 1);
       }, delay);
@@ -252,9 +213,9 @@ const Carousel = () => {
     >
       <div className="overflow-hidden rounded-lg">
         <div
-          className={`flex transition-transform  ease-in-out transform duration-${duration}`}
-          style={{ transform: `translateX(${-currentIndex * width}%) `}}
-     
+          className={`flex transition-transform  ease-in-out transform `}
+          style={{ transform:`translateX(${-currentIndex * width}%) `, transitionDuration:`${duration}ms`}}
+       
         >
           {items.map((item, index) => (
             <div key={index} className="shadow-more w-full md:w-3/6 lg:w-2/6 px-3 flex-shrink-0 ">
