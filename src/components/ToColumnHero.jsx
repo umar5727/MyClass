@@ -60,7 +60,7 @@ const TwoColumnHero = () => {
             />
           </figure>
           <img
-            src="../../public/self-without-bg.png"
+            src="/MyClass/self-without-bg.png"
             alt=""
             className="mainImg rounded-b-full overflow-hidden  z-40 relative "
           />
