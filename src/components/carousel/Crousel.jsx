@@ -9,7 +9,7 @@ import Product from "../cards/Product";
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoSlider, setAutoSlider] = useState(true);
-  const [duration, setDuration] = useState(500);
+  const [duration, setDuration] = useState('500ms');
   const [width,setwidth]=useState(100)
   const items = [
     {
@@ -187,12 +187,11 @@ const Carousel = () => {
     
     if (autoSlider) {
       if (currentIndex === 7) {
+        setDuration('0ms');
+        delay=0;
         setCurrentIndex(0);
-        setDuration(0);
-        delay = 0;
-    
       } else {
-        setDuration(500);
+        setDuration('500ms');
         delay = 3000;
         
       }
@@ -211,10 +210,10 @@ const Carousel = () => {
       onMouseLeave={startAutoSlider}
       className="max-w-full mx-auto relative"
     >
-      <div className="overflow-hidden rounded-lg">
+      <div className="overflow-hidden pb-10 rounded-lg">
         <div
           className={`flex transition-transform  ease-in-out transform `}
-          style={{ transform:`translateX(${-currentIndex * width}%) `, transitionDuration:`${duration}ms`}}
+          style={{ transform:`translateX(${-currentIndex * width}%) `, transitionDuration:`${duration}`}}
        
         >
           {items.map((item, index) => (

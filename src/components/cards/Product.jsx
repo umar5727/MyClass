@@ -24,7 +24,7 @@ if(difficulty){
     }
 }
   return (
-    <div className="lightShadow rounded-lg  w-full bg-white dark:bg-card-dark-bg  overflow-hidden">
+    <div className="lightShadow rounded-lg  w-full bg-white dark:bg-card-dark-bg ">
       <img
         className="w-full  object-cover object-center bg-red-700"
         src={image}
