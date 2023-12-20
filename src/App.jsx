@@ -17,11 +17,11 @@ useEffect(() => {
 
 const router =createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<Layout />}>
+    <Route path='/MyClass/' element={<Layout />}>
       <Route path='' element={<Home />}/>
-      <Route path='/contact-us' element={<Contact />}/>
-      <Route path='/about-us' element={<AboutUs/>} />
-      <Route path='/contact' element={<Contact />}/>
+      <Route path='/MyClass/contact-us' element={<Contact />}/>
+      <Route path='/MyClass/about-us' element={<AboutUs/>} />
+      <Route path='/MyClass/contact' element={<Contact />}/>
     </Route>
   )
 )
