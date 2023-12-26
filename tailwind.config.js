@@ -2,20 +2,12 @@
 export default {
   darkMode: 'class',
   content: [
-    "./index.html",
+    "./index.html", 
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors:{
-        // 'primary': '#1a56db',
-        // 'primarydark': '#1e1b4b',
-        // 'primarylight': '#C0D4FF',
-        // 'secondary' : '#6366f1',
-        // 'primaryHover': '#e5f0fa',
-        // 'primarylighthover': '#1e40af',
-        // 'primarydarkhover' : '#374151',        
-         
         'primary'              : 'rgba(6, 106, 201, 1)', //#066ac9
         'primarydark' : '#222529',
         'primary-text-normal':'#747579',
@@ -41,6 +33,7 @@ export default {
         'primary-odd-light':'rgba(29, 59, 83, 0.1)',
         'primary-danger': 'rgba(214, 41, 62, 1)',
         'card-dark-bg':'#1b1e21',
+        'card-hover-bg':'#e3e3e3',
         'primary-orange':'rgb(253, 126, 20)',
         },
         transitionProperty: {

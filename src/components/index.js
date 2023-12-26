@@ -18,6 +18,8 @@ import RatingCard from "./feedback/RatingCard";
 import H2 from "./heading/H2";
 import H3 from "./heading/H3";
 import Li from "./Li";
+import H1 from "./heading/H1";
+import PogressBar from "./PogressBar";
 export {
     Header,
     Profile,
@@ -38,4 +40,6 @@ export {
     H2,
     H3,
     Li,
+    H1,
+    PogressBar,
 }

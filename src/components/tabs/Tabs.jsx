@@ -130,27 +130,27 @@ const Tabs = () => {
         },
         {
           id: 10,
-          name: "Graphic Design Masterclass",
+          name: "Learn Invision",
           description:
-            "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
+            "Arrived off she elderly beloved him Course regard to up he hardly.",
           // price: 19.99,
           image:
             "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
           category: "Beginner",
           color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:15,
+          lectures:82,
         },
         {
           id: 11,
-          name: "Graphic Design Masterclass",
+          name: "Create a Design System in Figma",
           description:
-            "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
+            "Rooms oh fully taken by worse do. Points afraid but may end.",
           // price: 19.99,
           image:
             "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
           category: "Beginner",
           color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:15,
+          lectures:32,
         },
         {
           id: 12,
@@ -172,7 +172,7 @@ const Tabs = () => {
       content: [
         {
           id: 13,
-          name: "Graphic Design Masterclass",
+          name: "Digital Marketing Masterclass",
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
@@ -180,13 +180,13 @@ const Tabs = () => {
             "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
           category: "Beginner",
           color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:15,
+          lectures:82,
         },
         {
           id: 14,
-          name: "Graphic Design Masterclass",
+          name: "Sketch from A to Z: for app designer",
           description:
-            "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
+            "Proposal indulged no do sociable he throwing settling.",
           // price: 19.99,
           image:
             "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",

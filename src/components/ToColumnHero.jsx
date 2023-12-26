@@ -1,14 +1,13 @@
 // TwoColumnHero.js
 
 import React from "react";
-import NumberDisplay from "./NumberDisplay";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import Button from "./Button";
 
 const TwoColumnHero = () => {
   return (
-    <div className="flex flex-col gap-6 lg:gap-0 lg:flex-row py-10">
+    <section className="flex flex-col gap-6 lg:gap-0 lg:flex-row py-10">
       {/* Left Column */}
       <div className="lg:w-3/5 py-8  flex flex-col gap-8 justify-center items-center text-center lg:text-left lg:items-start md:py-0">
         <h1 className="text-4xl md:text-6xl font-bold  text-primary-text-heading dark:text-white">
@@ -44,9 +43,7 @@ const TwoColumnHero = () => {
           Get Started
           
         </button> */}
-        <Button >
-          Get Started
-        </Button>
+        <Button>Get Started</Button>
       </div>
 
       {/* Right Column - Full Image */}
@@ -56,7 +53,7 @@ const TwoColumnHero = () => {
             <img
               src="figure.svg"
               alt=""
-              className="w-full h-full z-0 relative"
+              className=" h-full z-0 relative w-full"
             />
           </figure>
           <img
@@ -66,7 +63,7 @@ const TwoColumnHero = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

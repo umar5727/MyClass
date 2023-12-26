@@ -3,14 +3,14 @@ import { useDispatch } from "react-redux";
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import Layout from "./Layout";
-import { Contact, Home } from "./pages";
+import { AboutUs, Contact, Home } from "./pages";
 import {
   Route,
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import AboutUs from "./pages/AboutUs";
+
 
 function App() {
   const [loading, setloading] = useState(true);

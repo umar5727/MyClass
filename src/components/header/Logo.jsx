@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 
 const Logo = () => {
   return (
-    <Link to="/MyClass/" className="cursor-pointer flex gap-2 items-center">
+    <Link to="/MyClass/" className="group cursor-pointer flex gap-2 items-center">
       <FontAwesomeIcon icon={faBook} className="text-primary text-3xl" 
       />
       
-      <h1 className="font-bold text-2xl text-primarydark dark:text-white"
+      <h1 className="font-bold text-2xl text-primarydark dark:text-white transition-colors duration-300 group-hover:text-primary"
       >
         MyClass
       </h1>
