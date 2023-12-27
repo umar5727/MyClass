@@ -2,15 +2,40 @@ import React from "react";
 import { H1, PogressBar } from "../../components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 const AboutUs = () => {
   return (
     <>
-      <H1 className="!text-2xl md:!text-4xl my-10 w-5/6 mx-auto">
+    <section className="my-20">
+
+      <H1 className="!text-2xl md:!text-4xl mb-14 w-5/6 mx-auto">
         MyClass, built specifically for the education centers which is dedicated
         to teaching and involve learners.
       </H1>
 
+
+    <div className="grid lg:grid-cols-3 gap-5">
+      
+
+      <div className="grid grid-cols-2 gap-5">
+      <img src="student3.webp" alt="" className="rounded-xl"/>
+      <div></div>
+      <img src="student4.jpg" alt="" className="col-span-2 rounded-xl"/>
+      </div>
+      <img src="student6.jpg" alt="" className="h-full rounded-xl"/>
+
+      <div className="grid grid-cols-2 gap-5">
+        <div className="bg-gradient-to-br bg-orange-500 col-span-2 rounded-xl flex justify-center text-center items-center px-10"> 
+
+      <h3 className="text-2xl font-bold">“Be open to new ideas and approaches. Develop your problem-solving skills.”</h3>
+        </div>
+      <img src="student3.webp" alt="" className="rounded-xl"/>
+      <div></div>
+      </div>
+    </div>
+    </section>
+{/* grid ends  */}
 <article>
   <div className="lg:w-4/6">
 
@@ -88,6 +113,7 @@ const AboutUs = () => {
         </div>
       </section>
       </article>
+      <FontAwesomeIcon icon={faGoogle}/>
     </>
   );
 };

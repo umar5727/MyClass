@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import NavContext from "../../context/navcontext/NavContext";
 
 const Navigation = ({ navbtn }) => {
+  const {navToggle, setNavToggle}= useContext(NavContext)
   const navItems = [
     { name: "Home", slug: "/MyClass/" },
     { name: "Courses", slug: "#" },
@@ -9,7 +12,7 @@ const Navigation = ({ navbtn }) => {
   ];
   var className = "hidden";
   var liClass = "";
-  if (!navbtn) {
+  if (!navToggle) {
     className = "h-1 ";
     liClass = "";
   } else {
@@ -27,8 +30,10 @@ const Navigation = ({ navbtn }) => {
           <NavLink
             to={item.slug}
             className={`block px-7  py-3 rounded-lg hover:bg-primary-light hover:text-primary cursor-pointer ${liClass} transition-colors duration-300 dark:text-dark-nav`}
+            onClick={()=>{setNavToggle(!navToggle)}}
           >
             {item.name}
+
           </NavLink>
         </li>
       ))}
