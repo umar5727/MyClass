@@ -44,7 +44,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="py-10 bg-footer-light-bg">
+    <footer className="py-10 bg-footer-light-bg dark:bg-dark-bg-light">
       <Container>
         <div className="w-full grid md:grid-cols-2 lg:grid-cols-6 gap-5">
           <div className="col-span-full flex flex-col gap-2 pr-40 lg:col-span-2 lg:pr-0">

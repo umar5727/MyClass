@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import Layout from "./Layout";
-import { AboutUs, Contact, Home } from "./pages";
+import { AboutUs, Contact, Courses, Home } from "./pages";
 import {
   Route,
   RouterProvider,
@@ -21,9 +21,9 @@ function App() {
     createRoutesFromElements(
       <Route path="/MyClass/" element={<Layout />}>
         <Route path="/MyClass/" element={<Home />} />
-        <Route path="/MyClass/contact-us" element={<Contact />} />
+        <Route path="/MyClass/courses" element={<Courses />} />
         <Route path="/MyClass/about-us" element={<AboutUs />} />
-        <Route path="/MyClass/contact" element={<Contact />} />
+        <Route path="/MyClass/contact-us" element={<Contact />} />
       </Route>
     )
   );

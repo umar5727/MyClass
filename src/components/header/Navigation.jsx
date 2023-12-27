@@ -1,12 +1,12 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import NavContext from "../../context/navcontext/NavContext";
 
-const Navigation = ({ navbtn }) => {
-  const {navToggle, setNavToggle}= useContext(NavContext)
+const Navigation = ({}) => {
+  const { navToggle, setNavToggle } = useContext(NavContext);
   const navItems = [
     { name: "Home", slug: "/MyClass/" },
-    { name: "Courses", slug: "#" },
+    { name: "Courses", slug: "/MyClass/courses" },
     { name: "About Us", slug: "/MyClass/about-us" },
     { name: "Contact Us", slug: "/MyClass/contact" },
   ];
@@ -30,10 +30,11 @@ const Navigation = ({ navbtn }) => {
           <NavLink
             to={item.slug}
             className={`block px-7  py-3 rounded-lg hover:bg-primary-light hover:text-primary cursor-pointer ${liClass} transition-colors duration-300 dark:text-dark-nav`}
-            onClick={()=>{setNavToggle(!navToggle)}}
+            onClick={() => {
+              setNavToggle(false);
+            }}
           >
             {item.name}
-
           </NavLink>
         </li>
       ))}
