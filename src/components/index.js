@@ -2,7 +2,6 @@
 import Profile from "./Profile";
 import Button from "./Button";
 import Tabs from "./tabs/Tabs";
-import ThemeToggle from "./ThemeToggle";
 import Navigation from "./header/Navigation";
 import Logo from "./header/Logo";
 import Header from "./header/Header";
@@ -25,7 +24,7 @@ export {
     Profile,
     Button,
     Tabs,
-    ThemeToggle,
+    
     Navigation,
     Logo,
     NavToggle,

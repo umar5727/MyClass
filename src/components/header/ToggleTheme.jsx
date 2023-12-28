@@ -3,9 +3,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 
 const ToggleTheme = () => {
+  const local=JSON.parse(localStorage.getItem('darkTheme'));
+  const [theme, setTheme]=useState(local || false);
+
   
-  const [theme, setTheme]=useState(false);
+  const handleClick=()=>{
+    setTheme(!theme)
+    localStorage.setItem('darkTheme',!theme);
+  }
+  
   useEffect(() => {
+    console.log(theme+' theme')
+   
     if(theme){
       document.documentElement.classList.add('dark')
     }
@@ -17,7 +26,7 @@ const ToggleTheme = () => {
   
   return (
     <div className='group w-12 h-12 rounded-lg flex justify-center items-center hover:bg-primary-light dark:hover:bg-primary-dark-hover cursor-pointer'
-    onClick={()=>setTheme(!theme)}
+    onClick={handleClick}
     >
         {
             (theme)?

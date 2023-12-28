@@ -115,7 +115,7 @@ const AboutUs = () => {
           </div>
         </section>
       </article>
-      <FontAwesomeIcon icon={faGoogle} />
+      {/* <FontAwesomeIcon icon={faGoogle} /> */}
     </>
   );
 };
