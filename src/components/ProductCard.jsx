@@ -10,11 +10,13 @@ const ProductCard = ({ product }) => {
   const [like, setLike] = useState(false);
   return (
     <div className="lightShadow rounded-lg  w-full bg-white dark:bg-card-dark-bg  overflow-hidden">
+      <div className="overflow-hidden">        
       <img
-        className="w-full  object-cover object-center bg-red-700"
+        className="w-full  object-cover object-center bg-red-700 duration-300 hover:scale-105"
         src={product.image}
         alt={product.name}
-      />
+        />
+        </div>
       {/* card bottom starts  */}
       <div className="px-6 py-4 flex flex-col gap-2 text-sm">
         <div className="flex justify-between  items-center">

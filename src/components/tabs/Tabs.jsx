@@ -11,14 +11,15 @@ const Tabs = () => {
         {
           id: 1,
           name: "Sketch from A to Z: for app designer",
-          description:
-            "Proposal indulged no do sociable he throwing settling.",
+          description: "Proposal indulged no do sociable he throwing settling.",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "All level",
-          color:{primary:'text-primary-purple',light:'bg-primary-purple-light'},
-          lectures:15,
+          color: {
+            primary: "text-primary-purple",
+            light: "bg-primary-purple-light",
+          },
+          lectures: 15,
         },
         {
           id: 2,
@@ -26,11 +27,13 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:65,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 65,
         },
         {
           id: 3,
@@ -38,11 +41,13 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do. Points afraid but may end afraid but may end.",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:40,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 40,
         },
         {
           id: 4,
@@ -50,15 +55,17 @@ const Tabs = () => {
           description:
             "Far advanced settling say finished raillery. Offered chiefly farther",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:115,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 115,
         },
       ],
     },
-    // web design ends 
+    // web design ends
     {
       title: "Development",
       content: [
@@ -68,11 +75,13 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "All level",
-          color:{primary:'text-primary-purple',light:'bg-primary-purple-light'},
-          lectures:15,
+          color: {
+            primary: "text-primary-purple",
+            light: "bg-primary-purple-light",
+          },
+          lectures: 15,
         },
         {
           id: 6,
@@ -83,8 +92,11 @@ const Tabs = () => {
           image:
             "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
           category: "Intermediate",
-          color:{primary:'text-primary-info',light:'bg-primary-info-light'},
-          lectures:15,
+          color: {
+            primary: "text-primary-info",
+            light: "bg-primary-info-light",
+          },
+          lectures: 15,
         },
         {
           id: 7,
@@ -92,11 +104,13 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:15,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 15,
         },
         {
           id: 8,
@@ -104,15 +118,17 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:15,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 15,
         },
       ],
     },
-    // Development ends 
+    // Development ends
     {
       title: "Graphic Design",
       content: [
@@ -122,11 +138,13 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:15,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 15,
         },
         {
           id: 10,
@@ -134,11 +152,13 @@ const Tabs = () => {
           description:
             "Arrived off she elderly beloved him Course regard to up he hardly.",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:82,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 82,
         },
         {
           id: 11,
@@ -146,11 +166,13 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do. Points afraid but may end.",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:32,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 32,
         },
         {
           id: 12,
@@ -158,15 +180,17 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:15,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 15,
         },
       ],
     },
-    // Graphic Design ends 
+    // Graphic Design ends
     {
       title: "Marketing",
       content: [
@@ -176,23 +200,26 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:82,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 82,
         },
         {
           id: 14,
           name: "Sketch from A to Z: for app designer",
-          description:
-            "Proposal indulged no do sociable he throwing settling.",
+          description: "Proposal indulged no do sociable he throwing settling.",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:15,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 15,
         },
         {
           id: 15,
@@ -200,11 +227,13 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:15,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 15,
         },
         {
           id: 16,
@@ -212,15 +241,17 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:15,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 15,
         },
       ],
     },
-    // Marketing ends 
+    // Marketing ends
     {
       title: "Finance",
       content: [
@@ -230,11 +261,13 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:15,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 15,
         },
         {
           id: 18,
@@ -242,11 +275,13 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:15,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 15,
         },
         {
           id: 19,
@@ -254,11 +289,13 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:15,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 15,
         },
         {
           id: 20,
@@ -266,15 +303,16 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "product1.png",
           category: "Beginner",
-          color:{primary:'text-primary-green',light:'bg-primary-green-light'},
-          lectures:15,
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 15,
         },
       ],
     },
-  
   ];
   const handleClick = (index) => {
     setTabState(index);
@@ -304,22 +342,14 @@ const Tabs = () => {
         ))}
       </div>
       <div className="grid sm:grid-cols-2 gap-5 lg:grid-cols-3 xl:grid-cols-4 pt-5">
-        {
-        tabInfo.map((item, index) => {
+        {tabInfo.map((item, index) => {
           if (index === tabState) {
-            return(
-            item.content.map((course)=>{
-              return(
-               
-                <ProductCard key={course.id} product={course} /> 
-               
-              )
-            })
-            )
-          }else{
-            return
+            return item.content.map((course) => {
+              return <ProductCard key={course.id} product={course} />;
+            });
+          } else {
+            return;
           }
-          
         })}
       </div>
     </section>
