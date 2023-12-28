@@ -59,7 +59,7 @@ const TwoColumnHero = () => {
           <img
             src="/MyClass/self-without-bg.png"
             alt=""
-            className="mainImg rounded-b-full overflow-hidden  z-40 relative "
+            className="mainImg rounded-bl-[166px] rounded-br-[180px] overflow-hidden  z-40 relative "
           />
         </div>
       </div>

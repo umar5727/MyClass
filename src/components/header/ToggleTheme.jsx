@@ -13,7 +13,7 @@ const ToggleTheme = () => {
   }
   
   useEffect(() => {
-    console.log(theme+' theme')
+    // console.log(theme+' theme')
    
     if(theme){
       document.documentElement.classList.add('dark')
