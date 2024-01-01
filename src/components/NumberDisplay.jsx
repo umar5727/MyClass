@@ -9,7 +9,7 @@ const NumberDisplay = ({ number, className, speed = 100 }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setDisplayedNumber((prevNumber) => {
-        const increment =Math.ceil(number / 10); // Adjust the increment based on your preference
+        const increment = Math.ceil(number / 10); // Adjust the increment based on your preference
         const nextNumber = prevNumber + increment;
         return nextNumber >= number ? number : nextNumber;
       });

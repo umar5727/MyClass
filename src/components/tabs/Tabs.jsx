@@ -13,7 +13,7 @@ const Tabs = () => {
           name: "Sketch from A to Z: for app designer",
           description: "Proposal indulged no do sociable he throwing settling.",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "All level",
           color: {
             primary: "text-primary-purple",
@@ -27,7 +27,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -41,7 +41,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do. Points afraid but may end afraid but may end.",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -55,7 +55,7 @@ const Tabs = () => {
           description:
             "Far advanced settling say finished raillery. Offered chiefly farther",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -75,7 +75,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "All level",
           color: {
             primary: "text-primary-purple",
@@ -89,8 +89,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image:
-            "https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg",
+          image: "student1.jpg",
           category: "Intermediate",
           color: {
             primary: "text-primary-info",
@@ -104,7 +103,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -118,7 +117,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -138,7 +137,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -152,7 +151,7 @@ const Tabs = () => {
           description:
             "Arrived off she elderly beloved him Course regard to up he hardly.",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -166,7 +165,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do. Points afraid but may end.",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -180,7 +179,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -200,7 +199,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -213,7 +212,7 @@ const Tabs = () => {
           name: "Sketch from A to Z: for app designer",
           description: "Proposal indulged no do sociable he throwing settling.",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -227,7 +226,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -241,7 +240,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -261,7 +260,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -275,7 +274,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -289,7 +288,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -303,7 +302,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
-          image: "product1.png",
+          image: "student1.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",

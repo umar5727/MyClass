@@ -5,14 +5,15 @@ import { faHeart as regular, faClock, } from "@fortawesome/free-regular-svg-icon
 import {  faCalendar, faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   const [like, setLike] = useState(false);
   return (
-    <div className="lightShadow rounded-lg  w-full bg-white dark:bg-card-dark-bg  overflow-hidden">
+    <div className="group lightShadow rounded-lg  w-full bg-white dark:bg-card-dark-bg  overflow-hidden">
       <div className="overflow-hidden">        
       <img
-        className="w-full  object-cover object-center bg-red-700 duration-300 hover:scale-105"
+        className="w-full  object-cover object-center bg-red-700 duration-500 group-hover:scale-105"
         src={product.image}
         alt={product.name}
         />
@@ -35,7 +36,9 @@ const ProductCard = ({ product }) => {
         {/* category ends  */}
 
         <div className=" ">
+          <Link to='/MyClass/course'>
           <h3 className="font-bold text-xl transition-colors duration-300  cursor-pointer hover:text-primary ">{product.name}</h3>
+          </Link>
           <p className="text-primary-text-normal text-sm dark:text-primary-text-normal-dark">{product.description}</p>
         </div>
         {/* title ends  */}

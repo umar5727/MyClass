@@ -12,7 +12,7 @@ const Carousel = () => {
   const items = [
     {
       name: "JavaScript: Full first",
-      image: "product1.png",
+      image: "student2.jpg",
 
       // price: 19.99,
 
@@ -25,7 +25,7 @@ const Carousel = () => {
     },
     {
       name: "JavaScript: Full second",
-      image: "product1.png",
+      image: "student2.jpg",
 
       // price: 19.99,
 
@@ -38,7 +38,7 @@ const Carousel = () => {
     },
     {
       name: "JavaScript: Full third",
-      image: "product1.png",
+      image: "student2.jpg",
 
       // price: 19.99,
 
@@ -51,7 +51,7 @@ const Carousel = () => {
     },
     {
       name: "JavaScript: Full fourth",
-      image: "product1.png",
+      image: "student2.jpg",
 
       // price: 19.99,
 
@@ -64,7 +64,7 @@ const Carousel = () => {
     },
     {
       name: "JavaScript: Full fifth",
-      image: "product1.png",
+      image: "student2.jpg",
 
       // price: 19.99,
 
@@ -77,7 +77,7 @@ const Carousel = () => {
     },
     {
       name: "JavaScript: Full sixth",
-      image: "product1.png",
+      image: "student2.jpg",
 
       // price: 19.99,
 
@@ -90,7 +90,7 @@ const Carousel = () => {
     },
     {
       name: "JavaScript: Full first",
-      image: "product1.png",
+      image: "student2.jpg",
 
       // price: 19.99,
 
@@ -103,7 +103,7 @@ const Carousel = () => {
     },
     {
       name: "JavaScript: Full second",
-      image: "product1.png",
+      image: "student2.jpg",
 
       // price: 19.99,
 
@@ -116,7 +116,7 @@ const Carousel = () => {
     },
     {
       name: "JavaScript: Full third",
-      image: "product1.png",
+      image: "student2.jpg",
 
       // price: 19.99,
 
@@ -129,7 +129,7 @@ const Carousel = () => {
     },
     {
       name: "JavaScript: Full fourth",
-      image: "product1.png",
+      image: "student2.jpg",
 
       // price: 19.99,
 

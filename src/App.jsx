@@ -3,13 +3,14 @@ import { useDispatch } from "react-redux";
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import Layout from "./Layout";
-import { AboutUs, Contact, Courses, Home } from "./pages";
+import { AboutUs, Contact, Courses, Home, ProductPage } from "./pages";
 import {
   Route,
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
+
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/MyClass/courses" element={<Courses />} />
         <Route path="/MyClass/about-us" element={<AboutUs />} />
         <Route path="/MyClass/contact" element={<Contact />} />
+        <Route path="/MyClass/course" element={<ProductPage />} />
       </Route>
     )
   );

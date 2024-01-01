@@ -15,12 +15,14 @@ const Courses = () => {
           </p>
         </div>
         <div className="order-2 lg:order-1">
-          <img src="students1.jpg" alt="" />
+          <img src="student1.jpg" alt="" className="rounded-lg" />
         </div>
         <div className="order-3">
-          <img src="student2.jpg" alt="" />
+          <img src="student2.jpg" alt="" className="rounded-lg" />
         </div>
       </section>
+
+      {/* courses category  */}
       <CategoryContainer />
 
       <div className="flex flex-col gap-5 md:flex-row my-16">
