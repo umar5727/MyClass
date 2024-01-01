@@ -9,6 +9,7 @@ import NavContextProvider from "../../context/navcontext/NavContextProvider";
 import NavContext from "../../context/navcontext/NavContext";
 
 const Header = () => {
+  const {setNavToggle}=useContext(NavContext)
   useEffect(() => {
     window.addEventListener("resize", () => setNavToggle(false));
   }, []);

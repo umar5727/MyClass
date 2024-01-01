@@ -83,7 +83,7 @@ const CategoryContainer = () => {
         <H1 className="md:!text-5xl mb-5">Choose a Categories</H1>
         <p>Perceived end knowledge certainly day sweetness why cordially</p>
       </div>
-      <div className="grid  md:grid-col-2 lg:grid-cols-4 gap-5 ">
+      <div className="grid  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 ">
         {category.map((item,index) => (
           <CategoryCard
             heading={item.heading}

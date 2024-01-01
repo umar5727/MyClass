@@ -5,6 +5,7 @@ import { faHeart as regular, faClock, } from "@fortawesome/free-regular-svg-icon
 import {  faCalendar, faFaceSmile, faHeart, faIndianRupee, faRupee, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const Product = ({image, name, difficulty, description, lectures, mentors, time, price, category}) => {
@@ -53,7 +54,9 @@ if(difficulty){
         {/* category ends  */}
 
         <div className=" ">
+          <Link to='/MyClass/course'>
           <h3 className="font-bold text-xl transition-colors duration-300  cursor-pointer hover:text-primary ">{name}</h3>
+          </Link>
           {
             description
             ?

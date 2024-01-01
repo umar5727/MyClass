@@ -53,9 +53,9 @@ const Contact = () => {
         </div>
       </section>
       {/* form starts  */}
-      <section className="flex flex-col gap-6 lg:gap-0 lg:flex-row py-10">
-        {/* left Column - Full Image */}
-        <div className="lg:w-3/6 flex flex-col items-center gap-5 justify-center relative overflow-hidden">
+      <section className="flex flex-col gap-6 lg:gap-0 md:flex-row py-10">
+        {/* left Column - */}
+        <div className="md:w-3/6 flex flex-col items-center gap-5 justify-center relative overflow-hidden">
           <div className="relative  ">
             <FontAwesomeIcon
               icon={faMailBulk}
@@ -82,7 +82,7 @@ const Contact = () => {
           </div>
         </div>
         {/* right Column */}
-        <div className="lg:w-3/6 py-8  flex flex-col gap-5 justify-center items-center text-center lg:text-left lg:items-start md:py-0">
+        <div className="md:w-3/6 py-8  flex flex-col gap-5 justify-center items-center text-center lg:text-left lg:items-start md:py-0">
           <h2 className="text-3xl md:text-4xl font-bold  text-primary-text-heading dark:text-white">
             Let's talk
           </h2>
@@ -100,8 +100,9 @@ const Contact = () => {
                 type="text"
                 id="userName"
                 required
-                className="w-full mt-1 dark:bg-dark-bg-light py-3 px-4 rounded-md outline-none outline-1 duration-300 focus:outline-primary"
+                className="w-full mt-1 bg-primary-light dark:bg-dark-bg-light py-3 px-4 rounded-md outline-none outline-1 duration-300 focus:outline-primary"
                 value={userName}
+                autoComplete="given-name"
                 onChange={(e) => {
                   setUserName(e.target.value);
                 }}
@@ -116,8 +117,9 @@ const Contact = () => {
                 type="text"
                 id="email"
                 required
-                className="w-full mt-1 dark:bg-dark-bg-light py-3 px-4 rounded-md outline-none outline-1 duration-300 focus:outline-primary"
+                className="w-full mt-1 bg-primary-light dark:bg-dark-bg-light py-3 px-4 rounded-md outline-none outline-1 duration-300 focus:outline-primary"
                 value={email}
+                autoComplete="off"
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
@@ -133,8 +135,9 @@ const Contact = () => {
                 type="text"
                 id="message"
                 required
-                className="w-full mt-1 dark:bg-dark-bg-light py-3 px-4 rounded-md outline-none outline-1 duration-300 focus:outline-primary"
+                className="w-full mt-1 bg-primary-light dark:bg-dark-bg-light py-3 px-4 rounded-md outline-none outline-1 duration-300 focus:outline-primary"
                 value={message}
+                autoComplete="off"
                 onChange={(e) => {
                   setMessage(e.target.value);
                 }}
@@ -144,6 +147,7 @@ const Contact = () => {
           </form>
         </div>
       </section>
+      {/* form ends  */}
     </>
   );
 };

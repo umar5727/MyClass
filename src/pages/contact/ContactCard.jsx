@@ -11,15 +11,15 @@ const ContactCard = ({ heading, location, phone, email }) => {
     <div className="aspect-video bg-gradient-to-br  col-span-2 rounded-xl flex flex-col gap-2 justify-center text-center items-center px-10 shadow-[0_0_35px_-2px_rgba(0,0,0,0.2)]">
       <h3 className="text-2xl font-bold">{heading}</h3>
       <p className="duration-300 hover:text-primary">
-        <FontAwesomeIcon icon={faLocation} />
+        <FontAwesomeIcon icon={faLocation} className="pr-2" />
         {location}
       </p>
-      <p  className="duration-300 hover:text-primary">
-        <FontAwesomeIcon icon={faPhone} />
+      <p className="duration-300 hover:text-primary">
+        <FontAwesomeIcon icon={faPhone} className="pr-2" />
         {phone}
       </p>
-      <p  className="duration-300 hover:text-primary">
-        <FontAwesomeIcon icon={faMailBulk} />
+      <p className="duration-300 hover:text-primary">
+        <FontAwesomeIcon icon={faMailBulk} className="pr-2" />
         {email}
       </p>
     </div>

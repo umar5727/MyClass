@@ -45,6 +45,7 @@ const TabsProduct = () => {
             key={index}
             onClick={() => handleClick(index)}
           >
+            <span key={index}></span>
             {item.title}
           </Button>
         ))}
@@ -53,7 +54,7 @@ const TabsProduct = () => {
         {tabInfo.map((item, index) => {
           if (index === tabState) {
             return (
-              <div className=" p-2 ">
+              <div className=" p-2 " key={index}>
                 <h2 className="font-bold text-2xl">{item.title}</h2>
                 <p>{item.content}</p>
               </div>

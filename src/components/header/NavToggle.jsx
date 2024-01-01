@@ -12,7 +12,7 @@ const NavToggle = ({}) => {
   const { navToggle, setNavToggle } = useContext(NavContext);
   return (
     <div
-      className="group flex justify-center items-center w-10 h-10 hover:bg-primary-light rounded-lg cursor-pointer lg:hidden "
+      className="group flex justify-center items-center w-10 h-10 hover:bg-primary-light rounded-lg cursor-pointer md:hidden "
       onClick={() => {
         setNavToggle(!navToggle);
       }}
