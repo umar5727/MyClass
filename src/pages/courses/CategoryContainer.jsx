@@ -52,6 +52,30 @@ const CategoryContainer = () => {
       totalCourses: 35,
       bgColor: "bg-primary-purple-light",
     },
+    {
+      heading: "Data Science",
+      image: "data-science.svg",
+      totalCourses: 15,
+      bgColor: "bg-primary-green-light",
+    },
+    {
+      heading: "IT & Software",
+      image: "online.svg",
+      totalCourses: 35,
+      bgColor: "bg-primary-info-light",
+    },
+    {
+      heading: "Engineering",
+      image: "engineering.svg",
+      totalCourses: 15,
+      bgColor: "bg-primary-purple-light",
+    },
+    {
+      heading: "Web Development",
+      image: "coding.svg",
+      totalCourses: 35,
+      bgColor: "bg-primary-info-light",
+    },
   ];
   return (
     <section className="my-10">
@@ -60,12 +84,13 @@ const CategoryContainer = () => {
         <p>Perceived end knowledge certainly day sweetness why cordially</p>
       </div>
       <div className="grid  md:grid-col-2 lg:grid-cols-4 gap-5 ">
-        {category.map((item) => (
+        {category.map((item,index) => (
           <CategoryCard
             heading={item.heading}
             image={item.image}
             totalCourses={item.totalCourses}
             bgColor={item.bgColor}
+            key={index}
           />
         ))}
       </div>

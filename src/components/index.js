@@ -7,6 +7,7 @@ import Logo from "./header/Logo";
 import Header from "./header/Header";
 import NavToggle from "./header/NavToggle";
 import SmallCardContainer from "./SmallCardContainer";
+import Product from "./cards/Product";
 import ProductCard from "./ProductCard";
 import Add from "./Add";
 import FeedbackCard from "./feedback/FeedbackCard";
@@ -24,7 +25,6 @@ export {
     Profile,
     Button,
     Tabs,
-    
     Navigation,
     Logo,
     NavToggle,
@@ -41,4 +41,5 @@ export {
     Li,
     H1,
     PogressBar,
+    Product,
 }
