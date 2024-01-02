@@ -11,7 +11,7 @@ const ProductPage = () => {
     <>
       <section className="flex flex-col gap-6 lg:gap-0 lg:flex-row py-10">
         {/* Left Column */}
-        <div className="lg:w-[70%] py-8  flex flex-col gap-2 justify-center items-center text-center lg:text-left lg:items-start md:py-0">
+        <div className="lg:w-4/6 xl:w-[70%] py-8  flex flex-col gap-2 justify-center items-center text-center lg:text-left lg:items-start md:py-0">
           <h1 className="text-3xl md:text-4xl font-bold  text-primary-text-heading dark:text-white">
             Start Your Carrer Now
           </h1>
@@ -26,10 +26,14 @@ const ProductPage = () => {
         </div>
 
         {/* Right Column -  */}
-        <div className="md:w-1/2  lg:w-[30%]  flex flex-col items-start lg:items-end gap-10 overflow-hidden">
+        <div className="lg:w-2/6 md:w-1/2  xl:w-[30%]  flex flex-col items-start lg:items-end gap-10 overflow-hidden">
+          <div className="lg:pl-8 w-full">
+
           <PriceCard />
+          </div>
           {/* PriceCard ends  */}
-          <div className="w-full pl-8">
+
+          <div className="w-full lg:pl-8">
             <H2 className="mb-5">Tranding Courses</H2>
             <Product
               name="Web Development"

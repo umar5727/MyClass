@@ -38,7 +38,7 @@ const PriceCard = () => {
       },
   ];
   return (
-    <div className=" border border-primary-border-light w-full lg:w-[350px] rounded-lg h-fit text-primary-text-heading dark:text-primary-text-normal-dark text-base font-normal">
+    <div className=" border border-primary-border-light w-full xl:w-[350px] rounded-lg h-fit text-primary-text-heading dark:text-primary-text-normal-dark text-base font-normal ">
       <H2 className=" ml-6 mt-4 dark:text-white">Course Features</H2>
       {/* fretures starts  */}
       <div className="m-6">

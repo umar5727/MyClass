@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { H1 } from "../../components";
 import CategoryContainer from "./CategoryContainer";
 import CourseCard from "./CourseCard";
 
 const Courses = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <section className=" grid gap-5 grid-cols-2 lg:grid-cols-4 my-10 py-10  relative before:block before:absolute before:bg-footer-light-bg before:left-2/4 before:-translate-x-2/4 before:w-screen before:h-full before:-z-10 before:content-[''] before:top-0  dark:before:bg-dark-bg-light">

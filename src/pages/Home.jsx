@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import TwoColumnHero from "../components/ToColumnHero";
 
@@ -9,7 +9,6 @@ import {
   SmallCardContainer,
   Tabs,
 } from "../components";
-
 const Home = () => {
   const products = [
     {
@@ -78,6 +77,9 @@ const Home = () => {
       image: "https://placekitten.com/300/200", // Replace with your product image URL
     },
   ];
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <main className=" dark:bg-boot-dark ">
       {/* Home */}
@@ -96,19 +98,19 @@ const Home = () => {
       <Add />
 
       {/* trending courses        */}
-      
 
-      <section >
+      <section>
         <div className="text-center mb-4">
           <h1 className="text-3xl font-bold">Our Trending Courses</h1>
-          <p className="text-primary-text-normal dark:text-primary-text-normal-dark">Check out most 🔥 courses in the market</p>
+          <p className="text-primary-text-normal dark:text-primary-text-normal-dark">
+            Check out most 🔥 courses in the market
+          </p>
         </div>
         <Carousel />
       </section>
 
       {/* feedback  */}
       <FeedbackContainer />
-      
     </main>
   );
 };

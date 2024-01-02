@@ -23,7 +23,7 @@ const Navigation = ({}) => {
 
   return (
     <ul
-      className={`navShadow  w-full text-primary-grayText font-bold lg:gap-2 overflow-hidden  absolute  top-16 left-0 z-10 ${className} md:shadow-none md:w-auto md:py-2 md:px-4 md:flex md:static md:h-auto md:items-center transition-height duration-300`}
+      className={`navShadow  w-full text-primary-grayText font-bold lg:gap-2 overflow-hidden  absolute  top-16 left-0 z-10 ${className} md:shadow-none md:w-auto md:py-2 lg:px-4 md:flex md:static md:h-auto md:items-center transition-height duration-300`}
     >
       {navItems.map((item) => (
         <li key={item.name}>

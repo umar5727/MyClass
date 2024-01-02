@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import ImageGallery from "../components/ImageGallery";
-import HeroSection from "../components/HeroSection";
+import React, { useEffect, useState } from "react";
+
 import ContactCard from "./contact/ContactCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,6 +16,9 @@ const Contact = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <section className="my-20">

@@ -25,9 +25,9 @@ const Tabs = () => {
           id: 2,
           name: "Graphic Design Masterclass",
           description:
-            "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
+            "Rooms oh fully taken by worse do Points afraid but may end Rooms Points ",
           // price: 19.99,
-          image: "student1.jpg",
+          image: "student2.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -41,7 +41,7 @@ const Tabs = () => {
           description:
             "Rooms oh fully taken by worse do. Points afraid but may end afraid but may end.",
           // price: 19.99,
-          image: "student1.jpg",
+          image: "student4.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -63,6 +63,61 @@ const Tabs = () => {
           },
           lectures: 115,
         },
+        {
+          id: 5,
+          name: "Sketch from A to Z: for app designer",
+          description: "Proposal indulged no do sociable he throwing settling.",
+          // price: 19.99,
+          image: "student2.jpg",
+          category: "All level",
+          color: {
+            primary: "text-primary-purple",
+            light: "bg-primary-purple-light",
+          },
+          lectures: 15,
+        },
+        {
+          id: 6,
+          name: "Graphic Design Masterclass",
+          description:
+            "Rooms oh fully taken by worse do Points afraid but may end Rooms Points ",
+          // price: 19.99,
+          image: "student4.jpg",
+          category: "Beginner",
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 65,
+        },
+        {
+          id: 7,
+          name: "Create a Design System in Figma",
+          description:
+            "Rooms oh fully taken by worse do. Points afraid but may end afraid but may end.",
+          // price: 19.99,
+          image: "student1.jpg",
+          category: "Beginner",
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 40,
+        },
+        {
+          id: 8,
+          name: "Deep Learning with React-Native",
+          description:
+            "Far advanced settling say finished raillery. Offered chiefly farther",
+          // price: 19.99,
+          image: "student2.jpg",
+          category: "Beginner",
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 115,
+        },
       ],
     },
     // web design ends
@@ -70,7 +125,7 @@ const Tabs = () => {
       title: "Development",
       content: [
         {
-          id: 5,
+          id: 9,
           name: "JavaScript: Full Understanding",
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
@@ -84,7 +139,7 @@ const Tabs = () => {
           lectures: 15,
         },
         {
-          id: 6,
+          id: 10,
           name: "Bootstrap 5 From Scratch",
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
@@ -98,7 +153,7 @@ const Tabs = () => {
           lectures: 15,
         },
         {
-          id: 7,
+          id: 11,
           name: "Deep Learning with React-Native",
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
@@ -112,12 +167,68 @@ const Tabs = () => {
           lectures: 15,
         },
         {
-          id: 8,
+          id: 12,
           name: "The Complete Web Development in python",
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
           // price: 19.99,
           image: "student1.jpg",
+          category: "Beginner",
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 15,
+        },
+        {
+          id: 13,
+          name: "JavaScript: Full Understanding",
+          description:
+            "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
+          // price: 19.99,
+          image: "student2.jpg",
+          category: "All level",
+          color: {
+            primary: "text-primary-purple",
+            light: "bg-primary-purple-light",
+          },
+          lectures: 15,
+        },
+        {
+          id: 14,
+          name: "Bootstrap 5 From Scratch",
+          description:
+            "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
+          // price: 19.99,
+          image: "student2.jpg",
+          category: "Intermediate",
+          color: {
+            primary: "text-primary-info",
+            light: "bg-primary-info-light",
+          },
+          lectures: 15,
+        },
+        {
+          id: 15,
+          name: "Deep Learning with React-Native",
+          description:
+            "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
+          // price: 19.99,
+          image: "student2.jpg",
+          category: "Beginner",
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 15,
+        },
+        {
+          id: 16,
+          name: "The Complete Web Development in python",
+          description:
+            "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
+          // price: 19.99,
+          image: "student2.jpg",
           category: "Beginner",
           color: {
             primary: "text-primary-green",
@@ -132,7 +243,63 @@ const Tabs = () => {
       title: "Graphic Design",
       content: [
         {
-          id: 9,
+          id: 17,
+          name: "Graphic Design Masterclass",
+          description:
+            "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
+          // price: 19.99,
+          image: "student4.jpg",
+          category: "Beginner",
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 15,
+        },
+        {
+          id: 18,
+          name: "Learn Invision",
+          description:
+            "Arrived off she elderly beloved him Course regard to up he hardly.",
+          // price: 19.99,
+          image: "student4.jpg",
+          category: "Beginner",
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 82,
+        },
+        {
+          id: 19,
+          name: "Create a Design System in Figma",
+          description:
+            "Rooms oh fully taken by worse do. Points afraid but may end.",
+          // price: 19.99,
+          image: "student4.jpg",
+          category: "Beginner",
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 32,
+        },
+        {
+          id: 20,
+          name: "Graphic Design Masterclass",
+          description:
+            "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
+          // price: 19.99,
+          image: "student4.jpg",
+          category: "Beginner",
+          color: {
+            primary: "text-primary-green",
+            light: "bg-primary-green-light",
+          },
+          lectures: 15,
+        },
+        {
+          id: 21,
           name: "Graphic Design Masterclass",
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
@@ -146,7 +313,7 @@ const Tabs = () => {
           lectures: 15,
         },
         {
-          id: 10,
+          id: 22,
           name: "Learn Invision",
           description:
             "Arrived off she elderly beloved him Course regard to up he hardly.",
@@ -160,7 +327,7 @@ const Tabs = () => {
           lectures: 82,
         },
         {
-          id: 11,
+          id: 23,
           name: "Create a Design System in Figma",
           description:
             "Rooms oh fully taken by worse do. Points afraid but may end.",
@@ -174,7 +341,7 @@ const Tabs = () => {
           lectures: 32,
         },
         {
-          id: 12,
+          id: 24,
           name: "Graphic Design Masterclass",
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
@@ -194,7 +361,7 @@ const Tabs = () => {
       title: "Marketing",
       content: [
         {
-          id: 13,
+          id: 25,
           name: "Digital Marketing Masterclass",
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
@@ -208,7 +375,7 @@ const Tabs = () => {
           lectures: 82,
         },
         {
-          id: 14,
+          id: 26,
           name: "Sketch from A to Z: for app designer",
           description: "Proposal indulged no do sociable he throwing settling.",
           // price: 19.99,
@@ -221,7 +388,7 @@ const Tabs = () => {
           lectures: 15,
         },
         {
-          id: 15,
+          id: 27,
           name: "Graphic Design Masterclass",
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
@@ -235,7 +402,7 @@ const Tabs = () => {
           lectures: 15,
         },
         {
-          id: 16,
+          id: 28,
           name: "Graphic Design Masterclass",
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
@@ -255,7 +422,7 @@ const Tabs = () => {
       title: "Finance",
       content: [
         {
-          id: 17,
+          id: 29,
           name: "Graphic Design Masterclass",
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
@@ -269,7 +436,7 @@ const Tabs = () => {
           lectures: 15,
         },
         {
-          id: 18,
+          id: 30,
           name: "Graphic Design Masterclass",
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
@@ -283,7 +450,7 @@ const Tabs = () => {
           lectures: 15,
         },
         {
-          id: 19,
+          id: 31,
           name: "Graphic Design Masterclass",
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
@@ -297,7 +464,7 @@ const Tabs = () => {
           lectures: 15,
         },
         {
-          id: 20,
+          id: 32,
           name: "Graphic Design Masterclass",
           description:
             "Rooms oh fully taken by worse do Points afraid but may end Rooms Points afraid but may end Rooms",
@@ -340,7 +507,7 @@ const Tabs = () => {
           </Button>
         ))}
       </div>
-      <div className="grid sm:grid-cols-2 gap-5 lg:grid-cols-3 xl:grid-cols-4 pt-5">
+      <div className="grid sm:grid-cols-2 gap-6 lg:grid-cols-3 xl:grid-cols-4 pt-5">
         {tabInfo.map((item, index) => {
           if (index === tabState) {
             return item.content.map((course) => {

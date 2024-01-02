@@ -9,7 +9,7 @@ const Logo = () => {
       <FontAwesomeIcon icon={faBook} className="text-primary text-3xl" 
       />
       
-      <h1 className="font-bold text-2xl text-primarydark dark:text-white transition-colors duration-300 group-hover:text-primary"
+      <h1 className="font-bold text-3xl text-primarydark dark:text-white transition-colors duration-300 group-hover:text-primary"
       >
         MyClass
       </h1>
