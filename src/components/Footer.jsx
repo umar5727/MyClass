@@ -11,15 +11,16 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import H3 from "./heading/H3";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const items = [
     {
       title: "Company",
       content: [
-        { name: "About us", slug: "#" },
-        { name: "Contact us", slug: "#" },
-        { name: "News and Blogs", slug: "#" },
+        { name: "About us", slug: "/MyClass/about-us" },
+        { name: "Contact us", slug: "/MyClass/contact" },
+        { name: "Courses", slug: "/MyClass/courses" },
         { name: "Library", slug: "#" },
         { name: "carrer", slug: "#" },
       ],
@@ -75,7 +76,7 @@ const Footer = () => {
               <H3 className="mb-3">{category.title}</H3>
               {category.content.map((item, index) => (
                 <Li key={index} className="px-0 py-0 hover:bg-transparent">
-                  <a href="">{item.name}</a>
+                  <Link to={item.slug}>{item.name}</Link>
                 </Li>
               ))}
             </ul>

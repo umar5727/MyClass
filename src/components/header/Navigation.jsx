@@ -5,7 +5,7 @@ import NavContext from "../../context/navcontext/NavContext";
 const Navigation = ({}) => {
   const { navToggle, setNavToggle } = useContext(NavContext);
   const navItems = [
-    { name: "Home", slug: "/MyClass/" },
+    { name: "Home", slug: "/MyClass/Home" },
     { name: "Courses", slug: "/MyClass/courses" },
     { name: "About Us", slug: "/MyClass/about-us" },
     { name: "Contact Us", slug: "/MyClass/contact" },
@@ -29,7 +29,13 @@ const Navigation = ({}) => {
         <li key={item.name}>
           <NavLink
             to={item.slug}
-            className={`block px-7  py-3 rounded-lg hover:bg-primary-light hover:text-primary cursor-pointer ${liClass} transition-colors duration-300 dark:text-dark-nav`}
+            className={({ isActive }) =>
+              `${
+                isActive
+                  ? "bg-primary-light text-primary"
+                  : "hover:bg-primary-light hover:text-primary"
+              } block px-7  py-3 rounded-lg  cursor-pointer ${liClass} transition-colors duration-300 dark:text-dark-nav`
+            }
             onClick={() => {
               setNavToggle(false);
             }}
