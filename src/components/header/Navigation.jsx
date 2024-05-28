@@ -5,7 +5,7 @@ import NavContext from "../../context/navcontext/NavContext";
 const Navigation = ({}) => {
   const { navToggle, setNavToggle } = useContext(NavContext);
   const navItems = [
-    { name: "Home", slug: "/MyClass/Home" },
+    // { name: "Home", slug: "/MyClass/" },
     { name: "Courses", slug: "/MyClass/courses" },
     { name: "About Us", slug: "/MyClass/about-us" },
     { name: "Contact Us", slug: "/MyClass/contact" },

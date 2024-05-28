@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { H1, PogressBar } from "../../components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 const AboutUs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <section className="my-20">

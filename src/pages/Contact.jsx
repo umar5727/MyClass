@@ -6,7 +6,6 @@ import {
   faFacebookF,
   faInstagram,
   faLinkedin,
-  faMailchimp,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import Button from "../components/Button";
