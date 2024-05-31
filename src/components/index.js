@@ -20,6 +20,7 @@ import H3 from "./heading/H3";
 import Li from "./Li";
 import H1 from "./heading/H1";
 import PogressBar from "./PogressBar";
+import Signup from "./Signup";
 export {
     Header,
     Profile,
@@ -42,4 +43,6 @@ export {
     H1,
     PogressBar,
     Product,
+    Signup
+
 }

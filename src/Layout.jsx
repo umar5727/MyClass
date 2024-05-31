@@ -12,7 +12,10 @@ const Layout = () => {
     <NavContextProvider>
         <Header />
         <Container>
+          <div className='min-h-[calc(100vh-304px)]'>
+
             <Outlet />
+          </div>
         </Container>
         <GotoTop />
         <Footer />

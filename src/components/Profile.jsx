@@ -5,7 +5,7 @@ const Profile = () => {
     const profileitems =[
       {name:'Dashboard', slug:''},
       {name: '', slug:''},
-      {name: 'Sign out', slug:''},
+      {name: 'SignUp', slug:'/MyClass/signUp'},
       
     ]
   return (

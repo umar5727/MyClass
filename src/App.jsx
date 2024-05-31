@@ -10,6 +10,8 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
+import { Signup } from "./components";
+
 
 function App() {
   const [loading, setloading] = useState(true);
@@ -24,6 +26,7 @@ function App() {
         <Route path="/MyClass/about-us" element={<AboutUs />} />
         <Route path="/MyClass/contact" element={<Contact />} />
         <Route path="/MyClass/course" element={<ProductPage />} />
+        <Route path="/MyClass/signup" element= {<Signup />} />
       </Route>,
     ),
   );

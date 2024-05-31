@@ -9,7 +9,7 @@ const Profile = () => {
   const profileItem=[
     {name:'Edit Profile', slug:'#'},
     {name:'My Courses', slug:'#'},
-    {name:'Sign Out', slug:'#'},
+    {name:'SignUp', slug:'/MyClass/signup'},
   ]
   if(profile)
   { 
