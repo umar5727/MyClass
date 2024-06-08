@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
 const Profile = () => {
-    // const [profile, setProfile]= useState(false)
-    const profileitems =[
-      {name:'Dashboard', slug:''},
-      {name: '', slug:''},
-      {name: 'SignUp', slug:'/MyClass/signUp'},
-      
-    ]
+  // const [profile, setProfile]= useState(false)
+  const profileitems = [
+    { name: "Dashboard", slug: "" },
+    { name: "", slug: "" },
+    { name: "SignUp", slug: "/MyClass/signup" },
+  ];
   return (
     <div>
       <button
@@ -23,7 +22,7 @@ const Profile = () => {
       </button>
 
       {/* <!-- Dropdown menu --> */}
-   <div
+      <div
         id="dropdownInformation"
         className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
       >

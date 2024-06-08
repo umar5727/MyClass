@@ -1,48 +1,93 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import { useDispatch } from "react-redux";
+import { login } from "../app/features/authSlice";
 
 const Signup = () => {
-  const [name, setName] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("student");
+  const [avatar, setAvatar] = useState(null);
+
+  const fields = [
+    { name: "fullName", type: "text", state: fullName, setState: setFullName },
+    { name: "userName", type: "text", state: userName, setState: setUserName },
+    { name: "email", type: "email", state: email, setState: setEmail },
+    { name: "password", type: "text", state: password, setState: setPassword },
+  ];
+
+  const dispatch = useDispatch();
+
+  const handleFileChange = (event) => {
+    setAvatar(event.target.files[0]);
+  };
+
+  const submitForm = async (e) => {
+    e.preventDefault();
+    console.log(fullName, email, password);
+
+    const formData = new FormData();
+    formData.append("fullName", fullName);
+    formData.append("userName", userName);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("avatar", avatar);
+    const signUp = await fetch("http://localhost:8000/api/v1/users/register", {
+      // mode: "no-cors",
+      mode: "cors",
+      method: "POST",
+      // headers: { "Content-Type": "multipart/form-data" },
+      body: formData,
+    });
+    const response = await signUp.json();
+    console.log(response.data, "\n  data from backend \n");
+    const currentUser = response.data;
+    dispatch(login({ currentUser }));
+  };
+
   return (
-    <div className="flex justify-center pt-20 items-center"> 
-      <form action="#" className=" flex flex-col gap-3">
-        <div className="flex gap-2 items-center">
-          <label htmlFor="name" className="w-20
-          ">Name</label>
-          <input 
-          type="text" id="name" 
-          placeholder="Name" 
-          value={name}
-          className="rounded-md p-3 w-64 text-lg pl-3 bg-black" 
-          onChange={(e)=>{setName(e.target.value)}}/>
-        </div>
-        <div className="flex gap-2 items-center">
-          <label htmlFor="email" className="w-20">Email</label>
-          <input 
-          type="email" 
-          id="email" 
-          placeholder="email" 
-          value={email} 
-          className="rounded-md p-3 w-64 text-lg  pl-3 bg-black"
-          onChange={(e)=>{setEmail(e.target.value)}}/>
-        </div>
-        <div className="flex gap-2 items-center">
-          <label htmlFor="password" className="w-20">Password</label>
-          <input
-            type="text"
-            id="password"
-            placeholder="password"
-            value={password}
-            className="rounded-md p-3 w-64 text-lg pl-3 bg-black"
-            onChange={(e)=>{setPassword(e.target.value)}}
-          />
-        </div>
-        
-        <div className="w-full">
-            <Button children="Submit" className="w-full"/>
+    <div className="flex justify-between py-20 items-center">
+      <div className="w-1/3 bg-red-300">
+        <img src="student6.jpg" alt="#" className="aspect-square" />
+      </div>
+      <form
+        // enctype="multipart/form-data"
+        onSubmit={submitForm}
+        className=" flex flex-col gap-3 w-1/3 px-8 py-20 bg-primary-light rounded-md"
+      >
+        {fields.map((field, index) => (
+          <div className="flex gap-1 flex-col " key={index}>
+            <label
+              htmlFor={field.name}
+              className="w-20
+            "
+            >
+              {field.name}
+            </label>
+            <input
+              type={field.type}
+              id={field.name}
+              name={field.name}
+              placeholder={field.name}
+              value={field.state}
+              className="rounded-md p-3 text-lg pl-3 bg-primarydark"
+              onChange={(e) => {
+                field.setState(e.target.value);
+              }}
+            />
+          </div>
+        ))}
+        <label htmlFor="avatar">Avatar:</label>
+        <input
+          type="file"
+          id="avatar"
+          name="avatar"
+          onChange={handleFileChange}
+        />
+
+        <div className="w-full mt-2">
+          <Button children="Submit" className="w-1/2" type="submit" />
         </div>
       </form>
     </div>
