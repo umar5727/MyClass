@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "./Button";
 import { useDispatch } from "react-redux";
 import { login } from "../app/features/authSlice";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [fullName, setFullName] = useState("");
@@ -18,6 +19,7 @@ const Signup = () => {
   ];
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleFileChange = (event) => {
     setAvatar(event.target.files[0]);
@@ -44,6 +46,7 @@ const Signup = () => {
     console.log(response.data, "\n  data from backend \n");
     const currentUser = response.data;
     dispatch(login({ currentUser }));
+    navigate("/MyClass/login");
   };
 
   return (
@@ -51,45 +54,58 @@ const Signup = () => {
       <div className="w-1/3 bg-red-300">
         <img src="student6.jpg" alt="#" className="aspect-square" />
       </div>
-      <form
-        // enctype="multipart/form-data"
-        onSubmit={submitForm}
-        className=" flex flex-col gap-3 w-1/3 px-8 py-20 bg-primary-light rounded-md"
-      >
-        {fields.map((field, index) => (
-          <div className="flex gap-1 flex-col " key={index}>
-            <label
-              htmlFor={field.name}
-              className="w-20
+      <div className="w-1/3 px-8 py-10 bg-primary-light rounded-md">
+        <form
+          // enctype="multipart/form-data"
+          onSubmit={submitForm}
+          className=" flex flex-col gap-3 "
+        >
+          {fields.map((field, index) => (
+            <div className="flex gap-1 flex-col " key={index}>
+              <label
+                htmlFor={field.name}
+                className="w-20
             "
-            >
-              {field.name}
-            </label>
-            <input
-              type={field.type}
-              id={field.name}
-              name={field.name}
-              placeholder={field.name}
-              value={field.state}
-              className="rounded-md p-3 text-lg pl-3 bg-primarydark"
-              onChange={(e) => {
-                field.setState(e.target.value);
-              }}
+              >
+                {field.name}
+              </label>
+              <input
+                type={field.type}
+                id={field.name}
+                name={field.name}
+                placeholder={field.name}
+                value={field.state}
+                className="rounded-md p-3 text-lg pl-3 bg-primarydark"
+                onChange={(e) => {
+                  field.setState(e.target.value);
+                }}
+              />
+            </div>
+          ))}
+          <label htmlFor="avatar">Avatar:</label>
+          <input
+            type="file"
+            id="avatar"
+            name="avatar"
+            onChange={handleFileChange}
+            className="cursor-pointer"
+          />
+
+          <div className="w-full mt-2 flex justify-center">
+            <Button
+              children="Submit"
+              className="w-1/2 self-center"
+              type="submit"
             />
           </div>
-        ))}
-        <label htmlFor="avatar">Avatar:</label>
-        <input
-          type="file"
-          id="avatar"
-          name="avatar"
-          onChange={handleFileChange}
-        />
-
-        <div className="w-full mt-2">
-          <Button children="Submit" className="w-1/2" type="submit" />
+        </form>
+        <div className="mt-4 text-center">
+          <span>already have accout </span>
+          <Link to={"/MyClass/login"} className="text-primary underline">
+            login
+          </Link>
         </div>
-      </form>
+      </div>
     </div>
   );
 };
