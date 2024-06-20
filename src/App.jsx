@@ -8,7 +8,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import { Login, Signup } from "./components";
+import { InstructorDashboard, Login, Signup } from "./components";
 import { login, logout } from "./app/features/authSlice";
 
 function App() {
@@ -41,6 +41,7 @@ function App() {
         <Route path="/MyClass/course" element={<ProductPage />} />
         <Route path="/MyClass/signup" element={<Signup />} />
         <Route path="/MyClass/login" element={<Login />} />
+        <Route path="/MyClass/dashboard" element={<InstructorDashboard />} />
       </Route>,
     ),
   );

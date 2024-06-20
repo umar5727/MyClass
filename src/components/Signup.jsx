@@ -76,8 +76,7 @@ const Signup = () => {
     });
     const response = await signUp.json();
     console.log(response.data, "\n  data from backend \n");
-    const currentUser = response.data;
-    dispatch(login({ currentUser }));
+    
     navigate("/MyClass/login");
   };
 

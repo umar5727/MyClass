@@ -22,6 +22,7 @@ import H1 from "./heading/H1";
 import PogressBar from "./PogressBar";
 import Signup from "./Signup";
 import Login from "./Login";
+import InstructorDashboard from "../pages/dashboard/InstructorDashboard";
 export {
     Header,
     Profile,
@@ -46,4 +47,5 @@ export {
     Product,
     Signup,
     Login,
+    InstructorDashboard,
 }

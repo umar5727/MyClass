@@ -30,7 +30,9 @@ const Login = () => {
       body: JSON.stringify({ email, password }),
     });
     console.log("response data: ", response.data);
-    if (response) {
+    const currentUser = response.data;
+    if (response.status <= 202) {
+      dispatch(login({ currentUser }));
       navigate("/MyClass/");
     }
   };
@@ -94,7 +96,7 @@ const Login = () => {
               type="email"
               placeholder="Email"
               {...register("email", {
-                required: true,
+                required,
                 validate: {
                   matchPatern: (value) =>
                     /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/.test(value) ||
