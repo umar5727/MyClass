@@ -3,6 +3,9 @@ import Button from "./Button";
 import { useDispatch } from "react-redux";
 import { login } from "../app/features/authSlice";
 import { Link, useNavigate } from "react-router-dom";
+import H1 from "./heading/H1";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Signup = () => {
   const [fullName, setFullName] = useState("");
@@ -79,15 +82,56 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex justify-between py-20 items-center">
-      <div className="w-1/3 bg-red-300">
-        <img src="student6.jpg" alt="#" className="aspect-square" />
+    <div className="mx-20 flex justify-between py-20 ">
+      <div className="w-1/2 flex flex-col pt-20">
+        {/* <img src="student6.jpg" alt="#" className="aspect-square" /> */}
+        <h2 className="text-5xl font-semibold mb-4">
+          Become a <br /> MyClass Schooler
+        </h2>
+        <p className="text-2xl font-medium mb-4">Free to use, easy to learn</p>
+        <ul className=" flex flex-col gap-2">
+          <li className="flex gap-[6px] font-medium ">
+            <div>
+              <FontAwesomeIcon icon={faCheckCircle} className="text-primary" />
+            </div>{" "}
+            Track your progress
+          </li>
+          <li className="flex gap-[6px] font-medium">
+            <div>
+              <FontAwesomeIcon icon={faCheckCircle} className="text-primary" />
+            </div>
+            Set your goals
+          </li>
+          <li className="flex gap-[6px] font-medium">
+            <div>
+              <FontAwesomeIcon icon={faCheckCircle} className="text-primary" />
+            </div>
+            Get a personalized learning path
+          </li>
+          <li className="flex gap-[6px] font-medium">
+            <div>
+              <FontAwesomeIcon icon={faCheckCircle} className="text-primary" />
+            </div>
+            Test your skills
+          </li>
+          <li className="flex gap-[6px] font-medium">
+            <div>
+              <FontAwesomeIcon icon={faCheckCircle} className="text-primary" />
+            </div>
+            Practice coding in browser
+          </li>
+          <li className="flex gap-[6px] font-medium">
+            <div>
+              <FontAwesomeIcon icon={faCheckCircle} className="text-primary" />
+            </div>
+            Build and host a website
+          </li>
+        </ul>
       </div>
-      <div className="w-1/3 px-8 py-10 bg-primary-light rounded-md">
-        <form
-          onSubmit={submitForm}
-          className=" flex flex-col gap-3 "
-        >
+      {/* left side ends  */}
+      <div className="w-[450px] px-12 pt-14 pb-20 bg-primary-light rounded-md">
+        <H1 className="!text-4xl pb-8 font-semibold">Sign Up</H1>
+        <form onSubmit={submitForm} className=" flex flex-col gap-3 ">
           {fields.map((field, index) => (
             <div className="flex gap-1 flex-col " key={index}>
               <label
@@ -103,7 +147,8 @@ const Signup = () => {
                 name={field.name}
                 placeholder={field.name}
                 value={field.state}
-                className="rounded-md p-3 text-lg pl-3 bg-primarydark"
+                required
+                className="rounded-md p-3 text-lg pl-3 dark:bg-primarydark focus-visible:outline-primary focus-visible:outline-double"
                 onChange={(e) => {
                   field.setState(e.target.value);
                 }}
@@ -127,16 +172,16 @@ const Signup = () => {
             />
             <label
               htmlFor="avatar"
-              className="cursor-pointer bg-primary-dark hover:bg-primary py-1 px-4 rounded-md font-semibold border border-primary transition-colors duration-300"
+              className="cursor-pointer dark:bg-primary-dark  hover:bg-primary hover:text-white dark:hover:bg-primary py-1 px-4 rounded-md font-semibold border border-primary transition-colors duration-300"
             >
               Choose Photo
             </label>
           </div>
-                {/* //image preview ends  */}
+          {/* //image preview ends  */}
           <div className="w-full mt-2 flex justify-center">
             <Button
               children="Submit"
-              className="w-full self-center"
+              className="w-full self-center hover:text-white"
               type="submit"
             />
           </div>

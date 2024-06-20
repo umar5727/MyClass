@@ -3,6 +3,9 @@ import Button from "./Button";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import H1 from "./heading/H1";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
   const navigate = useNavigate(); //navigate is use to navigate user after login to other page
@@ -22,7 +25,7 @@ const Login = () => {
       mode: "cors",
       method: "POST",
       headers: {
-        "Content-Type": "application/json", 
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
     });
@@ -33,41 +36,94 @@ const Login = () => {
   };
 
   return (
-    <div className="w-1/3 px-8 py-10 bg-primary-light rounded-md mx-auto mt-20">
-      <form onSubmit={handleSubmit(login)} className=" flex flex-col gap-3 ">
-        <div className="flex gap-1 flex-col ">
-          <label htmlFor="email">Email</label>
-          <input
-            className="rounded-md p-3 text-lg pl-3 bg-primarydark"
-            type="email"
-            placeholder="Email"
-            {...register("email", {
-              required: true,
-              validate: {
-                matchPatern: (value) =>
-                  /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/.test(value) ||
-                  "Enter Valid Email",
-              },
-            })}
-          />
-        </div>
-        <div className="flex gap-1 flex-col ">
-          <label htmlFor="password">Password</label>
-          <input
-            className="rounded-md p-3 text-lg pl-3 bg-primarydark"
-            type="text"
-            placeholder="Enter yourPassword"
-            {...register("password", {
-              required: true,
-            })}
-          />
-        </div>
-        <div className="mt-2">
-          <Button type="submit" className="w-1/2 self-center">
-            Submit
-          </Button>
-        </div>
-      </form>
+    <div className="mx-20 flex justify-between py-20">
+      <div className="w-1/2 flex flex-col pt-14">
+        {/* <img src="student6.jpg" alt="#" className="aspect-square" /> */}
+        <h2 className="text-5xl font-semibold mb-4">
+          Become a <br /> MyClass Schooler
+        </h2>
+        <p className="text-2xl font-medium mb-4">Free to use, easy to learn</p>
+        <ul className=" flex flex-col gap-2">
+          <li className="flex gap-[6px] font-medium ">
+            <div>
+              <FontAwesomeIcon icon={faCheckCircle} className="text-primary" />
+            </div>{" "}
+            Track your progress
+          </li>
+          <li className="flex gap-[6px] font-medium">
+            <div>
+              <FontAwesomeIcon icon={faCheckCircle} className="text-primary" />
+            </div>
+            Set your goals
+          </li>
+          <li className="flex gap-[6px] font-medium">
+            <div>
+              <FontAwesomeIcon icon={faCheckCircle} className="text-primary" />
+            </div>
+            Get a personalized learning path
+          </li>
+          <li className="flex gap-[6px] font-medium">
+            <div>
+              <FontAwesomeIcon icon={faCheckCircle} className="text-primary" />
+            </div>
+            Test your skills
+          </li>
+          <li className="flex gap-[6px] font-medium">
+            <div>
+              <FontAwesomeIcon icon={faCheckCircle} className="text-primary" />
+            </div>
+            Practice coding in browser
+          </li>
+          <li className="flex gap-[6px] font-medium">
+            <div>
+              <FontAwesomeIcon icon={faCheckCircle} className="text-primary" />
+            </div>
+            Build and host a website
+          </li>
+        </ul>
+      </div>
+      {/* left side ends  */}
+
+      <div className="w-[450px] px-12 pt-14 pb-20 bg-primary-light rounded-md">
+        <H1 className="!text-4xl pb-8 font-semibold">Log In</H1>
+        <form onSubmit={handleSubmit(login)} className=" flex flex-col gap-3 ">
+          <div className="flex gap-1 flex-col ">
+            <label htmlFor="email">Email</label>
+            <input
+              className="rounded-md p-3 text-lg pl-3 bg-primarydark"
+              type="email"
+              placeholder="Email"
+              {...register("email", {
+                required: true,
+                validate: {
+                  matchPatern: (value) =>
+                    /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/.test(value) ||
+                    "Enter Valid Email",
+                },
+              })}
+            />
+          </div>
+          <div className="flex gap-1 flex-col ">
+            <label htmlFor="password">Password</label>
+            <input
+              className="rounded-md p-3 text-lg pl-3 bg-primarydark"
+              type="text"
+              placeholder="Enter yourPassword"
+              {...register("password", {
+                required: true,
+              })}
+            />
+          </div>
+          <div className="grid grid-cols-2 mt-2 gap-1">
+            <Button className="!px-2 !py-1 hover:text-white">
+              Forgot Password?
+            </Button>
+            <Button type="submit" className=" self-center hover:text-white">
+              Submit
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
