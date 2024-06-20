@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 const Profile = () => {
   const [profile, setProfile] = useState(false);
   let profileRef = useRef();
+  let contentRef = useRef();
   const profileItem = [
     { name: "Edit Profile", slug: "#" },
     { name: "My Courses", slug: "#" },
@@ -20,7 +21,7 @@ const Profile = () => {
   useEffect(() => {
     const handler = (e) => {
       if (!profileRef.current.contains(e.target)) {
-        setProfile(false);
+        setProfile(false);      //if click outside the profile container
       }
     };
     if (profile) {
@@ -45,6 +46,7 @@ const Profile = () => {
       {/* profile contents starts  */}
 
       <div
+        ref={contentRef}
         className={`lightShadow w-64 rounded-lg py-4 px-2 absolute top-14 right-0 bg-white z-50 ${className} dark:bg-black 
           `}
       >
@@ -77,6 +79,7 @@ const Profile = () => {
               <NavLink
                 to={item.slug}
                 className="inline-block w-full px-4 py-2 hover:bg-primary-light hover:text-primary dark:hover:bg-primary-dark-hover transition-all duration-300 ease-in-out"
+                onClick={() => setProfile(!profile)}
               >
                 <FontAwesomeIcon icon={faFaceSmile} className="me-2" />
                 {item.name}

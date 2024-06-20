@@ -15,14 +15,21 @@ const Login = () => {
     // e.preventDefault();
     setError(""); //when submit form clearing the error and starting login process
     console.log("login data: ", data);
+    const email = data.email;
+    const password = data.password;
+
     const response = await fetch("http://localhost:8000/api/v1/users/login", {
       mode: "cors",
       method: "POST",
-      headers: { "Content-Type": "application/form-data" },
-      body: data,
+      headers: {
+        "Content-Type": "application/json", 
+      },
+      body: JSON.stringify({ email, password }),
     });
-    console.log("response data: ", response);
-    navigate("/MyClass/");
+    console.log("response data: ", response.data);
+    if (response) {
+      navigate("/MyClass/");
+    }
   };
 
   return (
