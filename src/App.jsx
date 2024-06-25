@@ -15,20 +15,20 @@ function App() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   useEffect(() => {
-    const currentUser = fetch("http://localhost:8000/api/v1/users/register", {
-      mode: "cors",
-      method: "POST",
-    })
-      .then((currentUser) => {
-        currentUser.json();
-        if (currentUser.data) {
-          loginUser = currentUser.data;
-          dispatch(login({ loginUser }));
-        } else {
-          dispatch(logout());
-        }
-      })
-      .finally(() => setLoading(false));
+    // const currentUser = fetch("http://localhost:8000/api/v1/users/register", {
+    //   mode: "cors",
+    //   method: "POST",
+    // })
+    //   .then((currentUser) => {
+    //     currentUser.json();
+    //     if (currentUser.data) {
+    //       loginUser = currentUser.data;
+    //       dispatch(login({ loginUser }));
+    //     } else {
+    //       dispatch(logout());
+    //     }
+    //   })
+    //   .finally(() => setLoading(false));
   }, []);
 
   const router = createBrowserRouter(

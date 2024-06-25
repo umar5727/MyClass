@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import H1 from "./heading/H1";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { login } from "../app/features/authSlice";
+import { current } from "@reduxjs/toolkit";
 
 const Login = () => {
   const navigate = useNavigate(); //navigate is use to navigate user after login to other page
@@ -14,13 +16,15 @@ const Login = () => {
   // register handle form state and handleSubmit handles form submit
   const [error, setError] = useState("");
 
-  const login = async (data) => {
+  const loginHandler = async (data) => {
     // e.preventDefault();
     setError(""); //when submit form clearing the error and starting login process
-    console.log("login data: ", data);
+    // console.log("login data: ", data);
+    //getting the data from reactHookForm
     const email = data.email;
     const password = data.password;
-
+    console.log("email :- " + email);
+    // fetch starts
     const response = await fetch("http://localhost:8000/api/v1/users/login", {
       mode: "cors",
       method: "POST",
@@ -29,11 +33,16 @@ const Login = () => {
       },
       body: JSON.stringify({ email, password }),
     });
-    console.log("response data: ", response.data);
-    const currentUser = response.data;
-    if (response.status <= 202) {
-      dispatch(login({ currentUser }));
-      navigate("/MyClass/");
+    // fetch ends
+    const resData = await response.json(); //taking the json values form response
+
+    const userData = resData.data.loginUser; //storing usedata in useData
+
+    if (userData) {
+      console.log("if user: ", userData.fullName);
+      dispatch(login({ userData })); //dispatching
+
+      navigate("/MyClass/"); //after loging and dispatched the data navigate to home page
     }
   };
 
@@ -88,15 +97,19 @@ const Login = () => {
 
       <div className="w-[450px] px-12 pt-14 pb-20 bg-primary-light rounded-md">
         <H1 className="!text-4xl pb-8 font-semibold">Log In</H1>
-        <form onSubmit={handleSubmit(login)} className=" flex flex-col gap-3 ">
+        <form
+          onSubmit={handleSubmit(loginHandler)}
+          className=" flex flex-col gap-3 "
+        >
           <div className="flex gap-1 flex-col ">
             <label htmlFor="email">Email</label>
             <input
               className="rounded-md p-3 text-lg pl-3 bg-primarydark"
               type="email"
               placeholder="Email"
+              id="email"
               {...register("email", {
-                required,
+                required: true,
                 validate: {
                   matchPatern: (value) =>
                     /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/.test(value) ||
@@ -110,6 +123,7 @@ const Login = () => {
             <input
               className="rounded-md p-3 text-lg pl-3 bg-primarydark"
               type="text"
+              id="password"
               placeholder="Enter yourPassword"
               {...register("password", {
                 required: true,

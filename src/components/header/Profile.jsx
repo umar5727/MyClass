@@ -2,10 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import Button from "../Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFaceSmile } from "@fortawesome/free-regular-svg-icons";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../app/features/authSlice";
 const Profile = () => {
   const [profile, setProfile] = useState(false);
+  // const [user, setUser] = useState
+
   let profileRef = useRef();
   let contentRef = useRef();
   const profileItem = [
@@ -18,29 +21,55 @@ const Profile = () => {
   } else {
     var className = "hidden";
   }
+    
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.auth.userData);
+  const loginstatus = useSelector((state) => state.auth.status);
+
   useEffect(() => {
+  
+    // store ends
     const handler = (e) => {
       if (!profileRef.current.contains(e.target)) {
-        setProfile(false);      //if click outside the profile container
+        setProfile(false); //if click outside the profile container
+
+        console.log(
+          "\n user from profile :- " +
+            user +
+            "\n login Status : " +
+            loginstatus,
+        );
       }
     };
     if (profile) {
       document.addEventListener("mousedown", handler);
+
+      console.log(
+        "\n user from profile :- " + user + "\n login Status : " + loginstatus,
+      );
     }
     return () => {
       document.removeEventListener("mousedown", handler);
     };
-  });
+  }),
+    [user, loginstatus, navigate];
+  // useEffect ends
   return (
     <section ref={profileRef} className="relative">
       <div
-        className=" bg-primary rounded-full w-10 h-10 justify-center items-center cursor-pointer hover:opacity-80 "
+        className=" bg-primary rounded-full w-10 h-10 justify-center items-center cursor-pointer hover:opacity-80 overflow-hidden"
         onClick={() => setProfile(!profile)}
       >
+        {
+          user
+          ? 
+          <img src={user.avatar} alt="#" />
+          :
         <FontAwesomeIcon
           icon={faFaceSmile}
           className="w-full h-full  bg-primary text-white rounded-full"
         />
+        }
       </div>
 
       {/* profile contents starts  */}

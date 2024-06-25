@@ -37,6 +37,7 @@ export default {
         'primary-orange': 'rgb(253, 126, 20)',
         'footer-light-bg': 'rgb(245, 247, 249)',
         'dark-bg-light': '#2a2c31'
+        
       },
       transitionProperty: {
         'height': 'height',
