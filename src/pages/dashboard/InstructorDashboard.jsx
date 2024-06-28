@@ -30,8 +30,8 @@ const InstructorDashboard = () => {
   const cards = [
     {
       className: "bg-primary-yellow-light",
-      number: 10,
-      numberSpan: "K",
+      number: 20,
+      numberSpan: "+",
       title: "Online Courses",
       iconClassName: "text-primary-yellow  text-6xl",
       iconName: faTv,
@@ -39,14 +39,14 @@ const InstructorDashboard = () => {
     {
       className: "bg-primary-purple-light",
       number: 60,
-      numberSpan: "+",
+      numberSpan: "K",
       title: "Online Students",
       iconClassName: "text-primary-purple text-6xl",
       iconName: faUserTie,
     },
     {
       className: "bg-primary-info-light",
-      number: 6,
+      number: 10,
       numberSpan: "+",
       title: "Certified Courses",
       iconClassName: "text-primary-info text-6xl",
@@ -99,14 +99,14 @@ const InstructorDashboard = () => {
             </div>
           </div>
         </div>
-        {/* left  ends*/}
+        {/* top left  ends*/}
         <div>
           <Button className="hover:text-white">Create a Course</Button>
         </div>
-        {/* right end s */}
+        {/*top  right end s */}
       </section>
       {/* top ends  */}
-      <main className="grid grid-cols-4 gap-7 mt-7">
+      <main className="grid grid-cols-4 gap-7 mt-7 mb-10">
         <section className="leftSide ">
           <div className="flex flex-col gap-[10px] p-5 bg-primary-light rounded-md">
             {fields.map((field, index) => (

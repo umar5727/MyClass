@@ -21,13 +21,13 @@ const Profile = () => {
   } else {
     var className = "hidden";
   }
-    
+
   const navigate = useNavigate();
   const user = useSelector((state) => state.auth.userData);
   const loginstatus = useSelector((state) => state.auth.status);
 
   useEffect(() => {
-  
+
     // store ends
     const handler = (e) => {
       if (!profileRef.current.contains(e.target)) {
@@ -35,9 +35,9 @@ const Profile = () => {
 
         console.log(
           "\n user from profile :- " +
-            user +
-            "\n login Status : " +
-            loginstatus,
+          user +
+          "\n login Status : " +
+          loginstatus,
         );
       }
     };
@@ -61,14 +61,14 @@ const Profile = () => {
         onClick={() => setProfile(!profile)}
       >
         {
-          user
-          ? 
-          <img src={user.avatar} alt="#" />
-          :
-        <FontAwesomeIcon
-          icon={faFaceSmile}
-          className="w-full h-full  bg-primary text-white rounded-full"
-        />
+          user.avatar
+            ?
+            <img src={user.avatar} alt="#" />
+            :
+            <FontAwesomeIcon
+              icon={faFaceSmile}
+              className="w-full h-full  bg-primary text-white rounded-full"
+            />
         }
       </div>
 
@@ -91,9 +91,9 @@ const Profile = () => {
             />
           </div>
           <div className="">
-            <h2 className="font-bold dark:text-white">Umar Khan</h2>
+            <h2 className="font-bold dark:text-white capitalize">{user.fullName}</h2>
             <p className="font-normal text-xs dark:text-primary-grayText">
-              umerkhan5727@gmail.com
+              {user.email}
             </p>
           </div>
         </div>

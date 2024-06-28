@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import H1 from "./heading/H1";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -104,7 +104,7 @@ const Login = () => {
           <div className="flex gap-1 flex-col ">
             <label htmlFor="email">Email</label>
             <input
-              className="rounded-md p-3 text-lg pl-3 bg-primarydark"
+              className="rounded-md p-3 text-lg pl-3 dark:bg-primarydark focus-visible:outline-primary focus-visible:outline-double"
               type="email"
               placeholder="Email"
               id="email"
@@ -121,7 +121,7 @@ const Login = () => {
           <div className="flex gap-1 flex-col ">
             <label htmlFor="password">Password</label>
             <input
-              className="rounded-md p-3 text-lg pl-3 bg-primarydark"
+              className="rounded-md p-3 text-lg pl-3 dark:bg-primarydark focus-visible: outline-primary focus-visible:outline-double"
               type="text"
               id="password"
               placeholder="Enter yourPassword"
@@ -131,14 +131,20 @@ const Login = () => {
             />
           </div>
           <div className="grid grid-cols-2 mt-2 gap-1">
-            <Button className="!px-2 !py-1 hover:text-white">
+            <Button className="!px-0 hover:text-white min-w-fit ">
               Forgot Password?
             </Button>
-            <Button type="submit" className=" self-center hover:text-white">
+            <Button type="submit" className=" self-center hover:text-white !px-0 min-w-fit ">
               Submit
             </Button>
           </div>
         </form>
+        <div className="mt-10  text-center">
+          <span>Create New Account: </span>
+          <Link to='/MyClass/signup' className="font-medium text-blue-700 underline italic">
+            Sign Up
+          </Link>
+        </div>
       </div>
     </div>
   );

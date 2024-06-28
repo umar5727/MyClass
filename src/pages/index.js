@@ -4,6 +4,7 @@ import AboutUs from "./about/AboutUs";
 import Courses from "./courses/Courses";
 import ContactCard from "./contact/ContactCard";
 import ProductPage from "./product/ProductPage";
+import InstructorSignUp from "./signup/InstructorSignUp";
 export {
     Home,
     Contact,
@@ -11,5 +12,5 @@ export {
     Courses,
     ContactCard,
     ProductPage,
-    
+    InstructorSignUp,
 }

@@ -7,7 +7,7 @@ import H1 from "./heading/H1";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
-const Signup = () => {
+const Signup = ({ role = 'student' }) => {
   const [fullName, setFullName] = useState("");
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -39,7 +39,7 @@ const Signup = () => {
     },
   ];
 
-  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   // const handleFileChange = (event) => {
@@ -60,13 +60,15 @@ const Signup = () => {
   const submitForm = async (e) => {
     e.preventDefault();
     console.log(fullName, email, password);
-
+    // console.log('\nrole: ' + role + "\n")
     const formData = new FormData();
     formData.append("fullName", fullName);
     formData.append("userName", userName);
     formData.append("email", email);
     formData.append("password", password);
     formData.append("avatar", avatar);
+    formData.append("role", role);
+
     const signUp = await fetch("http://localhost:8000/api/v1/users/register", {
       // mode: "no-cors",
       mode: "cors",
@@ -74,9 +76,10 @@ const Signup = () => {
       // headers: { "Content-Type": "multipart/form-data" },
       body: formData,
     });
+
     const response = await signUp.json();
     console.log(response.data, "\n  data from backend \n");
-    
+
     navigate("/MyClass/login");
   };
 
@@ -157,7 +160,7 @@ const Signup = () => {
           <div className="flex gap-2 items-center">
             <div className="w-14 h-14 rounded-full  overflow-hidden">
               {avatar ? (
-                <img src={URL.createObjectURL(avatar)} />
+                <img src={URL.createObjectURL(avatar)} className="w-full h-full" />
               ) : (
                 <img src="userDemo.jpg" />
               )}
@@ -185,9 +188,9 @@ const Signup = () => {
             />
           </div>
         </form>
-        <div className="mt-4 text-center">
+        <div className="mt-6 text-center">
           <span>already have accout </span>
-          <Link to={"/MyClass/login"} className="text-primary underline">
+          <Link to={"/MyClass/login"} className="text-primary underline italic">
             login
           </Link>
         </div>

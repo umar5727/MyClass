@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Layout from "./Layout";
-import { AboutUs, Contact, Courses, Home, ProductPage } from "./pages";
+import { AboutUs, Contact, Courses, Home, ProductPage, InstructorSignUp } from "./pages";
 import {
   Route,
   RouterProvider,
@@ -9,6 +9,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import { InstructorDashboard, Login, Signup } from "./components";
+
 import { login, logout } from "./app/features/authSlice";
 
 function App() {
@@ -41,7 +42,9 @@ function App() {
         <Route path="/MyClass/course" element={<ProductPage />} />
         <Route path="/MyClass/signup" element={<Signup />} />
         <Route path="/MyClass/login" element={<Login />} />
+        {/* need to secuare the routes  */}
         <Route path="/MyClass/dashboard" element={<InstructorDashboard />} />
+        <Route path="/MyClass/InstructorSignUp" element={<InstructorSignUp />} />
       </Route>,
     ),
   );
