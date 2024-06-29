@@ -7,7 +7,7 @@ import H1 from "./heading/H1";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
-const Signup = ({ role = 'student' }) => {
+const Signup = ({ role = 'learner' }) => {
   const [fullName, setFullName] = useState("");
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -84,7 +84,7 @@ const Signup = ({ role = 'student' }) => {
   };
 
   return (
-    <div className="mx-20 flex justify-between py-20 ">
+    <div className="mx-20 flex justify-between py-14 ">
       <div className="w-1/2 flex flex-col pt-20">
         {/* <img src="student6.jpg" alt="#" className="aspect-square" /> */}
         <h2 className="text-5xl font-semibold mb-4">

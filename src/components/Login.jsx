@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
@@ -15,6 +15,9 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   // register handle form state and handleSubmit handles form submit
   const [error, setError] = useState("");
+  const [popup, setPopup] = useState(false);
+  const [success, setSuccess] = useState(false)
+
 
   const loginHandler = async (data) => {
     // e.preventDefault();
@@ -23,31 +26,61 @@ const Login = () => {
     //getting the data from reactHookForm
     const email = data.email;
     const password = data.password;
-    console.log("email :- " + email);
-    // fetch starts
-    const response = await fetch("http://localhost:8000/api/v1/users/login", {
-      mode: "cors",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
-    // fetch ends
-    const resData = await response.json(); //taking the json values form response
+    try {
+      console.log("email :- " + email);
+      // fetch starts
+      const response = await fetch("http://localhost:8000/api/v1/users/login", {
+        mode: "cors",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      // fetch ends
+      console.log('status : ', response.status)
+      if (response.status >= 400) {
+        const errorData = await response.json(); // Parse error details
+        setError(() => errorData.message)
+        throw new Error(errorData.message || 'user not found '); // Provide user-friendly message
+      }
+      const resData = await response.json(); //taking the json values form response
+      const userData = resData.data.user; //storing usedata in useData
+      console.log(userData)
+      if (userData) {
+        console.log("if user: ", userData.fullName);
+        dispatch(login({ userData })); //dispatching
+        console.log('this is after res error ')
+        setSuccess(true)
 
-    const userData = resData.data.loginUser; //storing usedata in useData
-
-    if (userData) {
-      console.log("if user: ", userData.fullName);
-      dispatch(login({ userData })); //dispatching
-
-      navigate("/MyClass/"); //after loging and dispatched the data navigate to home page
+      }
+    } catch (error) {
+      console.log('\nerror form backend : ', error)
+      setError(error.message)
     }
+
   };
+  useEffect(() => {
+
+    if (success) {
+      setPopup(true)
+
+
+      var timeoutId = setTimeout(() => setPopup(false), 1000)
+      var navitimeoutId = setTimeout(() => {
+        navigate('/MyClass/')
+      }, 1500);
+    }
+    return () => {
+      clearTimeout(timeoutId)
+      clearTimeout(navitimeoutId)
+    }
+  }, [success])
+
 
   return (
     <div className="mx-20 flex justify-between py-20">
+
       <div className="w-1/2 flex flex-col pt-14">
         {/* <img src="student6.jpg" alt="#" className="aspect-square" /> */}
         <h2 className="text-5xl font-semibold mb-4">
@@ -95,12 +128,14 @@ const Login = () => {
       </div>
       {/* left side ends  */}
 
-      <div className="w-[450px] px-12 pt-14 pb-20 bg-primary-light rounded-md">
+      <div className="w-[450px] px-12 pt-14 pb-20 bg-primary-light rounded-md relative ">
+
         <H1 className="!text-4xl pb-8 font-semibold">Log In</H1>
         <form
           onSubmit={handleSubmit(loginHandler)}
           className=" flex flex-col gap-3 "
         >
+
           <div className="flex gap-1 flex-col ">
             <label htmlFor="email">Email</label>
             <input
@@ -130,6 +165,26 @@ const Login = () => {
               })}
             />
           </div>
+          {/* error message or success message for login request  */}
+          <div className="  ">
+            {
+              popup
+                ?
+                <div className="absolute top-2 left-1/3 bg-primary-light  w-fit px-4 py-2 rounded-md  ">Login successful!</div>
+
+                :
+                <div></div>
+            }
+            {
+              error
+                ?
+                <div className="text-primary-danger text-sm">
+                  {error}
+                </div>
+                :
+                <></>
+            }
+          </div>
           <div className="grid grid-cols-2 mt-2 gap-1">
             <Button className="!px-0 hover:text-white min-w-fit ">
               Forgot Password?
@@ -139,6 +194,7 @@ const Login = () => {
             </Button>
           </div>
         </form>
+
         <div className="mt-10  text-center">
           <span>Create New Account: </span>
           <Link to='/MyClass/signup' className="font-medium text-blue-700 underline italic">
@@ -146,8 +202,10 @@ const Login = () => {
           </Link>
         </div>
       </div>
+
     </div>
   );
+
 };
 
 export default Login;
