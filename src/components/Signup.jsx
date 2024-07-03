@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import { useDispatch } from "react-redux";
 import { login } from "../app/features/authSlice";
@@ -83,6 +83,9 @@ const Signup = ({ role = 'learner' }) => {
     navigate("/MyClass/login");
   };
 
+  useEffect(() => {
+    console.log(avatar)
+  }, [avatar])
   return (
     <div className="mx-20 flex justify-between py-14 ">
       <div className="w-1/2 flex flex-col pt-20">
@@ -131,7 +134,7 @@ const Signup = ({ role = 'learner' }) => {
         </ul>
       </div>
       {/* left side ends  */}
-      <div className="w-[450px] px-12 pt-14 pb-20 bg-primary-light rounded-md">
+      <div className="w-[450px] px-12 pt-12 pb-14 bg-primary-light rounded-xl">
         <H1 className="!text-4xl pb-8 font-semibold">Sign Up</H1>
         <form onSubmit={submitForm} className=" flex flex-col gap-3 ">
           {fields.map((field, index) => (
@@ -174,9 +177,13 @@ const Signup = ({ role = 'learner' }) => {
             />
             <label
               htmlFor="avatar"
-              className="cursor-pointer dark:bg-primary-dark  hover:bg-primary hover:text-white dark:hover:bg-primary py-1 px-4 rounded-md font-semibold border border-primary transition-colors duration-300"
+              className={!avatar ? "cursor-pointer dark:bg-primary-dark  hover:bg-primary hover:text-white dark:hover:bg-primary py-1 px-4 rounded-md font-semibold border border-primary transition-colors duration-300" : "cursor-pointer"}
             >
-              Choose Photo
+              {
+
+                avatar ? <span>{avatar.name} </span> : <span>Choose Photo</span>
+              }
+
             </label>
           </div>
           {/* //image preview ends  */}
@@ -189,9 +196,9 @@ const Signup = ({ role = 'learner' }) => {
           </div>
         </form>
         <div className="mt-6 text-center">
-          <span>already have accout </span>
-          <Link to={"/MyClass/login"} className="text-primary underline italic">
-            login
+          <span>Already a user? </span>
+          <Link to={"/MyClass/login"} className="text-primary hover:underline ">
+            Sign in
           </Link>
         </div>
       </div>

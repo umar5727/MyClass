@@ -128,7 +128,7 @@ const Login = () => {
       </div>
       {/* left side ends  */}
 
-      <div className="w-[450px] px-12 pt-14 pb-20 bg-primary-light rounded-md relative ">
+      <div className="w-[450px] px-12 pt-14 pb-20 bg-primary-light rounded-xl relative ">
 
         <H1 className="!text-4xl pb-8 font-semibold">Log In</H1>
         <form
@@ -197,7 +197,7 @@ const Login = () => {
 
         <div className="mt-10  text-center">
           <span>Create New Account: </span>
-          <Link to='/MyClass/signup' className="font-medium text-blue-700 underline italic">
+          <Link to='/MyClass/signup' className="font-medium text-blue-700 hover:underline ">
             Sign Up
           </Link>
         </div>
