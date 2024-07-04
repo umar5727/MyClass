@@ -78,7 +78,7 @@ const Signup = ({ role = 'learner' }) => {
     });
 
     const response = await signUp.json();
-    console.log(response.data, "\n  data from backend \n");
+    console.log(response, "\n  data from backend \n");
 
     navigate("/MyClass/login");
   };

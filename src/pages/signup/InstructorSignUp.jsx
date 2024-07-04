@@ -4,7 +4,7 @@ import Signup from '../../components/Signup'
 const InstructorSignUp = () => {
     return (
         <div>
-            <Signup role='Instructor' />
+            <Signup role='instructor' />
             <p>my</p>
         </div>
     )

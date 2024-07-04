@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../../components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,11 +11,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { SmallCard } from "../../components";
+import { useSelector } from "react-redux";
 
 const InstructorDashboard = () => {
   const fields = [
     { name: "DashBoard", slug: "#" },
-    { name: "My Courses", slug: "#" },
+    { name: "My Courses", slug: "#myCourses" },
     { name: "Quiz", slug: "#" },
     { name: "Earnings", slug: "#" },
     { name: "Students", slug: "#" },
@@ -53,18 +54,33 @@ const InstructorDashboard = () => {
       iconName: faCheckCircle,
     },
   ];
+
+
+  const userData = useSelector((state) => state.auth.userData)
+  useEffect(() => {
+  }, [userData])
+
   return (
     <div className="mt-5 font-medium">
       <section className="top flex justify-between items-center">
         <div className="flex gap-4">
           <div>
             {/* image from backend */}
-            <img src="userDemo.jpg" alt="" className="w-16 rounded-full" />
+            {
+              userData ?
+                <img src={userData.avatar} alt="" className="w-16 rounded-full" />
+                :
+                <img src="userDemo.jpg" alt="" className="w-16 rounded-full" />
+            }
           </div>
           <div className="">
             <div className="flex gap-2 items-center ">
-              <h3 className="text-2xl font-semibold">Umar Khan</h3>
-              {/* //edit name as per backend data */}
+              <h3 className="text-2xl font-semibold">
+                {/*  backend data */}
+                {
+                  userData ? <span> userData.fullName</span> : <span>Umar Khan</span>
+                }
+              </h3>
               <FontAwesomeIcon icon={faCheckCircle} className="text-primary" />
             </div>
             <div className="flex gap-5">
@@ -73,7 +89,10 @@ const InstructorDashboard = () => {
                   icon={faStar}
                   className="pr-2 text-primary-yellow"
                 />
-                <span>4.5</span> {/*backend data*/}
+                {/*  backend data */}
+                {
+                  userData ? <span>{userData.reviews}</span> : <span>4.5</span>
+                }
                 /5.0
               </div>
               {/* reviews end s */}
@@ -82,8 +101,14 @@ const InstructorDashboard = () => {
                   icon={faUserGraduate}
                   className="pr-2 text-primary-orange"
                 />
-                {/* enter the total number student enrolled from backend */}
-                <span>12k </span>
+                {/* backend data*/}
+
+                {userData
+                  ?
+                  <span>{userData.totalEnrolled} </span>
+                  :
+                  <span>12k </span>
+                }
                 Enrolled Students
               </div>
               {/* enrolled students ends  */}
@@ -218,7 +243,7 @@ const InstructorDashboard = () => {
                 {/* course content */}
                 <div className="pt-4 flex flex-col gap-2 ">
                   {/* row */}
-                  <div className="flex p-2 py-3 bg-black rounded-md">
+                  <div className="flex p-2 py-3 bg-black rounded-md text-white">
                     <div className="flex-grow">Course Name</div>
                     <div className="px-5">Selling</div>
                     <div className="px-5">Amount</div>
