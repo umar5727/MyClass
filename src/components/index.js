@@ -23,6 +23,7 @@ import PogressBar from "./PogressBar";
 import Signup from "./Signup";
 import Login from "./Login";
 import InstructorDashboard from "../pages/dashboard/InstructorDashboard";
+import Signout from "./Signout";
 export {
     Header,
     Profile,
@@ -48,4 +49,5 @@ export {
     Signup,
     Login,
     InstructorDashboard,
+    Signout,
 }

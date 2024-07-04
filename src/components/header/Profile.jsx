@@ -14,7 +14,7 @@ const Profile = () => {
   const profileItem = [
     { name: "Edit Profile", slug: "#" },
     { name: "My Courses", slug: "#" },
-    { name: "Sign Out", slug: "/MyClass/" }, //need to add the react router fetch request  or alternate request to logout the user 
+    { name: "Sign Out", slug: "/MyClass/singOut" }, //need to add the react router fetch request  or alternate request to logout the user 
   ];
   if (profile) {
     var className = "block";

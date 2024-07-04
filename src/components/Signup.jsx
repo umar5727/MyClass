@@ -13,7 +13,7 @@ const Signup = ({ role = 'learner' }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState(null);
-
+  const [error, setError] = useState('')
   const fields = [
     {
       label: "Full name",
@@ -63,24 +63,33 @@ const Signup = ({ role = 'learner' }) => {
     // console.log('\nrole: ' + role + "\n")
     const formData = new FormData();
     formData.append("fullName", fullName);
-    formData.append("userName", userName);
     formData.append("email", email);
     formData.append("password", password);
     formData.append("avatar", avatar);
     formData.append("role", role);
 
-    const signUp = await fetch("http://localhost:8000/api/v1/users/register", {
-      // mode: "no-cors",
-      mode: "cors",
-      method: "POST",
-      // headers: { "Content-Type": "multipart/form-data" },
-      body: formData,
-    });
+    try {
+      const signUp = await fetch("http://localhost:8000/api/v1/users/register", {
+        // mode: "no-cors",
+        mode: "cors",
+        method: "POST",
+        // headers: { "Content-Type": "multipart/form-data" },
+        body: formData,
+      });
 
-    const response = await signUp.json();
-    console.log(response, "\n  data from backend \n");
+      if (signUp.status >= 400) {
+        const errorData = await signUp.json()
+        setError(() => errorData.message)
+        throw new Error(errorData.message)
+      }
+      const response = await signUp.json();
+      console.log(response, "\n  data from backend \n");
 
-    navigate("/MyClass/login");
+      navigate("/MyClass/login");
+    } catch (error) {
+      console.log(error.message)
+      setError(error.message)
+    }
   };
 
   useEffect(() => {

@@ -8,7 +8,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import { InstructorDashboard, Login, Signup } from "./components";
+import { InstructorDashboard, Login, Signout, Signup } from "./components";
 
 import { login, logout } from "./app/features/authSlice";
 
@@ -43,6 +43,7 @@ function App() {
         <Route path="/MyClass/signup" element={<Signup />} />
         <Route path="/MyClass/login" element={<Login />} />
         {/* need to secuare the routes  */}
+        <Route path="/MyClass/signOut" element={<Signout />} />
         <Route path="/MyClass/dashboard" element={<InstructorDashboard />} />
         <Route path="/MyClass/InstructorSignUp" element={<InstructorSignUp />} />
       </Route>,
