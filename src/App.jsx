@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useDispatch } from "react-redux";
 import Layout from "./Layout";
 import { AboutUs, Contact, Courses, Home, ProductPage, InstructorSignUp } from "./pages";
@@ -9,28 +9,14 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import { InstructorDashboard, Login, Signout, Signup } from "./components";
-
 import { login, logout } from "./app/features/authSlice";
+import { LoadingContext } from "./context";
+
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    // const currentUser = fetch("http://localhost:8000/api/v1/users/register", {
-    //   mode: "cors",
-    //   method: "POST",
-    // })
-    //   .then((currentUser) => {
-    //     currentUser.json();
-    //     if (currentUser.data) {
-    //       loginUser = currentUser.data;
-    //       dispatch(login({ loginUser }));
-    //     } else {
-    //       dispatch(logout());
-    //     }
-    //   })
-    //   .finally(() => setLoading(false));
-  }, []);
+  // const dispatch = useDispatch();
+  // const lodingHandler = () => {
+  // }
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -49,10 +35,35 @@ function App() {
       </Route>,
     ),
   );
+
+
+  useEffect(() => {
+
+    // const currentUser = fetch("http://localhost:8000/api/v1/users/register", {
+    //   mode: "cors",
+    //   method: "POST",
+    // })
+    //   .then((currentUser) => {
+    //     currentUser.json();
+    //     if (currentUser.data) {
+    //       loginUser = currentUser.data;
+    //       dispatch(login({ loginUser }));
+    //     } else {
+    //       dispatch(logout());
+    //     }
+    //   })
+    //   .finally(() => setLoading(false));
+    // lodingHandler();
+
+    //loading setup
+
+
+  }, []);
+
   return (
     <>
       <RouterProvider router={router} />
-      {loading ? <div>loading...</div> : <div> </div>}
+      {/* {loading ? <div>loading...</div> : <div> </div>} */}
     </>
   );
 }

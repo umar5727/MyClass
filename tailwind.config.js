@@ -36,8 +36,9 @@ export default {
         'card-hover-bg': '#e3e3e3',
         'primary-orange': 'rgb(253, 126, 20)',
         'footer-light-bg': 'rgb(245, 247, 249)',
-        'dark-bg-light': '#2a2c31'
-        
+        'dark-bg-light': '#2a2c31',
+        'primary-loading-bg': 'rgba(36, 41, 45, 0.4)'
+
       },
       transitionProperty: {
         'height': 'height',

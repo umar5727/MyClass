@@ -24,6 +24,7 @@ import Signup from "./Signup";
 import Login from "./Login";
 import InstructorDashboard from "../pages/dashboard/InstructorDashboard";
 import Signout from "./Signout";
+import Loading from "./Loading";
 export {
     Header,
     Profile,
@@ -50,4 +51,5 @@ export {
     Login,
     InstructorDashboard,
     Signout,
+    Loading,
 }

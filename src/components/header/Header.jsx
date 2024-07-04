@@ -10,6 +10,7 @@ import NavContext from "../../context/navcontext/NavContext";
 import { useSelector } from "react-redux";
 import Button from "../Button";
 import { Link } from "react-router-dom";
+import { LoadingContext } from "../../context";
 
 const Header = () => {
   const { setNavToggle } = useContext(NavContext)
@@ -18,10 +19,23 @@ const Header = () => {
 
 
   // useEffect starts 
-
+  const { loading, setLoading } = useContext(LoadingContext)
   useEffect(() => {
     window.addEventListener("resize", () => setNavToggle(false));
-  }, []);
+
+    // if (loading) {
+    //   document.body.classList.add('no-scroll')
+    // }
+    // else {
+
+    //   document.body.classList.remove('no-scroll')
+    // }
+    // setTimeout(() => {
+    //   setLoading(false)
+
+    // }, 2000);
+
+  }, [loading]);
   return (
     <header id="myClass" className="w-full relative">
       <Container>

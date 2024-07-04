@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /* *{
   color: #747579;
 
@@ -23,16 +24,24 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .lightShadow {
   box-shadow: 0px 0px 40px rgba(29, 58, 83, 0.15);
 }
+
 .navShadow {
   box-shadow: 0px 8px 20px rgba(83, 88, 93, 0.4);
 }
+
 .figure {
   width: 650px;
   height: 630px;
 }
+
 .mainImg {
   height: 603px;
+}
+
+.no-scroll {
+  overflow: hidden;
 }

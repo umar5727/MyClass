@@ -9,6 +9,7 @@ import {
   SmallCardContainer,
   Tabs,
 } from "../components";
+import Loading from "../components/Loading";
 const Home = () => {
   const products = [
     {
@@ -96,6 +97,8 @@ const Home = () => {
       <Tabs />
       {/* advirtisment  */}
       <Add />
+
+      <Loading /> {/* testing  */}
 
       {/* trending courses        */}
 
