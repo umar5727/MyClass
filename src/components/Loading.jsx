@@ -3,9 +3,20 @@ import { LoadingContext } from '../context'
 
 const Loading = () => {
     const { loading, setLoading } = useContext(LoadingContext)
-    useEffect(() => {
 
-    }, [])
+    useEffect(() => {
+        if (loading) {
+            document.body.classList.add('no-scroll')
+        }
+        else {
+
+            document.body.classList.remove('no-scroll')
+        }
+        setTimeout(() => {
+            setLoading(false)
+
+        }, 2000);
+    }, [loading])
     return (
         <>
 

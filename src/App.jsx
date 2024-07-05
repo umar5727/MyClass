@@ -9,8 +9,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import { InstructorDashboard, Login, Signout, Signup } from "./components";
-import { login, logout } from "./app/features/authSlice";
-import { LoadingContext } from "./context";
+
 
 
 function App() {

@@ -10,34 +10,28 @@ import { Loading } from './components'
 
 
 const Layout = () => {
-  const { loading, setLoading } = useContext(LoadingContext)
+
 
   useEffect(() => {
-    if (loading) {
-      document.body.classList.add('no-scroll')
-    }
-    else {
 
-      document.body.classList.remove('no-scroll')
-    }
-    setTimeout(() => {
-      setLoading(false)
 
-    }, 2000);
-
-  }, [loading])
+  }, [])
   return (
     <>
-      <Loading />
-      <Header />
-      <Container>
-        <div className='min-h-[calc(100vh-304px)]'>
+      <LoadingContextProvider>
+        <NavContextProvider >
+          <Loading />
+          <Header />
+          <Container>
+            <div className='min-h-[calc(100vh-304px)]'>
 
-          <Outlet />
-        </div>
-      </Container>
-      <GotoTop />
-      <Footer />
+              <Outlet />
+            </div>
+          </Container>
+          <GotoTop />
+          <Footer />
+        </NavContextProvider >
+      </LoadingContextProvider >
     </>
 
   )

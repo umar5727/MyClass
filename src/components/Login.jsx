@@ -79,9 +79,9 @@ const Login = () => {
 
 
   return (
-    <div className="mx-20 flex justify-between py-20">
+    <div className="sm:mx-20 flex items-center flex-col lg:flex-row lg:items-start lg:justify-between  py-20">
 
-      <div className="w-1/2 flex flex-col pt-14">
+      <div className="md:w-1/2 flex flex-col order-2 lg:order-1 pt-14">
         {/* <img src="student6.jpg" alt="#" className="aspect-square" /> */}
         <h2 className="text-5xl font-semibold mb-4">
           Become a <br /> MyClass Schooler
@@ -128,7 +128,7 @@ const Login = () => {
       </div>
       {/* left side ends  */}
 
-      <div className="w-[450px] px-12 pt-14 pb-20 bg-primary-light rounded-xl relative ">
+      <div className="max-w-[450px] px-4 pt-14 pb-20 bg-primary-light rounded-xl shadow-md sm:w-[450px] sm:px-12 order-1 lg:order-2">
 
         <H1 className="!text-4xl pb-8 font-semibold">Log In</H1>
         <form

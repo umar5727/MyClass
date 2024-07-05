@@ -22,7 +22,7 @@ const Signup = ({ role = 'learner' }) => {
       state: fullName,
       setState: setFullName,
     },
-    // { label:'User Name',name: "userName", type: "text", state: userName, setState: setUserName },
+
     {
       label: "Email",
       name: "email",
@@ -41,21 +41,6 @@ const Signup = ({ role = 'learner' }) => {
 
 
   const navigate = useNavigate();
-
-  // const handleFileChange = (event) => {
-  //   setAvatar(event.target.files[0]);
-  // };
-  // const handleImagePreview = () => {
-  //   if (avatar) {
-  //     const reader = new FileReader();
-  //     reader.onload = (e) => {
-  //       return <img src={e.target.result} alt="Selected Profile Image" />;
-  //     };
-  //     reader.readAsDataURL(avatar);
-  //   } else {
-  //     return null;
-  //   }
-  // };
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -96,8 +81,8 @@ const Signup = ({ role = 'learner' }) => {
     console.log(avatar)
   }, [avatar])
   return (
-    <div className="mx-20 flex justify-between py-14 ">
-      <div className="w-1/2 flex flex-col pt-20">
+    <div className="sm:mx-20 flex items-center flex-col lg:flex-row lg:items-start lg:justify-between py-14  ">
+      <div className="md:w-1/2 flex flex-col pt-20 order-2 lg:order-1">
         {/* <img src="student6.jpg" alt="#" className="aspect-square" /> */}
         <h2 className="text-5xl font-semibold mb-4">
           Become a <br /> MyClass Schooler
@@ -143,7 +128,7 @@ const Signup = ({ role = 'learner' }) => {
         </ul>
       </div>
       {/* left side ends  */}
-      <div className="w-[450px] px-12 pt-12 pb-14 bg-primary-light rounded-xl">
+      <div className="max-w-[450px] px-4 pt-12 pb-14 bg-primary-light rounded-xl shadow-md sm:w-[450px] sm:px-12 order-1 lg:order-2">
         <H1 className="!text-4xl pb-8 font-semibold">Sign Up</H1>
         <form onSubmit={submitForm} className=" flex flex-col gap-3 ">
           {fields.map((field, index) => (
