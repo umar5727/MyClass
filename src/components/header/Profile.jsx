@@ -5,6 +5,7 @@ import { faFaceSmile } from "@fortawesome/free-regular-svg-icons";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../app/features/authSlice";
+
 const Profile = () => {
   const [profile, setProfile] = useState(false);
   // const [user, setUser] = useState
@@ -14,7 +15,7 @@ const Profile = () => {
   const profileItem = [
     { name: "Edit Profile", slug: "#" },
     { name: "My Courses", slug: "#" },
-    { name: "Sign Out", slug: "/MyClass/singOut" }, //need to add the react router fetch request  or alternate request to logout the user 
+    { name: "Sign Out", slug: "/MyClass/signOut" }, //need to add the react router fetch request  or alternate request to logout the user 
   ];
   if (profile) {
     var className = "block";
@@ -26,7 +27,9 @@ const Profile = () => {
   const user = useSelector((state) => state.auth.userData);
   const loginstatus = useSelector((state) => state.auth.status);
 
+
   useEffect(() => {
+
 
     // store ends
     const handler = (e) => {

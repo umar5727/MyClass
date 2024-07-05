@@ -191,8 +191,8 @@ const Signup = ({ role = 'learner' }) => {
         </form>
         <div className="mt-6 text-center">
           <span>Already a user? </span>
-          <Link to={"/MyClass/login"} className="text-primary hover:underline ">
-            Sign in
+          <Link to={"/MyClass/login"} className="text-primary hover:underline font-bold">
+            Log in
           </Link>
         </div>
       </div>

@@ -187,59 +187,7 @@ const InstructorDashboard = () => {
               {/* courses top ends  */}
               {/* content starts  */}
               <div className="overflow-x-auto">
-                {/* <table className="text-left w-full dark:border-primary-text-normal-dark border-spacing-[2px] border-collapse
-                ">
-                  <thead className="bg-black rounded-md">
-                    <tr className="rounded-md">
-                      <th className="p-2">Course Name</th>
-                      <th>Selling </th>
-                      <th>Amount </th>
-                      <th>Period</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th className="py-4">
-                        Building Scalable APIs with GraphQL
-                      </th>
-                      <th className="font-normal">34</th>
-                      <th className="font-normal">125000</th>
-                      <th>
-                        <span className="bg-primary-light py-1 px-2 rounded-md font-normal text-primary text-[12px]">
-                          9 months
-                        </span>
-                      </th>
-                      <th>*</th>
-                    </tr>
-                    <tr>
-                      <th className="py-4">
-                        Building Scalable APIs with GraphQL
-                      </th>
-                      <th className="font-normal">34</th>
-                      <th className="font-normal">125000</th>
-                      <th>
-                        <span className="bg-primary-light py-1 px-2 rounded-md font-normal text-primary text-[12px]">
-                          9 months
-                        </span>
-                      </th>
-                      <th>*</th>
-                    </tr>
-                    <tr>
-                      <th className="py-4">
-                        Building Scalable APIs with GraphQL
-                      </th>
-                      <th className="font-normal">34</th>
-                      <th className="font-normal">125000</th>
-                      <th>
-                        <span className="bg-primary-light py-1 px-2 rounded-md font-normal text-primary text-[12px]">
-                          9 months
-                        </span>
-                      </th>
-                      <th>*</th>
-                    </tr>
-                  </tbody>
-                </table> */}
+
                 {/* course content */}
                 <div className="pt-4 flex flex-col gap-2 ">
                   {/* row */}

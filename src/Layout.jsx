@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 import Footer from './components/Footer'
 import Container from './components/Container'
 import GotoTop from './components/GotoTop'
-import { LoadingContext, LoadingContextProvider, NavContextProvider } from './context'
+import { LoadingContextProvider, NavContextProvider } from './context'
 import { Loading } from './components'
 
 
@@ -20,6 +20,7 @@ const Layout = () => {
     <>
       <LoadingContextProvider>
         <NavContextProvider >
+
           <Loading />
           <Header />
           <Container>
@@ -30,6 +31,7 @@ const Layout = () => {
           </Container>
           <GotoTop />
           <Footer />
+
         </NavContextProvider >
       </LoadingContextProvider >
     </>

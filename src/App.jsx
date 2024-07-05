@@ -1,14 +1,14 @@
 import { useState, useEffect, useContext } from "react";
 import { useDispatch } from "react-redux";
 import Layout from "./Layout";
-import { AboutUs, Contact, Courses, Home, ProductPage, InstructorSignUp } from "./pages";
+import { AboutUs, Contact, Courses, Home, ProductPage, InstructorSignUp, Dashboard } from "./pages";
 import {
   Route,
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import { InstructorDashboard, Login, Signout, Signup } from "./components";
+import { InstructorDashboard, Login, ProtectedStudent, Signout, Signup } from "./components";
 
 
 
@@ -27,9 +27,11 @@ function App() {
         <Route path="/MyClass/course" element={<ProductPage />} />
         <Route path="/MyClass/signup" element={<Signup />} />
         <Route path="/MyClass/login" element={<Login />} />
-        {/* need to secuare the routes  */}
-        <Route path="/MyClass/signOut" element={<Signout />} />
-        <Route path="/MyClass/dashboard" element={<InstructorDashboard />} />
+
+        <Route element={<ProtectedStudent />} >
+          <Route path="/MyClass/signOut" element={<Signout />} />
+          <Route path="/MyClass/dashboard" element={<Dashboard />} />
+        </Route>
         <Route path="/MyClass/InstructorSignUp" element={<InstructorSignUp />} />
       </Route>,
     ),

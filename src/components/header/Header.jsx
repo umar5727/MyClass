@@ -36,8 +36,8 @@ const Header = () => {
               !user
                 ?
                 <div>
-                  <Link to='/MyClass/signup' className="font-semibold bg-primary-light px-2 py-2 rounded-md text-primary hover:bg-primary dark:text-white hover:text-white outline outline-1 transition-colors duration-500 dark:outline-primary text-sm sm:px-4 sm:py-2">
-                    Sign Up
+                  <Link to='/MyClass/login' className="font-bold bg-primary-light px-2 py-2 rounded-md text-primary hover:bg-primary dark:text-white hover:text-white outline outline-1 transition-colors duration-500 dark:outline-primary text-sm sm:px-4 sm:py-2">
+                    Log in
                   </Link>
                 </div>
                 :

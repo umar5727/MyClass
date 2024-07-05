@@ -45,3 +45,7 @@
 .no-scroll {
   overflow: hidden;
 }
+
+input:autofill {
+  background-color: white !important;
+}

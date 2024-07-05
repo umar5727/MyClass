@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "./Button";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,22 +7,19 @@ import H1 from "./heading/H1";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { login } from "../app/features/authSlice";
-import { current } from "@reduxjs/toolkit";
 
 const Login = () => {
-  const navigate = useNavigate(); //navigate is use to navigate user after login to other page
-  const dispatch = useDispatch(); // to update redux state
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
-  // register handle form state and handleSubmit handles form submit
   const [error, setError] = useState("");
   const [popup, setPopup] = useState(false);
-  const [success, setSuccess] = useState(false)
 
 
   const loginHandler = async (data) => {
     // e.preventDefault();
     setError(""); //when submit form clearing the error and starting login process
-    // console.log("login data: ", data);
+
     //getting the data from reactHookForm
     const email = data.email;
     const password = data.password;
@@ -39,43 +36,36 @@ const Login = () => {
       });
       // fetch ends
       console.log('status : ', response.status)
-      if (response.status >= 400) {
+      if (response.status >= 400) {     //if the response is error
         const errorData = await response.json(); // Parse error details
         setError(() => errorData.message)
         throw new Error(errorData.message || 'user not found '); // Provide user-friendly message
       }
       const resData = await response.json(); //taking the json values form response
+      const { accessToken } = resData;
+      console.log('accesstoken : ', resData)
+      localStorage.setItem('accessToken', accessToken)
       const userData = resData.data.user; //storing usedata in useData
-      console.log(userData)
-      if (userData) {
-        console.log("if user: ", userData.fullName);
-        dispatch(login({ userData })); //dispatching
-        console.log('this is after res error ')
-        setSuccess(true)
 
+      console.log("if user: ", userData.fullName);
+      dispatch(login({ userData })); //dispatching
+
+      localStorage.setItem('localUser', JSON.stringify(userData))
+      // setSuccess(true)
+      console.log("\n role: ", userData.role)
+      if (userData.role === 'learner') {
+
+        navigate('/MyClass/dashboard')
       }
+      // navigate('/MyClass/')
+
     } catch (error) {
       console.log('\nerror form backend : ', error)
       setError(error.message)
     }
 
   };
-  useEffect(() => {
 
-    if (success) {
-      setPopup(true)
-
-
-      var timeoutId = setTimeout(() => setPopup(false), 1000)
-      var navitimeoutId = setTimeout(() => {
-        navigate('/MyClass/')
-      }, 1500);
-    }
-    return () => {
-      clearTimeout(timeoutId)
-      clearTimeout(navitimeoutId)
-    }
-  }, [success])
 
 
   return (
@@ -197,7 +187,7 @@ const Login = () => {
 
         <div className="mt-10  text-center">
           <span>Create New Account: </span>
-          <Link to='/MyClass/signup' className="font-medium text-blue-700 hover:underline ">
+          <Link to='/MyClass/signup' className="font-bold text-blue-700 hover:underline ">
             Sign Up
           </Link>
         </div>
