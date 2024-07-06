@@ -1,7 +1,7 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, lazy } from "react";
 import { useDispatch } from "react-redux";
 import Layout from "./Layout";
-import { AboutUs, Contact, Courses, Home, ProductPage, InstructorSignUp, Dashboard } from "./pages";
+import { AboutUs, Contact, Courses, Home, ProductPage, InstructorSignUp } from "./pages";
 import {
   Route,
   RouterProvider,
@@ -10,13 +10,13 @@ import {
 } from "react-router-dom";
 import { InstructorDashboard, Login, ProtectedStudent, Signout, Signup } from "./components";
 
+const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'))
 
 
 function App() {
   // const dispatch = useDispatch();
   // const lodingHandler = () => {
   // }
-
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/MyClass/" element={<Layout />}>
