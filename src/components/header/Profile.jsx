@@ -14,7 +14,7 @@ const Profile = () => {
   let contentRef = useRef();
   const profileItem = [
     { name: "Edit Profile", slug: "#" },
-    { name: "My Courses", slug: "#" },
+    { name: "My Courses", slug: "/MyClass/dashboard/myCourses" },
     { name: "Sign Out", slug: "/MyClass/signOut" }, //need to add the react router fetch request  or alternate request to logout the user 
   ];
   if (profile) {

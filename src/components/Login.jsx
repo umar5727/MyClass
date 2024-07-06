@@ -50,7 +50,7 @@ const Login = () => {
       console.log("if user: ", userData.fullName);
       dispatch(login({ userData })); //dispatching
 
-      // localStorage.setItem('localUser', JSON.stringify(userData)) updated localstorge on authSlice redux
+      // localStorage.setItem('localUser', JSON.stringify(userData)) updated localstorage on authSlice redux
       // setSuccess(true)
       console.log("\n role: ", userData.role)
       if (userData.role === 'learner') {

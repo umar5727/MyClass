@@ -10,9 +10,12 @@ import {
 } from "react-router-dom";
 import { Login, ProtectedUser, Signout, Signup } from "./components";
 
+const DashboardLayout = lazy(() => import('./pages/dashboard/DashboardLayout'))
 const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'))     //lazy loading Dashboard
-const InstructorDashboard = lazy(() => import('./pages/dashboard/InstructorDashboard'))
+const MyCourses = lazy(() => import("./pages/dashboard/MyCourses"));
 
+const InstructorDashboard = lazy(() => import('./pages/dashboard/InstructorDashboard'))
+// const MyCourses = lazy
 
 function App() {
   // const dispatch = useDispatch();
@@ -33,7 +36,11 @@ function App() {
         <Route element={<ProtectedUser />} >
           {/* Protected user route */}
           <Route path="/MyClass/signOut" element={<Signout />} />
-          <Route path="/MyClass/dashboard" element={<Dashboard />} />
+          <Route path="/MyClass/dashboard" element={<DashboardLayout />} >
+            <Route path="" element={<Dashboard />} />
+            <Route path="/MyClass/dashboard/myCourses" element={<MyCourses />} />
+          </Route>
+
           <Route path="/MyClass/InstructorDashboard" element={<InstructorDashboard />} />
         </Route>
       </Route>,
