@@ -43,9 +43,9 @@ const Dashboard = () => {
 
     const userData = useSelector((state) => state.auth.userData)
     useEffect(() => {
-        const user = localStorage.getItem('user');
-        console.log('local user: ', user)
-    }, [userData])
+
+
+    }, [])
 
     return (
         <div className="mt-5 font-medium">
@@ -65,7 +65,7 @@ const Dashboard = () => {
                             <h3 className="text-2xl font-semibold">
                                 {/*  backend data */}
                                 {
-                                    userData ? <span> userData.fullName</span> : <span>Umar Khan</span>
+                                    userData ? <span className='capitalize'> {userData.fullName}</span> : <span>Umar Khan</span>
                                 }
                             </h3>
                             <FontAwesomeIcon icon={faCheckCircle} className="text-primary" />

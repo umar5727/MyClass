@@ -8,9 +8,10 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import { InstructorDashboard, Login, ProtectedStudent, Signout, Signup } from "./components";
+import { Login, ProtectedUser, Signout, Signup } from "./components";
 
-const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'))
+const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'))     //lazy loading Dashboard
+const InstructorDashboard = lazy(() => import('./pages/dashboard/InstructorDashboard'))
 
 
 function App() {
@@ -27,12 +28,14 @@ function App() {
         <Route path="/MyClass/course" element={<ProductPage />} />
         <Route path="/MyClass/signup" element={<Signup />} />
         <Route path="/MyClass/login" element={<Login />} />
+        <Route path="/MyClass/InstructorSignUp" element={<InstructorSignUp />} />
 
-        <Route element={<ProtectedStudent />} >
+        <Route element={<ProtectedUser />} >
+          {/* Protected user route */}
           <Route path="/MyClass/signOut" element={<Signout />} />
           <Route path="/MyClass/dashboard" element={<Dashboard />} />
+          <Route path="/MyClass/InstructorDashboard" element={<InstructorDashboard />} />
         </Route>
-        <Route path="/MyClass/InstructorSignUp" element={<InstructorSignUp />} />
       </Route>,
     ),
   );

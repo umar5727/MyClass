@@ -9,7 +9,7 @@ import {
   faUserGraduate,
   faUserTie,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { SmallCard } from "../../components";
 import { useSelector } from "react-redux";
 
@@ -17,15 +17,13 @@ const InstructorDashboard = () => {
   const fields = [
     { name: "DashBoard", slug: "#" },
     { name: "My Courses", slug: "#myCourses" },
-    { name: "Quiz", slug: "#" },
-    { name: "Earnings", slug: "#" },
     { name: "Students", slug: "#" },
-    { name: "Orders", slug: "#" },
     { name: "Reviews", slug: "#" },
+    { name: "Notification", slug: "#" },
+    { name: "Create Quiz", slug: "#" },
+    { name: "Create Course", slug: "#" },
     { name: "Edit Profile", slug: "#" },
-    { name: "Payouts", slug: "#" },
-    { name: "Settings", slug: "#" },
-    { name: "Delete Profile", slug: "#" },
+    { name: "Remove Student", slug: "#" },
     { name: "Sign Out", slug: "#" },
   ];
   const cards = [
@@ -135,14 +133,15 @@ const InstructorDashboard = () => {
         <section className="leftSide ">
           <div className="flex flex-col gap-[10px] p-5 bg-primary-light rounded-md">
             {fields.map((field, index) => (
-              <Link
+              <NavLink
                 to={field.slug}
-                className="py-2 px-4 transition-colors duration-500 text-primary hover:text-white hover:bg-primary rounded-md dark:text-white "
+                className={`py-2 px-4 transition-colors duration-500 text-primary hover:text-white hover:bg-primary-light rounded-md dark:text-white ${isActive ? "bg-primary-light text-primary" : ""}`}
+                // working on active tab
                 key={index}
               >
                 <div>{/* icons */}</div>
                 <div>{field.name}</div>
-              </Link>
+              </NavLink>
             ))}
           </div>
         </section>

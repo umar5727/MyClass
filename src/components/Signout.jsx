@@ -2,10 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { useCookies } from 'react-cookie';
+import { useDispatch } from 'react-redux';
+import { login } from '../app/features/authSlice';
 const Signout = () => {
     const [cookies, setCookies, removeCookies] = useCookies('user')
     const [userValue, setUserValue] = useState(null)
     const navigate = useNavigate();
+
+    const dispatch = useDispatch();
 
     const handler = async () => {
         const accesstoken = localStorage.getItem('accessToken')
@@ -23,8 +27,9 @@ const Signout = () => {
         console.log(response.message)
     }
     useEffect(() => {
-
+        const userData = null;
         handler();
+        dispatch(login({ userData }))
         navigate('/MyClass/')
 
     }, [])

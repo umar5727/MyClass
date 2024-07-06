@@ -25,7 +25,7 @@ import Login from "./Login";
 import InstructorDashboard from "../pages/dashboard/InstructorDashboard";
 import Signout from "./Signout";
 import Loading from "./Loading";
-import ProtectedStudent from "./ProtectedStudent";
+import ProtectedUser from "./ProtectedUser";
 export {
     Header,
     Profile,
@@ -53,5 +53,5 @@ export {
     InstructorDashboard,
     Signout,
     Loading,
-    ProtectedStudent,
+    ProtectedUser,
 }
