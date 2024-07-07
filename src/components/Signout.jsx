@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
-import { useCookies } from 'react-cookie';
-import { useDispatch } from 'react-redux';
+import { useDispatch, } from 'react-redux';
 import { login } from '../app/features/authSlice';
 const Signout = () => {
-    const [cookies, setCookies, removeCookies] = useCookies('user')
-    const [userValue, setUserValue] = useState(null)
+
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
@@ -14,14 +11,15 @@ const Signout = () => {
     const handler = async () => {
         const accesstoken = localStorage.getItem('accessToken')
         console.log(accesstoken)
-        const headers = {
-            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // Assuming access token in local storage
-        };
 
         const signOut = await fetch("http://localhost:8000/api/v1/users/signOut", {
             mode: 'cors',
             method: 'POST',
-            headers
+            credentials: 'include',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            // body: JSON.stringify(userData._id)
         })
         const response = await signOut.json()
         console.log(response.message)

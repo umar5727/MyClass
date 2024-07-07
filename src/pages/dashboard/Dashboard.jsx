@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { Button, SmallCard } from '../../components';
 import { NavLink, Outlet } from 'react-router-dom';
 import { faRectangleList } from '@fortawesome/free-regular-svg-icons';
+import MyCourses from './MyCourses';
 
 
 const Dashboard = () => {
@@ -38,7 +39,8 @@ const Dashboard = () => {
 
     const userData = useSelector((state) => state.auth.userData)
     useEffect(() => {
-
+        const access = document.cookie.split(';')
+        console.log(access)
 
     }, [])
 
@@ -67,56 +69,9 @@ const Dashboard = () => {
                 </div>
             </section>
             {/* small cards ends  */}
-            {/* all courses  */}
-            <section className="my-8">
+            {/* My courses  */}
+            <MyCourses />
 
-                <div className="p-4 border border-primary-text-normal rounded-md">
-                    <div className="flex justify-between">
-                        <div>
-                            <h2 className="text-2xl font-semibold">
-                                Most Selling Courses
-                            </h2>
-                        </div>
-                        <div>
-                            <Button className="hover:text-white !pt-1 !px-4 !font-medium border-none bg-primary-light">
-                                view all
-                            </Button>
-                        </div>
-                    </div>
-                    {/* courses top ends  */}
-                    {/* content starts  */}
-                    <div className="overflow-x-auto">
-
-                        {/* course content */}
-                        <div className="pt-4 flex flex-col gap-2 ">
-                            {/* row */}
-                            <div className="flex p-2 py-3 bg-black rounded-md text-white">
-                                <div className="flex-grow">Course Name</div>
-                                <div className="px-5">Selling</div>
-                                <div className="px-5">Amount</div>
-                                <div className="px-5">Period</div>
-                                <div className="px-5">Action</div>
-                            </div>
-                            {/* row */}
-                            <div className="flex p-2 py-4  rounded-md border-b-2 border-border-dark">
-                                <div className="flex-grow">Course Name</div>
-                                <div className="px-5">Selling</div>
-                                <div className="px-5">Amount</div>
-                                <div className="px-5">Period</div>
-                                <div className="px-5">Action</div>
-                            </div>
-                            {/* row */}
-                            <div className="flex p-2 py-4  rounded-md border-b-2 border-border-dark">
-                                <div className="flex-grow">Course Name</div>
-                                <div className="px-5">Selling</div>
-                                <div className="px-5">Amount</div>
-                                <div className="px-5">Period</div>
-                                <div className="px-5">Action</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </>
     );
 }

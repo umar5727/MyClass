@@ -29,6 +29,7 @@ const Login = () => {
       const response = await fetch("http://localhost:8000/api/v1/users/login", {
         mode: "cors",
         method: "POST",
+        credentials: 'include',
         headers: {
           "Content-Type": "application/json",
         },
@@ -43,7 +44,7 @@ const Login = () => {
       }
       const resData = await response.json(); //taking the json values form response
       const { accessToken } = resData;
-      console.log('accesstoken : ', resData)
+      console.log('all data : ', resData)
       localStorage.setItem('accessToken', accessToken)
       const userData = resData.data.user; //storing usedata in useData
 

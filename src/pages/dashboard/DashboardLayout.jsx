@@ -150,15 +150,6 @@ const DashboardLayout = () => {
             <main className="grid grid-cols-4 gap-7 mt-7 mb-10">
                 <section className="leftSide ">
                     <div className="flex flex-col gap-[10px] p-5 bg-primary-light rounded-md">
-                        {/* <NavLink
-                            to='/MyClass/dashboard'
-                            isActive={(match) => match.path === '/MyClass/dashboard' && match.isExact}
-                            className={({ isActive }) => `${isActive ? "bg-primary text-white" : ""} flex gap-2 items-center py-2 px-4 transition-colors duration-500 text-primary hover:text-white hover:bg-primary rounded-md dark:text-white `}
-                            key='dashboard'
-                        >
-                            <FontAwesomeIcon icon={faBorderAll} />
-                            <div>Dashboard</div>
-                        </NavLink> */}
                         {fields.map((field, index) => (
                             <NavLink
                                 end        //'end' when the path ends exactly with that target path. 

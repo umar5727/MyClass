@@ -6,6 +6,18 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 const AboutUs = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    // console.log("email :- " + email);
+    // fetch starts
+    // const response = fetch("http://localhost:8000/api/v1/dashboard/getStudentCourses", {
+    //   mode: "cors",
+    //   method: "GET",
+    //   credentials: 'include',
+    //   // headers: {
+    //   //   "Content-Type": "application/json",
+    //   // },
+    //   // body: JSON.stringify({ email, password }),
+    // });
+
   }, []);
   return (
     <>

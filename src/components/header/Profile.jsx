@@ -24,38 +24,25 @@ const Profile = () => {
   }
 
   const navigate = useNavigate();
-  const user = useSelector((state) => state.auth.userData);
+  const userData = useSelector((state) => state.auth.userData);
   const loginstatus = useSelector((state) => state.auth.status);
 
 
   useEffect(() => {
-
-
     // store ends
     const handler = (e) => {
       if (!profileRef.current.contains(e.target)) {
         setProfile(false); //if click outside the profile container
-
-        console.log(
-          "\n user from profile :- " +
-          user +
-          "\n login Status : " +
-          loginstatus,
-        );
       }
     };
     if (profile) {
       document.addEventListener("mousedown", handler);
-
-      console.log(
-        "\n user from profile :- " + user + "\n login Status : " + loginstatus,
-      );
     }
     return () => {
       document.removeEventListener("mousedown", handler);
     };
   }),
-    [user, loginstatus, navigate];
+    [userData, loginstatus, navigate];
   // useEffect ends
   return (
     <section ref={profileRef} className="relative">
@@ -64,9 +51,9 @@ const Profile = () => {
         onClick={() => setProfile(!profile)}
       >
         {
-          user.avatar
+          userData.avatar
             ?
-            <img src={user.avatar} alt="#" />
+            <img src={userData.avatar} alt="#" />
             :
             <FontAwesomeIcon
               icon={faFaceSmile}
@@ -94,9 +81,9 @@ const Profile = () => {
             />
           </div>
           <div className="">
-            <h2 className="font-bold dark:text-white capitalize">{user.fullName}</h2>
+            <h2 className="font-bold dark:text-white capitalize">{userData.fullName}</h2>
             <p className="font-normal text-xs dark:text-primary-grayText">
-              {user.email}
+              {userData.email}
             </p>
           </div>
         </div>
