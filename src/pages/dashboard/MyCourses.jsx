@@ -46,7 +46,7 @@ const MyCourses = () => {
                                     <div key={index} className='grid grid-cols-6  rounded-md  p-2 py-4   border-b-2 border-primary-light hover:bg-primary-light'>
                                         <div className="col-span-3 flex gap-2 items-center">
                                             <div className='w-[100px] '>
-                                                <img src="/MyClass/public/python.jpg" alt="thumbnail" className='rounded-md' />
+                                                <img src="/MyClass/python.jpg" alt="thumbnail" className='rounded-md' />
                                             </div>
                                             <div className='font-bold'>
                                                 <div>

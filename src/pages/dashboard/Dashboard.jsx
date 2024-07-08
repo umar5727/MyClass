@@ -1,10 +1,9 @@
-import { faBasketShopping, faBell, faBook, faBorderAll, faCartShopping, faCheckCircle, faClipboardCheck, faFolder, faGear, faMedal, faPencilSquare, faQuestionCircle, faSignOut, faStar, faTv, faUserGraduate, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { faClipboardCheck, faMedal, faTv, } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { Button, SmallCard } from '../../components';
-import { NavLink, Outlet } from 'react-router-dom';
-import { faRectangleList } from '@fortawesome/free-regular-svg-icons';
+
 import MyCourses from './MyCourses';
 
 

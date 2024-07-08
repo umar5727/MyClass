@@ -7,20 +7,20 @@ import {
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
+  useNavigate,
 } from "react-router-dom";
 import { Login, ProtectedUser, Signout, Signup } from "./components";
+import { login, logout } from "./app/features/authSlice";
 
 const DashboardLayout = lazy(() => import('./pages/dashboard/DashboardLayout'))
 const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'))     //lazy loading Dashboard
 const MyCourses = lazy(() => import("./pages/dashboard/MyCourses"));
-
+const CreateCourse = lazy(() => import('./pages/dashboard/CreateCourse'))
 const InstructorDashboard = lazy(() => import('./pages/dashboard/InstructorDashboard'))
-// const MyCourses = lazy
+
 
 function App() {
-  // const dispatch = useDispatch();
-  // const lodingHandler = () => {
-  // }
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/MyClass/" element={<Layout />}>
@@ -42,6 +42,7 @@ function App() {
           </Route>
 
           <Route path="/MyClass/InstructorDashboard" element={<InstructorDashboard />} />
+          <Route path='/MyClass/InstructorDashboard/createCourse' element={<CreateCourse />} />
         </Route>
       </Route>,
     ),
@@ -50,20 +51,6 @@ function App() {
 
   useEffect(() => {
 
-    // const currentUser = fetch("http://localhost:8000/api/v1/users/register", {
-    //   mode: "cors",
-    //   method: "POST",
-    // })
-    //   .then((currentUser) => {
-    //     currentUser.json();
-    //     if (currentUser.data) {
-    //       loginUser = currentUser.data;
-    //       dispatch(login({ loginUser }));
-    //     } else {
-    //       dispatch(logout());
-    //     }
-    //   })
-    //   .finally(() => setLoading(false));
     // lodingHandler();
 
     //loading setup

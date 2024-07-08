@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { Button, SmallCard } from '../../components';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import { faRectangleList } from '@fortawesome/free-regular-svg-icons';
 
 const DashboardLayout = () => {
@@ -70,7 +70,7 @@ const DashboardLayout = () => {
                             userData.avatar ?
                                 <img src={userData.avatar} alt="" className="w-32 rounded-full" />
                                 :
-                                <img src="/MyClass/public/userDemo.jpg" alt="" className="w-32 rounded-full" />
+                                <img src="../userDemo.jpg" alt="" className="w-32 rounded-full" />
                         }
                     </div>
                     <div className="">
@@ -135,9 +135,10 @@ const DashboardLayout = () => {
                     {
                         userData.role === 'instructor'
                             ?
-                            <div>
+                            <Link to='/MyClass/InstructorDashboard/createCourse'
+                            >
                                 <Button className="hover:text-white">Create a Course</Button>
-                            </div>
+                            </Link>
                             :
                             <div >
                                 <Button className="hover:text-white">View My Courses</Button>

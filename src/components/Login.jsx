@@ -43,9 +43,7 @@ const Login = () => {
         throw new Error(errorData.message || 'user not found '); // Provide user-friendly message
       }
       const resData = await response.json(); //taking the json values form response
-      const { accessToken } = resData;
-      console.log('all data : ', resData)
-      localStorage.setItem('accessToken', accessToken)
+
       const userData = resData.data.user; //storing usedata in useData
 
       console.log("if user: ", userData.fullName);
@@ -54,10 +52,10 @@ const Login = () => {
       // localStorage.setItem('localUser', JSON.stringify(userData)) updated localstorage on authSlice redux
       // setSuccess(true)
       console.log("\n role: ", userData.role)
-      if (userData.role === 'learner') {
+      // if (userData.role === 'learner') {
 
-        navigate('/MyClass/dashboard')
-      }
+      navigate('/MyClass/dashboard')
+      // }
       // navigate('/MyClass/')
 
     } catch (error) {

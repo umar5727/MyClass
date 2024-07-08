@@ -21,6 +21,7 @@ const AboutUs = () => {
   }, []);
   return (
     <>
+
       <section className="my-20">
         <H1 className="!text-2xl md:!text-4xl mb-14 w-5/6 mx-auto">
           MyClass, built specifically for the education centers which is

@@ -58,6 +58,9 @@ export default {
         'more': '0 2 20px rgba(29,58,83,0.25)',
         'icon': '0px 0px 5px rgba(29,58,83,0.25)',
       },
+      backgroundImage: {
+        'banner': 'url(./studentBanner.jpg)'
+      }
     },
   },
   plugins: [],

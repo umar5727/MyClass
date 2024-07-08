@@ -1,21 +1,50 @@
 import React, { Suspense, useContext, useEffect } from 'react'
 import Header from './components/header/Header'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import Footer from './components/Footer'
 import Container from './components/Container'
 import GotoTop from './components/GotoTop'
 import { LoadingContextProvider, NavContextProvider } from './context'
 import { Loading } from './components'
+import { useDispatch } from 'react-redux'
+import { login, logout } from './app/features/authSlice'
 
 
 
 
 const Layout = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const checkUser = async () => {
+    const refreshToken = document.cookie
 
+    const currentUser = await fetch("http://localhost:8000/api/v1/users/refreshAccessToken ", {
+      mode: "cors",
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ refreshToken })
+    })
+
+    const existUser = await currentUser.json();
+    if (existUser.data) {
+      console.log("layoutdata: ", existUser.data)
+      const userData = existUser.data.user;
+      console.log('layout login: ', userData)
+      dispatch(login({ userData }));
+      navigate('/MyClass/dashboard')
+    } else {
+      dispatch(logout());
+    }
+
+    // .finally(() => setLoading(false));
+  }
 
   useEffect(() => {
 
-
+    checkUser();
   }, [])
   return (
     <>
