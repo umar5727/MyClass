@@ -1,7 +1,41 @@
+import { useSelector } from "react-redux";
 import Button from "../Button";
+import { useNavigate } from "react-router-dom";
 
 function Step3({ formData }) {
-    console.log(formData)
+    const navigate = useNavigate()
+    const userData = useSelector((state) => state.auth.userData)
+
+    const handleClick = async () => {
+
+        const reqData = new FormData()
+        reqData.append('title', formData.title)
+        reqData.append('shortDescription', formData.shortDescription)
+        reqData.append('department', formData.selectCategory)
+        reqData.append('difficulty', formData.courseLevel)
+        reqData.append('totalLectures', formData.totalLecture)
+        reqData.append('duration', formData.courseTime)
+        reqData.append('price', formData.coursePrice)
+        reqData.append('discountPrice', formData.discountPrice)
+        reqData.append('thumbNail', formData.courseImage)
+        reqData.append('instructor', userData._id)
+
+        // console.log('reqData : ', reqData)
+        const createCourses = await fetch("http://localhost:8000/api/v1/courses/createCourse", {
+            mode: 'cors',
+            method: 'POST',
+            // headers: { "Content-Type": "multipart/form-data" },
+            body: reqData
+        })
+        const response = await createCourses.json();
+        console.log(response + "\n" + response.message + "\n" + response.course)
+        if (response.course) {
+            console.log('this is from response ')
+            navigate("./")
+        }
+
+    }
+
     return (
 
         <div className="pb-14">
@@ -28,6 +62,10 @@ function Step3({ formData }) {
                     <div className="italic">{formData.courseTime}</div>
                 </div>
                 <div className=" bg-primary-light dark:bg-primarydark p-2">
+                    <div className="text-gray-500">Total Lecture</div>
+                    <div className="italic">{formData.totalLecture}</div>
+                </div>
+                <div className=" bg-primary-light dark:bg-primarydark p-2">
                     <div className="text-gray-500">Course Price</div>
                     <div className="italic">{formData.coursePrice}</div>
                 </div>
@@ -43,7 +81,13 @@ function Step3({ formData }) {
 
             </div>
             {/* Display other collected data */}
-            <Button type="button" className="absolute right-0 bottom-0">Submit</Button>
+            <Button
+                type="button"
+                className="absolute right-0 bottom-0"
+                onClick={handleClick}
+            >
+                Submit
+            </Button>
         </div>
     );
 }

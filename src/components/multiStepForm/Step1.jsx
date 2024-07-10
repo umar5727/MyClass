@@ -34,7 +34,7 @@ function Step1({ onSubmit }) {
     const levelOptions = [
         { value: 'Beginner', label: 'Beginner' },
         { value: 'Intermediate', label: 'Intermediate' },
-        { value: 'Advance', label: 'Advance' },
+        // { value: 'Advance', label: 'Advance' },
         { value: 'All Level', label: 'All Level' },
     ]
 
@@ -78,6 +78,7 @@ function Step1({ onSubmit }) {
                                         <span>Course Category</span>
                                         <div className='w-full  dark:bg-primarydark dark:text-gray-200 outline outline-1 outline-gray-300 dark:outline-gray-700 focus-visible:outline-primary focus-visible:outline-double dark:focus-visible:outline-primary dark:focus-visible:outline-double rounded-md mt-2'>
                                             <Select
+                                                id={field.name}
                                                 defaultValue={selectCategory}
                                                 onChange={(state) => setSelectCategory(state.value)}
                                                 options={categoryOptions}
@@ -115,10 +116,13 @@ function Step1({ onSubmit }) {
                                         <span className="mb-2">Course Level</span>
                                         <div className='w-full  dark:bg-primarydark dark:text-gray-200 outline outline-1 outline-gray-300 dark:outline-gray-700 focus-visible:outline-primary focus-visible:outline-double dark:focus-visible:outline-primary dark:focus-visible:outline-double rounded-md mt-2'>
                                             <Select
+                                                id={field.name}
+
                                                 defaultValue={courseLevel}
                                                 onChange={(state) => setCourseLevel(state.value)}
                                                 options={levelOptions}
                                                 required
+                                                key={index}
                                                 name={field.name}
                                                 styles={{
                                                     singleValue: (baseStyles, state) => ({
@@ -152,13 +156,14 @@ function Step1({ onSubmit }) {
                             return (
 
                                 <Input
+                                    id={field.name}
                                     name={field.name}
                                     type={field.type}
                                     label={field.label}
                                     placeholder={field.placeholder}
                                     value={field.title}
                                     setValue={field.setValue}
-                                    key={index}
+                                    index={index}
                                     className={className}
                                 // required
                                 />

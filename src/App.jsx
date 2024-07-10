@@ -10,7 +10,6 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { Login, ProtectedUser, Signout, Signup } from "./components";
-import { login, logout } from "./app/features/authSlice";
 
 const DashboardLayout = lazy(() => import('./pages/dashboard/DashboardLayout'))
 const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'))     //lazy loading Dashboard
@@ -61,6 +60,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
+
       {/* {loading ? <div>loading...</div> : <div> </div>} */}
     </>
   );

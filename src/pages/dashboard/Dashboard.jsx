@@ -38,8 +38,7 @@ const Dashboard = () => {
 
     const userData = useSelector((state) => state.auth.userData)
     useEffect(() => {
-        const access = document.cookie.split(';')
-        console.log(access)
+
 
     }, [])
 

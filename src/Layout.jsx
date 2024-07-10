@@ -6,51 +6,58 @@ import Container from './components/Container'
 import GotoTop from './components/GotoTop'
 import { LoadingContextProvider, NavContextProvider } from './context'
 import { Loading } from './components'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { login, logout } from './app/features/authSlice'
-
-
-
+import FetchCourses from './utils/FetchCourses'
 
 const Layout = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const checkUser = async () => {
-    const refreshToken = document.cookie
+  const courseData = useSelector((state) => state.course.courseData)
 
-    const currentUser = await fetch("http://localhost:8000/api/v1/users/refreshAccessToken ", {
-      mode: "cors",
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ refreshToken })
-    })
 
-    const existUser = await currentUser.json();
-    if (existUser.data) {
-      console.log("layoutdata: ", existUser.data)
-      const userData = existUser.data.user;
-      console.log('layout login: ', userData)
-      dispatch(login({ userData }));
-      navigate('/MyClass/dashboard')
-    } else {
-      dispatch(logout());
-    }
 
-    // .finally(() => setLoading(false));
-  }
 
+  const alreadyUser = useSelector((state) => state.auth.userData)
   useEffect(() => {
+    // console.log('\nbefore fetch from layout : ', alreadyUser)
 
-    checkUser();
+
+    if (!alreadyUser) {
+      const checkUser = async () => {
+        const refreshToken = document.cookie
+        //fetching user
+        const currentUser = await fetch("http://localhost:8000/api/v1/users/refreshAccessToken ", {
+          mode: "cors",
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ refreshToken })
+        })
+        // when user is fetched we update the state
+        const existUser = await currentUser.json();
+        if (existUser.data) {
+          const userData = existUser.data.user;
+          dispatch(login({ userData }));
+          navigate('/MyClass/dashboard')
+        } else {
+          dispatch(logout());
+
+        }
+
+      }
+
+      checkUser();
+    }
   }, [])
   return (
     <>
       <LoadingContextProvider>
         <NavContextProvider >       {/* context provider for practice  */}
 
+          <FetchCourses />
           <Loading />
           <Header />
           <Container>
