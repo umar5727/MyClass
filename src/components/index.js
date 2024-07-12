@@ -27,6 +27,7 @@ import Signout from "./Signout";
 import Loading from "./Loading";
 import ProtectedUser from "./ProtectedUser";
 import Input from "./Input";
+import Course from "./course/Course";
 
 export {
     Header,
@@ -57,5 +58,5 @@ export {
     Loading,
     ProtectedUser,
     Input,
-
+    Course,
 }

@@ -29,7 +29,7 @@ function Step1({ onSubmit }) {
         { value: 'Web Design', label: 'Web Design' },
         { value: 'Development', label: 'Development' },
         { value: 'Graphic Design', label: 'Graphic Design' },
-        { value: 'Marketing', label: 'Marketing' },
+        { value: 'Finance', label: 'Finance' },
     ]
     const levelOptions = [
         { value: 'Beginner', label: 'Beginner' },
@@ -50,10 +50,10 @@ function Step1({ onSubmit }) {
         },
 
         { name: 'courseLevel', label: 'Course level', type: 'text', placeholder: 'Select Course level', },
-        { name: 'courseTime', label: 'Course time', type: 'text', placeholder: 'Enter course time', value: courseTime, setValue: setCourseTime },
-        { name: 'totalLecture', label: 'Total lecture', type: 'text', placeholder: 'Enter total lecture', value: totalLecture, setValue: setTotalLecture },
-        { name: 'coursePrice', label: 'Course price', type: 'text', placeholder: 'Enter Course price', value: coursePrice, setValue: setCoursePrice },
-        { name: 'discountPrice', label: 'Discount price', type: 'text', placeholder: 'Enter Discount price', value: discountPrice, setValue: setDiscountPrice },
+        { name: 'courseTime', label: 'Course time ', type: 'number', placeholder: 'Enter course time in Hours', value: courseTime, setValue: setCourseTime },
+        { name: 'totalLecture', label: 'Total lecture', type: 'number', placeholder: 'Enter total lecture', value: totalLecture, setValue: setTotalLecture },
+        { name: 'coursePrice', label: 'Course price', type: 'number', placeholder: 'Enter Course price in ₹', value: coursePrice, setValue: setCoursePrice },
+        { name: 'discountPrice', label: 'Discount price', type: 'number', placeholder: 'Enter Discount price', value: discountPrice, setValue: setDiscountPrice },
 
     ]
     return (

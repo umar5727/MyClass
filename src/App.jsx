@@ -1,5 +1,5 @@
-import { useState, useEffect, useContext, lazy } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, lazy } from "react";
+import { useSelector } from "react-redux";
 import Layout from "./Layout";
 import { AboutUs, Contact, Courses, Home, ProductPage, InstructorSignUp } from "./pages";
 import {
@@ -7,7 +7,7 @@ import {
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
-  useNavigate,
+
 } from "react-router-dom";
 import { Login, ProtectedUser, Signout, Signup } from "./components";
 
@@ -19,7 +19,7 @@ const InstructorDashboard = lazy(() => import('./pages/dashboard/InstructorDashb
 
 
 function App() {
-
+  const courses = useSelector((state) => state.course.courseData)
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/MyClass/" element={<Layout />}>
@@ -27,7 +27,10 @@ function App() {
         <Route path="/MyClass/courses" element={<Courses />} />
         <Route path="/MyClass/about-us" element={<AboutUs />} />
         <Route path="/MyClass/contact" element={<Contact />} />
-        <Route path="/MyClass/course" element={<ProductPage />} />
+        <Route
+          path="/MyClass/courses/:courseId"    //dynamic course route
+          element={<ProductPage courses={courses} />}
+        />
         <Route path="/MyClass/signup" element={<Signup />} />
         <Route path="/MyClass/login" element={<Login />} />
         <Route path="/MyClass/InstructorSignUp" element={<InstructorSignUp />} />

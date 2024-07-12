@@ -22,7 +22,6 @@ const Layout = () => {
   useEffect(() => {
     // console.log('\nbefore fetch from layout : ', alreadyUser)
 
-
     if (!alreadyUser) {
       const checkUser = async () => {
         const refreshToken = document.cookie
@@ -46,9 +45,7 @@ const Layout = () => {
           dispatch(logout());
 
         }
-
       }
-
       checkUser();
     }
   }, [])

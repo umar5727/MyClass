@@ -60,6 +60,26 @@ export default {
       },
       backgroundImage: {
         'banner': 'url(./studentBanner.jpg)'
+      },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+        'shake': 'shake 0.82s cubic-bezier(.36,.07,.19,.97) both',
+      },
+      keyframes: {
+        'shake': {
+          '10%, 90%': {
+            transform: 'rotate(-1deg)'
+          },
+          '20%, 80%': {
+            transform: 'rotate(-2deg)'
+          },
+          '30%, 50%, 70%': {
+            transform: 'rotate(-4deg)'
+          },
+          '40%, 60%': {
+            transform: 'rotate(4deg)'
+          }
+        }
       }
     },
   },

@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import Button from "../Button";
 import ProductCard from "../ProductCard";
+import { useSelector } from "react-redux";
+import Course from "../course/Course";
 
 const Tabs = () => {
   const [tabState, setTabState] = useState(0);
+  const courseData = useSelector((state) => state.course.courseData)
+
+
+  console.log(courseData)
   const tabInfo = [
     {
       title: "Web Design",
@@ -480,9 +486,43 @@ const Tabs = () => {
       ],
     },
   ];
+  var indexData = courseData
   const handleClick = (index) => {
     setTabState(index);
-    // console.log(index);
+    console.log('tab index: ', index);
+
+    if (index === 0) {
+
+      indexData = courseData.filter(
+        (course) =>
+          course.department.toLowerCase().includes('web design')
+      )
+      console.log('filter tab : ', indexData)
+    }
+    if (index === 1) {
+
+      indexData = courseData.filter(
+        (course) =>
+          course.department.toLowerCase().includes('development')
+      )
+      console.log('filter tab : ', indexData)
+    }
+    if (index === 2) {
+
+      indexData = courseData.filter(
+        (course) =>
+          course.department.toLowerCase().includes('graphic design')
+      )
+      // console.log('filter tab : ', indexData)
+    }
+    if (index === 3) {
+
+      indexData = courseData.filter(
+        (course) =>
+          course.department.toLowerCase().includes('finance')
+      )
+      // console.log('filter tab : ', indexData)
+    }
   };
   return (
     <section className="mt-14 mb-12">
@@ -491,8 +531,9 @@ const Tabs = () => {
         <p>Choose from hundreds of courses from specialist organizations</p>
       </div>
       <div
-        className={`flex flex-wrap gap-2 w-full lg:justify-center bg-primary-light py-4 rounded-lg text-primary`}
+        className={`flex flex-wrap gap-2 w-full lg:justify-center bg-primary-light py-2 rounded-lg text-primary`}
       >
+
         {tabInfo.map((item, index) => (
           <Button
             className={
@@ -500,23 +541,30 @@ const Tabs = () => {
                 ? " text-white bg-primary font-semibold border-none cursor-auto"
                 : "bg-transparent font-semibold hover:text-black hover:bg-primary-light border-none"
             }
-            key={index}
+            index={index}
             onClick={() => handleClick(index)}
           >
             {item.title}
           </Button>
         ))}
       </div>
-      <div className="grid sm:grid-cols-2 gap-6 lg:grid-cols-3 xl:grid-cols-4 pt-5">
-        {tabInfo.map((item, index) => {
-          if (index === tabState) {
-            return item.content.map((course) => {
-              return <ProductCard key={course.id} product={course} />;
-            });
-          } else {
-            return;
-          }
-        })}
+      <div className="grid sm:grid-cols-2 gap-6 lg:grid-cols-3 xl:grid-cols-4 pt-5" >
+        {
+          indexData?.map((course, index) => (
+            <Course courseData={course} index={index} withPrice={false} />
+          ))
+        }
+        {
+          tabInfo.map((item, index) => {
+            if (index === tabState) {
+              return item.content.map((course, index) => {
+                return <ProductCard index={index} product={course} />;
+              });
+            } else {
+              return;
+            }
+          })
+        }
       </div>
     </section>
   );
