@@ -10,6 +10,7 @@ import {
   Tabs,
 } from "../components";
 import Loading from "../components/Loading";
+import FetchCourses from "../utils/FetchCourses";
 const Home = () => {
   const products = [
     {
@@ -78,14 +79,18 @@ const Home = () => {
       image: "https://placekitten.com/300/200", // Replace with your product image URL
     },
   ];
+
   useEffect(() => {
+    if (!window.scrollTo) return;
+
     window.scrollTo(0, 0);
+
   }, []);
   return (
     <main className=" dark:bg-boot-dark ">
+      <FetchCourses />
       {/* Home */}
       <TwoColumnHero />
-
       {/* <div className="flex flex-wrap justify-center mt-5">
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />

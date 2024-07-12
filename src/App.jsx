@@ -11,6 +11,8 @@ import {
 } from "react-router-dom";
 import { Login, ProtectedUser, Signout, Signup } from "./components";
 
+
+
 const DashboardLayout = lazy(() => import('./pages/dashboard/DashboardLayout'))
 const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'))     //lazy loading Dashboard
 const MyCourses = lazy(() => import("./pages/dashboard/MyCourses"));
@@ -24,27 +26,27 @@ function App() {
     createRoutesFromElements(
       <Route path="/MyClass/" element={<Layout />}>
         <Route path="" element={<Home />} />
-        <Route path="/MyClass/courses" element={<Courses />} />
-        <Route path="/MyClass/about-us" element={<AboutUs />} />
-        <Route path="/MyClass/contact" element={<Contact />} />
+        <Route path="courses" element={<Courses />} />
+        <Route path="about-us" element={<AboutUs />} />
+        <Route path="contact" element={<Contact />} />
         <Route
-          path="/MyClass/courses/:courseId"    //dynamic course route
+          path="courses/:courseId"    //dynamic course route
           element={<ProductPage courses={courses} />}
         />
-        <Route path="/MyClass/signup" element={<Signup />} />
-        <Route path="/MyClass/login" element={<Login />} />
-        <Route path="/MyClass/InstructorSignUp" element={<InstructorSignUp />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="login" element={<Login />} />
+        <Route path="InstructorSignUp" element={<InstructorSignUp />} />
 
         <Route element={<ProtectedUser />} >
           {/* Protected user route */}
-          <Route path="/MyClass/signOut" element={<Signout />} />
-          <Route path="/MyClass/dashboard" element={<DashboardLayout />} >
+          <Route path="signOut" element={<Signout />} />
+          <Route path="/MyClass/dashboard/" element={<DashboardLayout />} >
             <Route path="" element={<Dashboard />} />
-            <Route path="/MyClass/dashboard/myCourses" element={<MyCourses />} />
+            <Route path="myCourses" element={<MyCourses />} />
           </Route>
 
-          <Route path="/MyClass/InstructorDashboard" element={<InstructorDashboard />} />
-          <Route path='/MyClass/InstructorDashboard/createCourse' element={<CreateCourse />} />
+          <Route path="InstructorDashboard" element={<InstructorDashboard />} />
+          <Route path='InstructorDashboard/createCourse' element={<CreateCourse />} />
         </Route>
       </Route>,
     ),

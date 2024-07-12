@@ -22,7 +22,6 @@ const AboutUs = () => {
 
   }, []);
   const courseData = useSelector((state) => state.course.courseData)
-  console.log(courseData)
   return (
     <>
 

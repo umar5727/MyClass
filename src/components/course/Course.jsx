@@ -9,8 +9,6 @@ import { InsideViewport } from '../InsideViewport';
 const Course = ({ courseData, withPrice, index }) => {
 
     const [like, setLike] = useState(false)
-    console.log('id: ', courseData._id)
-    // console.log(courseData)
     var color;
     if (courseData.difficulty === 'All Level') {
         color =
@@ -26,7 +24,6 @@ const Course = ({ courseData, withPrice, index }) => {
     }
     var className;
     const handleScroll = () => {
-
     }
     useEffect(() => {
         console.log('effect')
@@ -36,7 +33,7 @@ const Course = ({ courseData, withPrice, index }) => {
     return (
         <div className=''>
             <div
-                key={index}
+
                 className="group flex flex-col lightShadow rounded-lg  w-full bg-white dark:bg-card-dark-bg  overflow-hidden h-full duration-200 hover:rotate-1 ">
                 <div className="overflow-hidden">
                     <img
@@ -47,7 +44,7 @@ const Course = ({ courseData, withPrice, index }) => {
                 </div>
 
                 {/* card content starts  */}
-                <Link to={`/MyClass/courses/${courseData._id}`} className='grow'>
+                <Link key={index} to={`/MyClass/courses/${courseData._id}`} className='grow'>
                     <div className="px-6 py-4 flex flex-col gap-2 text-sm h-full">
                         <div className="flex justify-between  items-center">
                             <p className={`${color} ${color} rounded-lg px-4 py-1  font-semibold mr-2`}>

@@ -8,7 +8,7 @@ import { LoadingContextProvider, NavContextProvider } from './context'
 import { Loading } from './components'
 import { useDispatch, useSelector } from 'react-redux'
 import { login, logout } from './app/features/authSlice'
-import FetchCourses from './utils/FetchCourses'
+
 
 const Layout = () => {
   const dispatch = useDispatch()
@@ -54,7 +54,7 @@ const Layout = () => {
       <LoadingContextProvider>
         <NavContextProvider >       {/* context provider for practice  */}
 
-          <FetchCourses />
+
           <Loading />
           <Header />
           <Container>

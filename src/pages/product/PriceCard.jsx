@@ -3,14 +3,40 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import Button from "../../components/Button";
 import { H2 } from "../../components";
+import { base_url } from "../../constants/constant";
+import { useSelector } from "react-redux";
 
-const PriceCard = ({ duration, department, totalLectures = 0, price = 0 }) => {
+const PriceCard = ({ duration, department, totalLectures = 0, price = 0, totalEnrolled = 1, courseId, }) => {
+  const userData = useSelector((state) => state.auth.userData)
+  const reqData = new FormData()
+  reqData.append('userId', userData._id)
+  const handleClick = async () => {
+    console.log('clicked', reqData.userId)
+    console.log(userData._id)
+    try {
+      const response = await fetch(base_url + `/enrolled/addEnrolled`, {
+        mode: 'cors',
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ 'userId': userData._id })
+      })
+      const enrolled = await response.json();
+      console.log('courses res : ', enrolled)
+
+
+    } catch (error) {
+      console.log('courses fetch error : ', error)
+    }
+
+  }
 
   const features = [
     {
       svg: faUser,
       title: 'Enrolled',
-      content: '1200 students'
+      content: `${totalEnrolled} students`
     },
     {
       svg: faClock,
@@ -72,7 +98,14 @@ const PriceCard = ({ duration, department, totalLectures = 0, price = 0 }) => {
           </span>
 
         </div>
-        <Button className="w-full hover:text-white mt-2">ENROLL COURSE</Button>
+        <div
+          onClick={handleClick}
+        >
+
+          <Button
+            className="w-full hover:text-white mt-2"
+          >ENROLL COURSE</Button>
+        </div>
       </div>
     </div>
   );

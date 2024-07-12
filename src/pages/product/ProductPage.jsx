@@ -1,16 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PriceCard from "./PriceCard";
 import TabsProduct from "./TabsProduct";
 import { H2, Product } from "../../components";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { base_url } from "../../constants/constant";
 
 const ProductPage = ({ courses }) => {
+  const [totalEnrolled, setTotalEnrolled] = useState(0)
   const { courseId } = useParams();  //getting coursee id from url
   console.log(courseId)
   const courseData = courses.find((course) => course._id === courseId)
-  console.log(courseData.duration, " course daa rp \n ", courses)
+  // console.log(courseData.duration, " course daa rp \n ", courses)
+
+  const userData = useSelector((state) => state.auth.userData)
+  console.log(userData)
+  const reqData = new FormData()
+  reqData.append('userId', userData._id)
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(base_url + `/enrolled/${courseId}`, {
+        mode: 'cors',
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reqData)
+      })
+      const enrolled = await response.json();
+
+      setTotalEnrolled(enrolled.totalenrolls)
+
+    } catch (error) {
+      console.log('courses fetch error : ', error)
+    }
+  }
 
   useEffect(() => {
+    fetchData();
+
     window.scrollTo(0, 0);
   }, []);
   return (
@@ -39,6 +68,9 @@ const ProductPage = ({ courses }) => {
               duration={courseData.duration}
               totalLectures={courseData.totalLectures}
               department={courseData.department}
+              totalEnrolled={totalEnrolled}
+              courseId={courseId}
+
             />
           </div>
           {/* PriceCard ends  */}

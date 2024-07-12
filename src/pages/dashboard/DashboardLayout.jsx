@@ -70,7 +70,7 @@ const DashboardLayout = () => {
                             userData.avatar ?
                                 <img src={userData.avatar} alt="" className="w-32 rounded-full" />
                                 :
-                                <img src="../userDemo.jpg" alt="" className="w-32 rounded-full" />
+                                <img src="userDemo.jpg" alt="" className="w-32 rounded-full" />
                         }
                     </div>
                     <div className="">
@@ -140,9 +140,9 @@ const DashboardLayout = () => {
                                 <Button className="hover:text-white">Create a Course</Button>
                             </Link>
                             :
-                            <div >
+                            <Link to="/MyClass/dashboard/myCourses" >
                                 <Button className="hover:text-white">View My Courses</Button>
-                            </div>
+                            </Link>
                     }
                 </div>
                 {/*top  right end s */}

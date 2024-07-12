@@ -45,7 +45,7 @@ const Profile = () => {
     [userData, loginstatus, navigate];
   // useEffect ends
   return (
-    <section ref={profileRef} className="relative">
+    <section ref={profileRef} className="relative z-[90]">
       <div
         className=" bg-primary rounded-full w-10 h-10 justify-center items-center cursor-pointer hover:opacity-80 overflow-hidden"
         onClick={() => setProfile(!profile)}

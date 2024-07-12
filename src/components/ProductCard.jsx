@@ -11,7 +11,7 @@ const ProductCard = ({ product, index }) => {
   const [like, setLike] = useState(false);
   return (
     <div
-      key={index}
+
       className="group lightShadow rounded-lg  w-full bg-white dark:bg-card-dark-bg  overflow-hidden  hover:rotate-1">
       <div className="overflow-hidden">
         <img
@@ -24,7 +24,7 @@ const ProductCard = ({ product, index }) => {
       {/* card bottom starts  */}
       <div className="px-6 py-4 flex flex-col gap-2 text-sm">
         <div className="flex justify-between  items-center">
-          <p className={`${product.color.primary} ${product.color.light} rounded-lg px-4 py-1  font-semibold mr-2`}>
+          <p className={`${product.color.primary} ${product.color.light} rounded-lg px-4 py-1  font-semibold mr-2`} key={index}>
             {product.category}
           </p>
           <div className="text-primary-danger cursor-pointer" onClick={() => setLike(!like)}>

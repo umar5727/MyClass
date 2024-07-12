@@ -11,17 +11,32 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   const { setNavToggle } = useContext(NavContext)
-
+  const [sticky, setSticky] = useState('')
   const user = useSelector((state) => state.auth.userData);
 
   // useEffect starts 
 
   useEffect(() => {
-    window.addEventListener("resize", () => setNavToggle(false));
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition >= 500) {
+        setSticky('sticky')
+      } else {
+        setSticky('')
+      }
+    }
+
+    window.addEventListener("resize", setNavToggle(false));
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener("resize", setNavToggle())
+      window.removeEventListener('scroll', handleScroll)
+    }
 
   }, []);
   return (
-    <header id="myClass" className="w-full relative">
+    <header id="myClass" className={`w-full top-0 z-[90] ${sticky} border-b dark:border-b-gray-500 bg-white dark:bg-primary-dark`}>
       <Container>
         <div className="flex justify-between items-center bg-white h-16 dark:bg-primary-dark transition-colors duration-200">
           <Logo />
