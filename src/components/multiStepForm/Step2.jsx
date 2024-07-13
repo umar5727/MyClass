@@ -19,7 +19,7 @@ function Step2({ onSubmit }) {
                     Course media
                 </div>
 
-                <div className="flex flex-col gap-2 items-center justify-center rounded-md outline-1 outline-dashed outline-gray-300 dark:outline-gray-700 ">
+                <div className="flex flex-col gap-2 items-center justify-center rounded-md outline-1 outline-dashed outline-gray-300 dark:outline-gray-700 pb-6">
                     <div className="w-64 rounded-md  overflow-hidden pt-10">
                         {courseImage ? (
                             <img src={URL.createObjectURL(courseImage)} className="w-full h-full" />
@@ -37,7 +37,7 @@ function Step2({ onSubmit }) {
                     />
                     <label
                         htmlFor="courseImage"
-                        className={!courseImage ? "cursor-pointer dark:bg-primary-dark  hover:bg-primary hover:text-white dark:hover:bg-primary pt-2 px-6 rounded-md font-semibold border border-primary transition-colors duration-300" : "cursor-pointer pb-10"}
+                        className={!courseImage ? "cursor-pointer dark:bg-primary-dark  hover:bg-primary hover:text-white dark:hover:bg-primary py-2 px-6 rounded-md font-semibold border border-primary transition-colors duration-300" : "cursor-pointer pb-10"}
                     >
                         {
 

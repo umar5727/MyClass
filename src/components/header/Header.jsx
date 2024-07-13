@@ -36,7 +36,7 @@ const Header = () => {
 
   }, []);
   return (
-    <header id="myClass" className={`w-full top-0 z-[90] ${sticky} border-b dark:border-b-gray-500 bg-white dark:bg-primary-dark`}>
+    <header id="myClass" className={`w-full top-0 z-[90] ${sticky} border-b dark:border-b-gray-500 duration-200 bg-white dark:bg-primary-dark`}>
       <Container>
         <div className="flex justify-between items-center bg-white h-16 dark:bg-primary-dark transition-colors duration-200">
           <Logo />

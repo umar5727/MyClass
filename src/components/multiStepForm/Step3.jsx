@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
 import Button from "../Button";
 import { useNavigate } from "react-router-dom";
+import { base_url } from "../../constants/constant";
 
 function Step3({ formData }) {
     const navigate = useNavigate()
     const userData = useSelector((state) => state.auth.userData)
 
     const handleClick = async () => {
-
         const reqData = new FormData()
         reqData.append('title', formData.title)
         reqData.append('shortDescription', formData.shortDescription)
@@ -21,21 +21,21 @@ function Step3({ formData }) {
         reqData.append('instructor', userData._id)
 
         // console.log('reqData : ', reqData)
-        const createCourses = await fetch("http://localhost:8000/api/v1/courses/createCourse", {
+        const createCourses = await fetch(base_url + "/courses/createCourse", {
             mode: 'cors',
             method: 'POST',
             // headers: { "Content-Type": "multipart/form-data" },
             body: reqData
         })
         const response = await createCourses.json();
-        console.log(response + "\n" + response.message + "\n" + response.course)
+        // console.log(response + "\n" + response.message + "\n" + response.course)
         if (response.course) {
-            console.log('this is from response ')
-            navigate("./")
+            // console.log('this is from response ')
+            navigate("/MyClass/InstructorDashboard")
         }
 
     }
-
+    // console.log(formData)
     return (
 
         <div className="pb-14">

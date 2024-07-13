@@ -26,34 +26,33 @@ function Step1({ onSubmit }) {
     // label, name, type, placeholder
     const categoryOptions = [
 
-        { value: 'Web Design', label: 'Web Design' },
-        { value: 'Development', label: 'Development' },
-        { value: 'Graphic Design', label: 'Graphic Design' },
-        { value: 'Finance', label: 'Finance' },
+        { value: 'Web Design', label: 'Web Design', id: 0 },
+        { value: 'Development', label: 'Development', id: 1 },
+        { value: 'Graphic Design', label: 'Graphic Design', id: 2 },
+        { value: 'Finance', label: 'Finance', id: 3 },
     ]
     const levelOptions = [
-        { value: 'Beginner', label: 'Beginner' },
-        { value: 'Intermediate', label: 'Intermediate' },
-        // { value: 'Advance', label: 'Advance' },
-        { value: 'All Level', label: 'All Level' },
+        { value: 'Beginner', label: 'Beginner', id: 4 },
+        { value: 'Intermediate', label: 'Intermediate', id: 5 },
+        { value: 'All Level', label: 'All Level', id: 6 },
     ]
 
 
 
     // const className;
     const fields = [
-        { name: 'title', label: 'Course title', type: 'text', placeholder: 'Enter course title', value: title, setValue: setTitle },
-        { name: 'shortDescription', label: 'Short description', type: 'textarea', placeholder: 'Enter keywords', value: shortDescription, setValue: setShortDescription },
+        { name: 'title', label: 'Course title', type: 'text', placeholder: 'Enter course title', value: title, setValue: setTitle, id: 7 },
+        { name: 'shortDescription', label: 'Short description', type: 'textarea', placeholder: 'Enter keywords', value: shortDescription, setValue: setShortDescription, id: 8 },
         {
-            name: 'courseCategory', label: 'Course category', type: 'text', placeholder: 'Select category',
+            name: 'courseCategory', label: 'Course category', type: 'text', placeholder: 'Select category', id: 9,
 
         },
 
-        { name: 'courseLevel', label: 'Course level', type: 'text', placeholder: 'Select Course level', },
-        { name: 'courseTime', label: 'Course time ', type: 'number', placeholder: 'Enter course time in Hours', value: courseTime, setValue: setCourseTime },
-        { name: 'totalLecture', label: 'Total lecture', type: 'number', placeholder: 'Enter total lecture', value: totalLecture, setValue: setTotalLecture },
-        { name: 'coursePrice', label: 'Course price', type: 'number', placeholder: 'Enter Course price in ₹', value: coursePrice, setValue: setCoursePrice },
-        { name: 'discountPrice', label: 'Discount price', type: 'number', placeholder: 'Enter Discount price', value: discountPrice, setValue: setDiscountPrice },
+        { name: 'courseLevel', label: 'Course level', type: 'text', placeholder: 'Select Course level', id: 10 },
+        { name: 'courseTime', label: 'Course time ', type: 'number', placeholder: 'Enter course time in Hours', value: courseTime, setValue: setCourseTime, id: 11 },
+        { name: 'totalLecture', label: 'Total lecture', type: 'number', placeholder: 'Enter total lecture', value: totalLecture, setValue: setTotalLecture, id: 12 },
+        { name: 'coursePrice', label: 'Course price', type: 'number', placeholder: 'Enter Course price in ₹', value: coursePrice, setValue: setCoursePrice, id: 13 },
+        { name: 'discountPrice', label: 'Discount price', type: 'number', placeholder: 'Enter Discount price', value: discountPrice, setValue: setDiscountPrice, id: 14 },
 
     ]
     return (
@@ -67,7 +66,7 @@ function Step1({ onSubmit }) {
             <form onSubmit={handleSubmit} >
                 <div className="grid grid-cols-2 gap-6 pb-6 mb-6 border-b border-gray-300 dark:border-gray-700">
                     {
-                        fields.map((field, index) => {
+                        fields.map((field) => {
                             let className;
                             if (field.name === 'title' || field.name === 'shortDescription') {
                                 className = "col-span-2"
@@ -82,6 +81,7 @@ function Step1({ onSubmit }) {
                                                 defaultValue={selectCategory}
                                                 onChange={(state) => setSelectCategory(state.value)}
                                                 options={categoryOptions}
+                                                key={field.id}
                                                 required
                                                 name={field.name}
                                                 styles={{
@@ -122,7 +122,7 @@ function Step1({ onSubmit }) {
                                                 onChange={(state) => setCourseLevel(state.value)}
                                                 options={levelOptions}
                                                 required
-                                                key={index}
+                                                key={field.id}
                                                 name={field.name}
                                                 styles={{
                                                     singleValue: (baseStyles, state) => ({
@@ -163,7 +163,7 @@ function Step1({ onSubmit }) {
                                     placeholder={field.placeholder}
                                     value={field.title}
                                     setValue={field.setValue}
-                                    index={index}
+                                    key={field.id}
                                     className={className}
                                 // required
                                 />

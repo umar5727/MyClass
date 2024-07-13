@@ -8,6 +8,7 @@ import { LoadingContextProvider, NavContextProvider } from './context'
 import { Loading } from './components'
 import { useDispatch, useSelector } from 'react-redux'
 import { login, logout } from './app/features/authSlice'
+import { base_url } from './constants/constant'
 
 
 const Layout = () => {
@@ -26,7 +27,7 @@ const Layout = () => {
       const checkUser = async () => {
         const refreshToken = document.cookie
         //fetching user
-        const currentUser = await fetch("http://localhost:8000/api/v1/users/refreshAccessToken ", {
+        const currentUser = await fetch(base_url + "/users/refreshAccessToken ", {
           mode: "cors",
           method: "POST",
           credentials: "include",

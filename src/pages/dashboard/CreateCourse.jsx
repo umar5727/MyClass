@@ -4,9 +4,7 @@ import MultiStepForm from '../../components/multiStepForm/MultiStepForm'
 const CreateCourse = () => {
     return (
         <div className='mt-10 mb-16'>
-            {/* <div className='w-screen my-0 m-[calc(-50vw+50%)] mb-10 '>
-                <img src="/MyClass/public/studentBanner.jpg" alt="banner" className='w-full h-52 object-cover' />
-            </div> */}
+
             <div className="bg-[url('../public/studentBanner.jpg')] h-52 object-cover bg-no-repeat flex justify-center items-center bg-cover w-screen my-0 m-[calc(-50vw+50%)] mb-5 font-extrabold text-5xl text-white">
                 Create  a new Course
             </div>

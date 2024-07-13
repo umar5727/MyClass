@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, } from 'react-redux';
 import { login } from '../app/features/authSlice';
+import { base_url } from '../constants/constant';
 const Signout = () => {
 
     const navigate = useNavigate();
@@ -9,17 +10,17 @@ const Signout = () => {
     const dispatch = useDispatch();
 
     const handler = async () => {
-        const accesstoken = localStorage.getItem('accessToken')
-        console.log(accesstoken)
 
-        const signOut = await fetch("http://localhost:8000/api/v1/users/signOut", {
+        // console.log(accesstoken)
+
+        const signOut = await fetch(base_url + "/users/signOut", {
             mode: 'cors',
-            method: 'POST',
+            method: 'GET',
             credentials: 'include',
             headers: {
                 "Content-Type": "application/json",
             },
-            // body: JSON.stringify(userData._id)
+
         })
         const response = await signOut.json()
         console.log(response.message)

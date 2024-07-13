@@ -26,7 +26,7 @@ const Course = ({ courseData, withPrice, index }) => {
     const handleScroll = () => {
     }
     useEffect(() => {
-        console.log('effect')
+        // console.log('effect')
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])

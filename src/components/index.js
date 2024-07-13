@@ -1,5 +1,5 @@
 // import Header from "./Header";
-import Profile from "./Profile";
+
 import Button from "./Button";
 import Tabs from "./tabs/Tabs";
 import Navigation from "./header/Navigation";
@@ -31,7 +31,6 @@ import Course from "./course/Course";
 
 export {
     Header,
-    Profile,
     Button,
     Tabs,
     Navigation,

@@ -17,6 +17,7 @@ const DashboardLayout = lazy(() => import('./pages/dashboard/DashboardLayout'))
 const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'))     //lazy loading Dashboard
 const MyCourses = lazy(() => import("./pages/dashboard/MyCourses"));
 const CreateCourse = lazy(() => import('./pages/dashboard/CreateCourse'))
+const EditProfile = lazy(() => import('./pages/dashboard/EditProfile'))
 const InstructorDashboard = lazy(() => import('./pages/dashboard/InstructorDashboard'))
 
 
@@ -43,10 +44,15 @@ function App() {
           <Route path="/MyClass/dashboard/" element={<DashboardLayout />} >
             <Route path="" element={<Dashboard />} />
             <Route path="myCourses" element={<MyCourses />} />
+            <Route path='editProfile' element={<EditProfile />} />
           </Route>
+          <Route path="/MyClass/InstructorDashboard/" element={<DashboardLayout />} >
+            <Route path="" element={<InstructorDashboard />} />
+            <Route path="myCourses" element={<MyCourses />} />
+            <Route path='editProfile' element={<EditProfile />} />
+          </Route>
+          <Route path='/MyClass/InstructorDashboard/createCourse' element={<CreateCourse />} />
 
-          <Route path="InstructorDashboard" element={<InstructorDashboard />} />
-          <Route path='InstructorDashboard/createCourse' element={<CreateCourse />} />
         </Route>
       </Route>,
     ),
@@ -55,18 +61,11 @@ function App() {
 
   useEffect(() => {
 
-    // lodingHandler();
-
-    //loading setup
-
-
   }, []);
 
   return (
     <>
       <RouterProvider router={router} />
-
-      {/* {loading ? <div>loading...</div> : <div> </div>} */}
     </>
   );
 }

@@ -1,10 +1,10 @@
 import { faClipboardCheck, faMedal, faTv, } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect } from 'react'
+import React, { lazy, useEffect } from 'react'
 import { useSelector } from 'react-redux';
-import { Button, SmallCard } from '../../components';
+import { SmallCard } from '../../components';
 
-import MyCourses from './MyCourses';
+const MyCourses = lazy(() => import("./MyCourses"));
 
 
 const Dashboard = () => {

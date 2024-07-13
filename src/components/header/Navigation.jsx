@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import NavContext from "../../context/navcontext/NavContext";
 import { useSelector } from "react-redux";
@@ -12,7 +12,10 @@ const Navigation = ({ }) => {
     { name: "About Us", slug: "/MyClass/about-us" },
     { name: "Contact Us", slug: "/MyClass/contact" }
   ];
-  if (userData) {
+  if (userData?.role === 'instructor') {
+    navItems.push({ name: "Dashboard", slug: "/MyClass/InstructorDashboard" })
+  }
+  else if (userData?.role === 'learner') {
     navItems.push({ name: "Dashboard", slug: "/MyClass/dashboard" })
   }
 

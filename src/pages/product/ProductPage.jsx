@@ -9,14 +9,10 @@ import { base_url } from "../../constants/constant";
 const ProductPage = ({ courses }) => {
   const [totalEnrolled, setTotalEnrolled] = useState(0)
   const { courseId } = useParams();  //getting coursee id from url
-  console.log(courseId)
+
   const courseData = courses.find((course) => course._id === courseId)
   // console.log(courseData.duration, " course daa rp \n ", courses)
 
-  const userData = useSelector((state) => state.auth.userData)
-  console.log(userData)
-  const reqData = new FormData()
-  reqData.append('userId', userData._id)
 
   const fetchData = async () => {
     try {
@@ -26,7 +22,7 @@ const ProductPage = ({ courses }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(reqData)
+
       })
       const enrolled = await response.json();
 

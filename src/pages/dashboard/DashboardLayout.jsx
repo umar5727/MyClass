@@ -1,26 +1,15 @@
-import { faBasketShopping, faBell, faBook, faBorderAll, faCartShopping, faCheckCircle, faClipboardCheck, faFolder, faGear, faMedal, faPencilSquare, faQuestionCircle, faSignOut, faStar, faTv, faUserGraduate, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { faBasketShopping, faBell, faBook, faBorderAll, faCartShopping, faCheckCircle, faClipboardCheck, faGear, faMedal, faPencilSquare, faQuestionCircle, faSignOut, faStar, faTv, faUserGraduate, faUserGroup, } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
-import { Button, SmallCard } from '../../components';
+import { Button } from '../../components';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { faRectangleList } from '@fortawesome/free-regular-svg-icons';
 
 const DashboardLayout = () => {
+    const userData = useSelector((state) => state.auth.userData)
+    const [fields, setFields] = useState([])
 
-    const fields = [
-        { name: "Dashboard", slug: "/MyClass/dashboard", icon: faBorderAll, },
-        { name: "My Subscriptions", slug: "/#", icon: faRectangleList },
-        { name: "My Courses", slug: "/MyClass/dashboard/myCourses", icon: faBasketShopping },
-        { name: "Course Resume", slug: "/#", icon: faQuestionCircle },
-        { name: "Quiz", slug: "/#", icon: faQuestionCircle },
-        { name: "Wishlist", slug: "/#", icon: faCartShopping },
-        { name: "Reviews", slug: "/#", icon: faStar },
-        { name: "Edit Profile", slug: "/#", icon: faPencilSquare },
-        { name: "Notification", slug: "/#", icon: faBell },
-        { name: "Settings", slug: "/#", icon: faGear },
-        { name: "Sign Out", slug: "/#", icon: faSignOut },
-    ];
     const cards = [
         {
             className: "bg-primary-yellow-light",
@@ -48,11 +37,42 @@ const DashboardLayout = () => {
         },
     ];
 
-    const userData = useSelector((state) => state.auth.userData)
+    // console.log(fields)
+
     useEffect(() => {
 
-
-    }, [])
+        if (userData.role === 'instructor') {
+            setFields([
+                { name: "DashBoard", slug: "/MyClass/InstructorDashboard", icon: faBorderAll, },
+                { name: "My Courses", slug: "/MyClass/InstructorDashboard/myCourses", icon: faBasketShopping },
+                { name: "Students", slug: "/students", icon: faUserGroup },
+                { name: "Reviews", slug: "/#", icon: faStar },
+                { name: "Notification", slug: "/#", icon: faBell },
+                { name: "Create Quiz", slug: "/#", icon: faQuestionCircle },
+                // { name: "Create Course", slug: "/MyClass/InstructorDashboard/createCourse" },
+                { name: "Edit Profile", slug: "/MyClass/InstructorDashboard/editProfile", icon: faPencilSquare },
+                { name: "Remove Student", slug: "/#" },
+                { name: "Sign Out", slug: "/MyClass/signOut", icon: faSignOut },
+            ])
+        }
+        else {
+            setFields(
+                [
+                    { name: "Dashboard", slug: "/MyClass/dashboard", icon: faBorderAll, },
+                    { name: "My Subscriptions", slug: "/#", icon: faRectangleList },
+                    { name: "My Courses", slug: "/MyClass/dashboard/myCourses", icon: faBasketShopping },
+                    { name: "Course Resume", slug: "/#", icon: faQuestionCircle },
+                    { name: "Quiz", slug: "/#", icon: faQuestionCircle },
+                    { name: "Wishlist", slug: "/#", icon: faCartShopping },
+                    { name: "Reviews", slug: "/#", icon: faStar },
+                    { name: "Edit Profile", slug: "/MyClass/dashboard/editProfile", icon: faPencilSquare },
+                    { name: "Notification", slug: "/#", icon: faBell },
+                    { name: "Settings", slug: "/#", icon: faGear },
+                    { name: "Sign Out", slug: "/#", icon: faSignOut },
+                ]
+            )
+        }
+    }, [userData.role])
 
     return (
 

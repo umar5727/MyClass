@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
-import { useDispatch } from "react-redux";
-import { login } from "../app/features/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import H1 from "./heading/H1";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { base_url } from "../constants/constant";
 
 const Signup = ({ role = 'learner' }) => {
   const [fullName, setFullName] = useState("");
@@ -44,7 +43,7 @@ const Signup = ({ role = 'learner' }) => {
 
   const submitForm = async (e) => {
     e.preventDefault();
-    console.log(fullName, email, password);
+    // console.log(fullName, email, password);
     // console.log('\nrole: ' + role + "\n")
     const formData = new FormData();
     formData.append("fullName", fullName);
@@ -54,7 +53,7 @@ const Signup = ({ role = 'learner' }) => {
     formData.append("role", role);
 
     try {
-      const signUp = await fetch("http://localhost:8000/api/v1/users/register", {
+      const signUp = await fetch(base_url + "/users/register", {
         // mode: "no-cors",
         mode: "cors",
         method: "POST",
@@ -171,12 +170,13 @@ const Signup = ({ role = 'learner' }) => {
             />
             <label
               htmlFor="avatar"
-              className={!avatar ? "cursor-pointer dark:bg-primary-dark  hover:bg-primary hover:text-white dark:hover:bg-primary py-1 px-4 rounded-md font-semibold border border-primary transition-colors duration-300" : "cursor-pointer"}
+              className={!avatar ? "" : "flex flex-col gap-1"}
             >
               {
 
-                avatar ? <span>{avatar.name} </span> : <span>Choose Photo</span>
+                avatar ? <span>{avatar.name} </span> : <></>
               }
+              <span className="cursor-pointer dark:bg-primary-dark  hover:bg-primary hover:text-white dark:hover:bg-primary py-1 px-4 rounded-md font-semibold border border-primary transition-colors duration-300">Choose Photo</span>
 
             </label>
           </div>

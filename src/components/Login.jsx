@@ -7,6 +7,7 @@ import H1 from "./heading/H1";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { login } from "../app/features/authSlice";
+import { base_url } from "../constants/constant";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -17,16 +18,15 @@ const Login = () => {
 
 
   const loginHandler = async (data) => {
-    // e.preventDefault();
+
     setError(""); //when submit form clearing the error and starting login process
 
-    //getting the data from reactHookForm
     const email = data.email;
     const password = data.password;
     try {
       console.log("email :- " + email);
       // fetch starts
-      const response = await fetch("http://localhost:8000/api/v1/users/login", {
+      const response = await fetch(base_url + "/users/login", {
         mode: "cors",
         method: "POST",
         credentials: 'include',
@@ -49,14 +49,14 @@ const Login = () => {
       console.log("if user: ", userData.fullName);
       dispatch(login({ userData })); //dispatching
 
-      // localStorage.setItem('localUser', JSON.stringify(userData)) updated localstorage on authSlice redux
-      // setSuccess(true)
       console.log("\n role: ", userData.role)
-      // if (userData.role === 'learner') {
-
-      navigate('/MyClass/dashboard')
-      // }
-      // navigate('/MyClass/')
+      // setPopup(false)
+      // setPopup(true)
+      if (userData.role === 'instructor') {
+        navigate('/MyClass/InstructorDashboard')
+      } else {
+        navigate('/MyClass/dashboard')
+      }
 
     } catch (error) {
       console.log('\nerror form backend : ', error)
@@ -64,8 +64,6 @@ const Login = () => {
     }
 
   };
-
-
 
   return (
     <div className="sm:mx-20 flex items-center flex-col lg:flex-row lg:items-start lg:justify-between  py-20">

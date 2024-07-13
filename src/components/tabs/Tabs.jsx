@@ -1,16 +1,11 @@
-import React, { useState } from "react";
-import Button from "../Button";
-import ProductCard from "../ProductCard";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Course from "../course/Course";
 
 const Tabs = () => {
   const courseData = useSelector((state) => state.course.courseData)
   const [tabState, setTabState] = useState(0);
-  const [indexData, setIndexData] = useState(courseData?.filter(
-    (course) =>
-      course.department.toLowerCase().includes('web design')
-  ))
+  const [indexData, setIndexData] = useState(null)
 
   const tabs = [
     {
@@ -543,7 +538,18 @@ const Tabs = () => {
     }
   };
 
+  // console.log(indexData);
 
+  useEffect(() => {
+    if (!indexData) {
+
+      setIndexData(courseData?.filter(
+        (course) =>
+          course.department.toLowerCase().includes('web design')
+      )
+      )
+    }
+  }, [indexData, courseData])
   return (
     <section className="mt-24 mb-14">
       <div className="text-center  dark:text-white pb-5">
@@ -572,10 +578,15 @@ const Tabs = () => {
       </div>
       <div className="grid sm:grid-cols-2 gap-6 lg:grid-cols-3 xl:grid-cols-4 pt-5" >
         {
-          indexData?.map((course, index) => (
-            <Course courseData={course} key={index} withPrice={false} />
-          ))
+          (indexData?.length) ?
+            indexData.map((course, index) => (
+              <Course courseData={course} key={index} withPrice={false} />
+            ))
+            :
+            <div className="pb-20 col-span-4 text-center dark:text-white text-3xl">More Courses are comming soon...</div>
+
         }
+
         {/* {
           tabInfo.map((item, index) => {
             if (index === tabState) {
