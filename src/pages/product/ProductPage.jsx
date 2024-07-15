@@ -3,7 +3,6 @@ import PriceCard from "./PriceCard";
 import TabsProduct from "./TabsProduct";
 import { H2, Product } from "../../components";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { base_url } from "../../constants/constant";
 
 const ProductPage = ({ courses }) => {
@@ -11,8 +10,6 @@ const ProductPage = ({ courses }) => {
   const { courseId } = useParams();  //getting coursee id from url
 
   const courseData = courses.find((course) => course._id === courseId)
-  // console.log(courseData.duration, " course daa rp \n ", courses)
-
 
   const fetchData = async () => {
     try {
@@ -22,10 +19,8 @@ const ProductPage = ({ courses }) => {
         headers: {
           "Content-Type": "application/json",
         },
-
       })
       const enrolled = await response.json();
-
       setTotalEnrolled(enrolled.totalenrolls)
 
     } catch (error) {

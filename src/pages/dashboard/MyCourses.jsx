@@ -1,8 +1,9 @@
 import React from 'react'
 import { Button } from '../../components'
+import { useSelector } from 'react-redux'
 
-const MyCourses = () => {
-
+const MyCourses = ({ }) => {
+    const userCourses = useSelector((state) => state.auth.userCoursesData)
     const courses = [
         { name: 'web dev', image: '/MyClass/public/python.jpg', progress: 20, totalLectures: 40, completedLectures: 10, action: 'continue', },
         { name: 'web dev', image: '/MyClass/public/python.jpg', progress: 20, totalLectures: 40, completedLectures: 10, action: 'continue', }
@@ -40,28 +41,29 @@ const MyCourses = () => {
                         </div>
                         {/* coursess header ends */}
                         {/* row */}
+
                         <div className="flex flex-col mb-2">
                             {
-                                courses.map((course, index) => (
+                                userCourses?.map((course, index) => (
                                     <div key={index} className='grid grid-cols-6  rounded-md  p-2 py-4   border-b-2 border-primary-light hover:bg-primary-light'>
                                         <div className="col-span-3 flex gap-2 items-center">
                                             <div className='w-[100px] '>
-                                                <img src="/MyClass/python.jpg" alt="thumbnail" className='rounded-md' />
+                                                <img src={course.courseDetails.thumbNail} alt="thumbnail" className='rounded-md' />
                                             </div>
                                             <div className='font-bold'>
                                                 <div>
-                                                    {course.name}
+                                                    {course.courseDetails.title}
 
                                                 </div>
                                                 <div>
-                                                    {course.progress}
+                                                    {/* {course.} */}
                                                 </div>
                                             </div>
                                         </div>
                                         {/* course title ends  */}
-                                        <div className="flex items-center justify-center"> {course.totalLectures} </div>
-                                        <div className=" flex items-center justify-center">{course.completedLectures}</div>
-                                        <div className=" flex items-center justify-center">{course.action}</div>
+                                        <div className="flex items-center justify-center"> {course.courseDetails.totalLectures} </div>
+                                        <div className=" flex items-center justify-center">0</div>
+                                        <div className=" flex items-center justify-center">{course.createdAt.slice(0, 10)}</div>
                                     </div>
                                 ))
                             }

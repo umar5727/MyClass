@@ -17,9 +17,10 @@ const PriceCard = ({ duration, department, totalLectures = 0, price = 0, totalEn
       navigate("/MyClass/login")
     }
     try {
-      const response = await fetch(base_url + `/enrolled/addEnrolled`, {
+      const response = await fetch(base_url + `/enrolled/${courseId}/addEnrolled`, {
         mode: 'cors',
         method: 'POST',
+        credentials: 'include',
         headers: {
           "Content-Type": "application/json",
         },
@@ -27,7 +28,6 @@ const PriceCard = ({ duration, department, totalLectures = 0, price = 0, totalEn
       })
       const enrolled = await response.json();
       console.log('courses res : ', enrolled)
-
 
     } catch (error) {
       console.log('courses fetch error : ', error)

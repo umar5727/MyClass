@@ -1,10 +1,11 @@
 import { faClipboardCheck, faMedal, faTv, } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { lazy, useEffect } from 'react'
-import { useSelector } from 'react-redux';
+import React, { lazy, Suspense, useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { SmallCard } from '../../components';
-
-const MyCourses = lazy(() => import("./MyCourses"));
+import { base_url } from '../../constants/constant';
+import MyCourses from './MyCourses';
+import { UserCourses } from '../../app/features/authSlice';
 
 
 const Dashboard = () => {
@@ -35,10 +36,41 @@ const Dashboard = () => {
             iconName: faMedal,
         },
     ];
-
+    const dispatch = useDispatch()
     const userData = useSelector((state) => state.auth.userData)
-    useEffect(() => {
+    const coursesData = useSelector((state) => state.auth.userCoursesData)
 
+
+    const userProfile = async () => {
+        try {
+            const response = await fetch(base_url + '/users/userProfile', {
+                mode: 'cors',
+                method: 'POST',
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json",
+
+                },
+                body: JSON.stringify({ "userId": userData._id })
+            })
+            const courseData = await response.json();
+            console.log('courses pipline : ', courseData)
+            console.log('\n pipline : ', courseData.userCourses)
+            // const courseData = response.courses
+            const userCoursesData = courseData.userCourses
+            dispatch(UserCourses({ userCoursesData }))
+
+        } catch (error) {
+            console.log('courses fetch error : ', error)
+        }
+    }
+
+    // const userCourses = useSelector((state) => state.auth.userCoursesData)
+
+    useEffect(() => {
+        if (!coursesData) {
+            userProfile()
+        }
 
     }, [])
 
@@ -68,7 +100,11 @@ const Dashboard = () => {
             </section>
             {/* small cards ends  */}
             {/* My courses  */}
-            <MyCourses />
+
+            <MyCourses
+            // userCourses={userCourses}
+            />
+
 
         </>
     );
