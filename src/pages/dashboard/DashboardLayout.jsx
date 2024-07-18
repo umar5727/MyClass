@@ -79,7 +79,7 @@ const DashboardLayout = () => {
         <div className="mt-5 font-medium">
             <div className='w-screen my-0 m-[calc(-50vw+50%)] '>
 
-                <img src="/MyClass/public/studentBanner.jpg" alt="banner" className='w-full h-52 object-cover' />
+                <img src="../public/studentBanner.jpg" alt="banner" className='w-full h-52 object-cover' />
             </div>
             {/* top starts  */}
             <section className="top flex justify-between items-center ">

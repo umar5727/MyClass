@@ -20,7 +20,7 @@ const TwoColumnHero = () => {
       {/* Left Column */}
       <div className="lg:w-3/5 py-8  flex flex-col gap-8 justify-center items-center text-center lg:text-left lg:items-start md:py-0 relative">
         <div>
-          <img src="public/dots.png" alt="" className="absolute top-28 -left-32 w-52 -z-20 opacity-30 rotate-180" />
+          <img src="dots.png" alt="" className="absolute top-28 -left-32 w-52 -z-20 opacity-30 rotate-180" />
         </div>
         <h1 className="text-4xl md:text-6xl font-bold  text-primary-text-heading dark:text-white">
           Explore Boundless Learning Anytime, Anywhere

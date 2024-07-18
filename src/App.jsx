@@ -54,6 +54,7 @@ function App() {
           <Route path='/MyClass/InstructorDashboard/createCourse' element={<CreateCourse />} />
 
         </Route>
+        <Route path='*' element={ } />
       </Route>,
     ),
   );
