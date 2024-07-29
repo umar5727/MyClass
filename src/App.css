@@ -9,6 +9,9 @@ table>* {
   padding: 8px
 }
 
-inut:-internal-autofill-selected {
-  background-color: none;
+input:-webkit-autofill {
+  background-color: #b32b2b;
+  /* Change to your desired background color */
+  -webkit-text-fill-color: #000;
+  /* Optional: Set text color for contrast */
 }

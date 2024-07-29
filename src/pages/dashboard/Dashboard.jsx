@@ -37,6 +37,7 @@ const Dashboard = () => {
         },
     ];
     const dispatch = useDispatch()
+
     const userData = useSelector((state) => state.auth.userData)
     const coursesData = useSelector((state) => state.auth.userCoursesData)
 
@@ -69,6 +70,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         if (!coursesData) {
+            // dispatch(UserCourses(''))
             userProfile()
         }
 

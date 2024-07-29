@@ -1,7 +1,7 @@
 import { useEffect, lazy } from "react";
 import { useSelector } from "react-redux";
 import Layout from "./Layout";
-import { AboutUs, Contact, Courses, Home, ProductPage, InstructorSignUp } from "./pages";
+import { AboutUs, Contact, Courses, Home, ProductPage, InstructorSignUp, ErrorPage } from "./pages";
 import {
   Route,
   RouterProvider,
@@ -37,7 +37,6 @@ function App() {
         <Route path="signup" element={<Signup />} />
         <Route path="login" element={<Login />} />
         <Route path="InstructorSignUp" element={<InstructorSignUp />} />
-
         <Route element={<ProtectedUser />} >
           {/* Protected user route */}
           <Route path="signOut" element={<Signout />} />
@@ -54,7 +53,7 @@ function App() {
           <Route path='/MyClass/InstructorDashboard/createCourse' element={<CreateCourse />} />
 
         </Route>
-        <Route path='*' element={ } />
+        <Route path='*' element={<ErrorPage />} />
       </Route>,
     ),
   );

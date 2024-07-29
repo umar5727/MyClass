@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, } from 'react-redux';
-import { login } from '../app/features/authSlice';
+import { login, UserCourses } from '../app/features/authSlice';
 import { base_url } from '../constants/constant';
 const Signout = () => {
 
@@ -27,8 +27,10 @@ const Signout = () => {
     }
     useEffect(() => {
         const userData = null;
+        const courseData = null;
         handler();
         dispatch(login({ userData }))
+        dispatch(UserCourses({ courseData }))
         navigate('/MyClass/')
 
     }, [])

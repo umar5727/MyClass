@@ -91,17 +91,12 @@ const Home = () => {
       <FetchCourses />
       {/* Home */}
       <TwoColumnHero />
-      {/* <div className="flex flex-wrap justify-center mt-5">
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </div> */}
 
       <SmallCardContainer />
 
       <Tabs />
-      {/* advirtisment  */}
-      <Add />
+
+      <Add />  {/* advirtisment  */}
 
       <Loading /> {/* testing  */}
 
@@ -117,8 +112,7 @@ const Home = () => {
         <Carousel />
       </section>
 
-      {/* feedback  */}
-      <FeedbackContainer />
+      <FeedbackContainer />    {/* feedback  */}
     </main>
   );
 };

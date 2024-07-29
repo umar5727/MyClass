@@ -6,8 +6,12 @@ import {
   faTv,
 } from "@fortawesome/free-solid-svg-icons";
 import { SmallCard } from "../../components";
+import { useDispatch, useSelector } from "react-redux";
+import { base_url } from "../../constants/constant";
+import { UserCourses } from "../../app/features/authSlice";
 
 const MyCourses = lazy(() => import("./MyCourses"));
+
 
 const InstructorDashboard = () => {
   const cards = [
@@ -37,7 +41,42 @@ const InstructorDashboard = () => {
     },
   ];
 
+  const dispatch = useDispatch()
+  const userData = useSelector((state) => state.auth.userData)
+  const coursesData = useSelector((state) => state.auth.userCoursesData)
+
+
+  const userProfile = async () => {
+    try {
+      const response = await fetch(base_url + '/users/instructorProfile', {
+        mode: 'cors',
+        method: 'POST',
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+
+        },
+        body: JSON.stringify({ "userId": userData._id })
+      })
+      const courseData = await response.json();
+      console.log('courses pipline : ', courseData)
+      console.log('\n instructor courses : ', courseData.userCourses)
+      // const courseData = response.courses
+      const userCoursesData = courseData.userCourses
+      dispatch(UserCourses({ userCoursesData }))
+
+    } catch (error) {
+      console.log('courses fetch error : ', error)
+    }
+  }
+  // const userCourses = useSelector((state) => state.auth.userCoursesData)
+
   useEffect(() => {
+    if (!coursesData) {
+      dispatch(UserCourses(''))
+      userProfile()
+    }
+
   }, [])
 
   return (

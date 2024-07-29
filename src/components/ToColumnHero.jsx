@@ -9,11 +9,13 @@ import { faReact } from "@fortawesome/free-brands-svg-icons";
 
 const TwoColumnHero = () => {
   return (
-    <section className="flex flex-col gap-6 lg:gap-0 lg:flex-row py-10">
+    <section className="flex flex-col gap-6 lg:gap-0 lg:flex-row py-10 relative">
       {/* logos */}
       <div>
-        <div>
-          <img src="node.png" alt="#" className="absolute w-14 right-1/2 bottom-14 z-50 hover:animate-shake " />
+        <div
+          data-aos='fade-right'
+        >
+          <img src="node.png" alt="#" className="absolute w-14 aspect-square right-1/2 bottom-14 z-50 hover:animate-shake " />
         </div>
       </div>
       {/* logos ends  */}
@@ -22,10 +24,16 @@ const TwoColumnHero = () => {
         <div>
           <img src="dots.png" alt="" className="absolute top-28 -left-32 w-52 -z-20 opacity-30 rotate-180" />
         </div>
-        <h1 className="text-4xl md:text-6xl font-bold  text-primary-text-heading dark:text-white">
+        <h1
+          className="text-4xl md:text-6xl font-bold  text-primary-text-heading dark:text-white"
+          data-aos='fade-right'
+        >
           Explore Boundless Learning Anytime, Anywhere
         </h1>
-        <p className="text-lg font-medium md:text-xl  text-primary-text-normal dark:text-primary-text-normal-dark">
+        <p
+          className="text-lg font-medium md:text-xl  text-primary-text-normal dark:text-primary-text-normal-dark"
+          data-aos='fade-right'
+        >
           Online learning and teaching marketplace with 5K+ courses & 10M
           students. Taught by experts to help you acquire new skills.
         </p>
@@ -51,11 +59,11 @@ const TwoColumnHero = () => {
             </span>
           </div>
         </div>
-        {/* <button className=" bg-blue-500 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 hover:text-white ">
-          Get Started
-          
-        </button> */}
-        <Link to="/MYClass/login">
+
+        <Link
+          to="/MYClass/login"
+          data-aos='fade-up'
+        >
           <Button>Get Started</Button>
         </Link>
       </div>
@@ -63,10 +71,16 @@ const TwoColumnHero = () => {
       {/* Right Column - Full Image */}
       <div className="lg:w-2/5 flex justify-center relative overflow-hidden">
         <div className="">
-          <FontAwesomeIcon icon={faReact} className="absolute text-5xl text-primary font-extrabold  left-0 top-28  hover:animate-spin-slow z-40" />
+          <FontAwesomeIcon icon={faReact}
+            className="absolute text-5xl text-primary font-extrabold left-0 top-28  hover:animate-spin-slow z-40"
+            data-aos='fade-left'
+          />
         </div>
         <div>
-          <img src="figma.svg" alt="#" className="absolute w-10 right-32 top-10 z-50 hover:animate-shake" />
+          <img src="figma.svg" alt="#" className="absolute w-10 right-32 top-10 z-50 hover:animate-shake"
+            data-aos='fade-left'
+          />
+
         </div>
         <div>
           <img src="angular.svg" alt="#" className="absolute w-14 right-0 top-52 z-50 hover:animate-shake" />
@@ -87,6 +101,7 @@ const TwoColumnHero = () => {
             src="/MyClass/self-without-bg.png"
             alt=""
             className="mainImg rounded-bl-[166px] rounded-br-[180px] overflow-hidden  z-40 relative "
+            data-aos='fade-left'
           />
         </div>
       </div>

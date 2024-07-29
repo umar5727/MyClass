@@ -4,11 +4,9 @@ import { useSelector } from 'react-redux'
 
 const MyCourses = ({ }) => {
     const userCourses = useSelector((state) => state.auth.userCoursesData)
-    const courses = [
-        { name: 'web dev', image: '/MyClass/public/python.jpg', progress: 20, totalLectures: 40, completedLectures: 10, action: 'continue', },
-        { name: 'web dev', image: '/MyClass/public/python.jpg', progress: 20, totalLectures: 40, completedLectures: 10, action: 'continue', }
-    ]
-
+    const userData = useSelector((state) => state.auth.userData)
+    // console.log(userCourses[0].thumbNail, userCourses[0].title)
+    console.log(userData.role)
     return (
         <section className="my-8">
 
@@ -35,37 +33,71 @@ const MyCourses = ({ }) => {
                         <div className="grid grid-cols-6 justify-center py-3 bg-black rounded-md text-white ">
                             <div className="col-span-3 ps-4">Course Name</div>
                             <div className="text-center">Total Lectures</div>
-                            <div className="text-center">Completed Lectures</div>
+                            {
+
+                                userData.role != 'instructor' ?
+                                    <div className="text-center">Completed Lectures</div>
+                                    :
+                                    <div className="text-center">Total Enrolleds</div>
+                            }
                             {/* <div className="px-5">Period</div> */}
-                            <div className="text-center">Action</div>
+                            <div className="text-center">Starting Date</div>
                         </div>
                         {/* coursess header ends */}
                         {/* row */}
 
                         <div className="flex flex-col mb-2">
                             {
-                                userCourses?.map((course, index) => (
-                                    <div key={index} className='grid grid-cols-6  rounded-md  p-2 py-4   border-b-2 border-primary-light hover:bg-primary-light'>
-                                        <div className="col-span-3 flex gap-2 items-center">
-                                            <div className='w-[100px] '>
-                                                <img src={course.courseDetails.thumbNail} alt="thumbnail" className='rounded-md' />
-                                            </div>
-                                            <div className='font-bold'>
-                                                <div>
-                                                    {course.courseDetails.title}
+                                userData.role != 'instructor' ?
+                                    userCourses?.map((course, index) => (
+                                        <div key={index} className='grid grid-cols-6  rounded-md  p-2 py-4   border-b-2 border-primary-light hover:bg-primary-light'>
+                                            <div className="col-span-3 flex gap-2 items-center">
+                                                <div className='w-[100px] '>
+                                                    <img src={course.courseDetails.thumbNail} alt="thumbnail" className='rounded-md' />
+                                                </div>
+                                                <div className='font-bold'>
+                                                    <div>
+                                                        {course.courseDetails.title}
 
-                                                </div>
-                                                <div>
-                                                    {/* {course.} */}
+                                                    </div>
+                                                    <div>
+                                                        {/* {course.} */}
+                                                    </div>
                                                 </div>
                                             </div>
+                                            {/* course title ends  */}
+                                            <div className="flex items-center justify-center"> {course.courseDetails.totalLectures} </div>
+                                            <div className=" flex items-center justify-center">0</div>
+                                            <div className=" flex items-center justify-center">{course.createdAt.slice(0, 10)}</div>
                                         </div>
-                                        {/* course title ends  */}
-                                        <div className="flex items-center justify-center"> {course.courseDetails.totalLectures} </div>
-                                        <div className=" flex items-center justify-center">0</div>
-                                        <div className=" flex items-center justify-center">{course.createdAt.slice(0, 10)}</div>
-                                    </div>
-                                ))
+                                    ))
+                                    :
+                                    userCourses?.map((course, index) => (
+                                        // { console.log(course.title) }
+                                        <div key={index} className='grid grid-cols-6  rounded-md  p-2 py-4   border-b-2 border-primary-light hover:bg-primary-light'>
+                                            <div className="col-span-3 flex gap-2 items-center">
+                                                <div className='w-[100px] '>
+                                                    <img src={course.thumbNail} alt="thumbnail" className='rounded-md' />
+                                                </div>
+                                                <div className='font-bold'>
+                                                    <div>
+                                                        {course.title}
+
+                                                    </div>
+                                                    <div>
+                                                        {/* {course.} */}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {/* course title ends  */}
+                                            <div className="flex items-center justify-center"> {course.totalLectures} </div>
+                                            <div className=" flex items-center justify-center">{course.studentsCount}</div>
+
+                                            <div className=" flex items-center justify-center">{course.createdAt.slice(0, 10)}</div>
+                                        </div>
+                                    )
+
+                                    )
                             }
                         </div>
 

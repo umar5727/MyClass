@@ -5,7 +5,7 @@ import Courses from "./courses/Courses";
 import ContactCard from "./contact/ContactCard";
 import ProductPage from "./product/ProductPage";
 import InstructorSignUp from "./signup/InstructorSignUp";
-
+import ErrorPage from "./ErrorPage";
 
 
 export {
@@ -16,4 +16,5 @@ export {
     ContactCard,
     ProductPage,
     InstructorSignUp,
+    ErrorPage,
 }

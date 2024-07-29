@@ -10,14 +10,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { login, logout } from './app/features/authSlice'
 import { base_url } from './constants/constant'
 
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const Layout = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const courseData = useSelector((state) => state.course.courseData)
-
-
-
 
   const alreadyUser = useSelector((state) => state.auth.userData)
   useEffect(() => {
@@ -50,13 +49,15 @@ const Layout = () => {
       checkUser();
     }
   }, [])
+
+  useEffect(() => {
+    AOS.init({ duration: '1500' })
+  }, [])
   return (
     <>
       <LoadingContextProvider>
         <NavContextProvider >       {/* context provider for practice  */}
-
-
-          <Loading />
+          {/* <Loading /> */}
           <Header />
           <Container>
             <div className='min-h-[calc(100vh-304px)]'>

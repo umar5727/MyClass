@@ -3,17 +3,17 @@ import { useSelector } from 'react-redux'
 import { Button } from '../../components'
 
 const EditProfile = () => {
-    const userData = useSelector((state).state.auth.userData)
-    const [avatar, setAvatar] = useState(userData.avatar)
+    const userData = useSelector((state) => state.auth.userData)
+    const [avatar, setAvatar] = useState(userData?.avatar)
     return (
         <div>
             <form action="">
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-4 items-center ">
                     <div className="w-14 h-14 rounded-full  overflow-hidden">
                         {avatar ? (
                             <img src={URL.createObjectURL(avatar)} className="w-full h-full" />
                         ) : (
-                            <img src="userDemo.jpg" />
+                            <img src="../userDemo.jpg" />
                         )}
                     </div>
                     <input

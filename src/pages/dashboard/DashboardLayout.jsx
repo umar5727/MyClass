@@ -10,36 +10,11 @@ const DashboardLayout = () => {
     const userData = useSelector((state) => state.auth.userData)
     const [fields, setFields] = useState([])
 
-    const cards = [
-        {
-            className: "bg-primary-yellow-light",
-            number: 20,
-            numberSpan: "+",
-            title: "Total Courses",
-            iconClassName: "text-primary-yellow  text-6xl",
-            iconName: faTv,
-        },
-        {
-            className: "bg-primary-purple-light",
-            number: 60,
-            numberSpan: "K",
-            title: "Complete lessons",
-            iconClassName: "text-primary-purple text-6xl",
-            iconName: faClipboardCheck,
-        },
-        {
-            className: "bg-primary-info-light",
-            number: 10,
-            numberSpan: "+",
-            title: "Achieved Certificates",
-            iconClassName: "text-primary-info text-6xl",
-            iconName: faMedal,
-        },
-    ];
-
-    // console.log(fields)
+    const userCourses = useSelector((state) => state.auth.userCoursesData)
+    const [studentsCount, setStudentsCount] = useState(0)
 
     useEffect(() => {
+
 
         if (userData.role === 'instructor') {
             setFields([
@@ -72,14 +47,25 @@ const DashboardLayout = () => {
                 ]
             )
         }
-    }, [userData.role])
 
+
+    }, [userData.role])
+    useEffect(() => {
+        setStudentsCount(0)
+
+        if (userCourses) {
+            userCourses.map((course) => {
+
+                setStudentsCount((prev) => prev + course.studentsCount)
+            })
+        }
+    }, [userCourses])
     return (
 
         <div className="mt-5 font-medium">
             <div className='w-screen my-0 m-[calc(-50vw+50%)] '>
 
-                <img src="../public/studentBanner.jpg" alt="banner" className='w-full h-52 object-cover' />
+                <img src="./studentBanner.jpg" alt="banner" className='w-full h-52 object-cover' />
             </div>
             {/* top starts  */}
             <section className="top flex justify-between items-center ">
@@ -129,7 +115,7 @@ const DashboardLayout = () => {
 
                                 {userData
                                     ?
-                                    <span>{userData.totalEnrolled} </span>
+                                    <span>{studentsCount} </span>
                                     :
                                     <span>12k </span>
                                 }
