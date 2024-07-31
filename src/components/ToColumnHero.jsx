@@ -38,7 +38,11 @@ const TwoColumnHero = () => {
           students. Taught by experts to help you acquire new skills.
         </p>
         {/* discription ends  */}
-        <div className="flex gap-4">
+        <div
+          className="flex gap-4"
+          data-aos='fade-right'
+          data-aos-delay='100'
+        >
           <div className="flex gap-1 items-center">
             <FontAwesomeIcon icon={faCheckCircle} className="dark:text-white" />
             <span className="text-primary-text-normal font-medium dark:text-primary-text-normal-dark">
