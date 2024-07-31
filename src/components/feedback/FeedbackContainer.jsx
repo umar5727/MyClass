@@ -36,7 +36,7 @@ const FeedbackContainer = () => {
           />
           <FeedbackCard
             className=" shadow-custom lg:w-3/12 "
-            data-aos='fade-bottom'
+            data-aos='fade-down'
           />
           {/* </div> */}
           <div
@@ -47,7 +47,7 @@ const FeedbackContainer = () => {
           </div>
           <FeedbackCard
             className=" shadow-custom lg:w-4/12 lg:justify-self-end"
-            data-aos='fade-top'
+            data-aos='fade-up'
           />
         </div>
       </div>

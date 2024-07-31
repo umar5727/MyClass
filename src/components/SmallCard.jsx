@@ -10,10 +10,13 @@ const SmallCard = ({
   numberSpan = "K",
   title = "Course",
   speed = 200,
-
+  ...props
 }) => {
   return (
-    <div className={`flex justify-evenly w-full ${className} w-80 h-28 rounded-lg`}>
+    <div
+      className={`flex justify-evenly w-full ${className} w-80 h-28 rounded-lg`}
+      {...props}
+    >
       <div className="w-fit flex justify-center items-center">{children}</div>
       <div className="w-fit text-primary-text-heading font-semibold flex justify-center flex-col text-lg dark:text-white">
         <div className="flex ">

@@ -55,7 +55,8 @@ const SmallCardContainer = () => {
             numberSpan={item.numberSpan}
             title={item.title}
             key={index}
-
+            data-aos='fade-up'
+            data-aos-delay={index * 200}
           >
             <FontAwesomeIcon
               icon={item.iconName}
