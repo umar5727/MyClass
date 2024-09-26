@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { login, logout } from './app/features/authSlice'
 import { base_url } from './constants/constant'
 
+import toast, { Toaster } from 'react-hot-toast';
+
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -60,6 +62,10 @@ const Layout = () => {
           {/* <Loading /> */}
           <Header />
           <Container>
+            <Toaster
+              position='top-right'
+              reverseOrder={false}
+            />
             <div className='min-h-[calc(100vh-304px)]'>
               <Suspense>
 

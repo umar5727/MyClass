@@ -74,9 +74,12 @@ const DashboardLayout = () => {
                         {/* image from backend */}
                         {
                             userData.avatar ?
-                                <img src={userData.avatar} alt="" className="w-32 rounded-full" />
+                                <img src={userData.avatar} alt="" className="w-28 rounded-full" />
                                 :
-                                <img src="userDemo.jpg" alt="" className="w-32 rounded-full" />
+                                <div className="w-28 bg-white rounded-full flex justify-center items-center p-1 overflow-hidden aspect-square" >
+
+                                    <img src="user/user-dummy.webp" alt="user" className='w-full aspect-square' />
+                                </div>
                         }
                     </div>
                     <div className="">

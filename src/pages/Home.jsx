@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import TwoColumnHero from "../components/ToColumnHero";
+import { Chips } from 'primereact/chips';
 
 import {
   Add,
@@ -80,6 +81,8 @@ const Home = () => {
     },
   ];
 
+  // const [chips, setChips] = useState([])
+  // console.log('chips , ', chips)
   useEffect(() => {
     if (!window.scrollTo) return;
 
@@ -87,6 +90,12 @@ const Home = () => {
 
   }, []);
   return (
+
+
+    // <div className="card p-fluid">chips
+    //   <Chips value={chips} onChange={(e) => setChips(e.value)} placeholder="Enter Cities" />
+
+    // </div>
     <main className=" dark:bg-boot-dark ">
       <FetchCourses />
       {/* Home */}
