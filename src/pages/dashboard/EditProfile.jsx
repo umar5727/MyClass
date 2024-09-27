@@ -76,34 +76,7 @@ const EditProfile = () => {
 
     }
 
-    // useEffect(() => {
-    //     const fetchuser = async () => {
-    //         try {
-    //             const userId = sessionStorage.getItem('user_id')
-    //             const data = { userId }
 
-    //             const res = await fetch(`${base_url}/users/getUser`, {
-    //                 method: 'POST',
-    //                 headers: {
-    //                     'Content-Type': 'application/json'
-    //                 },
-    //                 body: JSON.stringify(data)
-    //             })
-    //             const response = await res.json()
-    //             if (!res.ok) {
-    //                 console.error(' error fetching user : ', response.message)
-    //                 return response.message
-    //             }
-    //             const fullName = response.user.fullName.split(' ')
-    //             setUpdatedUser(response.user)
-
-    //         } catch (error) {
-    //             console.error('error fetching user ', error)
-    //         }
-    //     }
-    //     fetchuser()
-    //     console.log("updated user ", updatedUser)
-    // }, [!updatedUser])
 
     return (
         <div >
