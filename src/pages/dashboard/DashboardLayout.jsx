@@ -93,44 +93,51 @@ const DashboardLayout = () => {
                             <FontAwesomeIcon icon={faCheckCircle} className="text-primary" />
                         </div>
                         <div className="flex gap-5">
-                            {/* reviews starts */}
-                            <div className="flex items-center reviews">
-                                <FontAwesomeIcon
-                                    icon={faStar}
-                                    className="pr-2 text-primary-yellow"
-                                />
-                                <div className='font-bold'>
+                            {
+                                userData.role === 'instructor' ?
+                                    // {/* reviews starts */}
+                                    <div className="flex gap-2 items-center ">
+                                        <div className="flex items-center reviews">
+                                            <FontAwesomeIcon
+                                                icon={faStar}
+                                                className="pr-2 text-primary-yellow"
+                                            />
+                                            <div className='font-bold'>
 
-                                    {/*  backend data */}
-                                    {
-                                        userData.reviews ? <span>{userData.reviews}</span> : <span>4.5</span>
-                                    }
-                                </div>
-                                /5.0
-                            </div>
-                            {/* reviews end s */}
-                            <div>
-                                <FontAwesomeIcon
-                                    icon={faUserGraduate}
-                                    className="pr-2 text-primary-orange"
-                                />
-                                {/* backend data*/}
+                                                {/*  backend data */}
+                                                {
+                                                    userData.reviews ? <span>{userData.reviews}</span> : <span>4.5</span>
+                                                }
+                                            </div>
+                                            /5.0
+                                        </div>
+                            //  {/* reviews end s */}
+                                        <div>
+                                            <FontAwesomeIcon
+                                                icon={faUserGraduate}
+                                                className="pr-2 text-primary-orange"
+                                            />
+                                            {/* backend data*/}
 
-                                {userData
-                                    ?
-                                    <span>{studentsCount} </span>
+                                            {userData
+                                                ?
+                                                <span>{studentsCount} </span>
+                                                :
+                                                <span>12k </span>
+                                            }
+                                            Enrolled Students
+                                        </div>
+                                    </div>
+                                    // {/* enrolled students ends  */}
                                     :
-                                    <span>12k </span>
-                                }
-                                Enrolled Students
-                            </div>
-                            {/* enrolled students ends  */}
+                                    ""
+                            }
                             <div>
                                 <FontAwesomeIcon
                                     icon={faBook}
                                     className="pr-2 text-primary-purple"
                                 />
-                                <span>25</span> {/* backend data */}
+                                <span>{userCourses.length}</span> {/* backend data */}
                                 courses
                             </div>
                             {/* courses end s */}

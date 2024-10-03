@@ -28,6 +28,9 @@ const Layout = () => {
       const checkUser = async () => {
         const refreshToken = document.cookie
         //fetching user
+        if (!refreshToken) {
+          return ''
+        }
         const currentUser = await fetch(base_url + "/users/refreshAccessToken ", {
           mode: "cors",
           method: "POST",

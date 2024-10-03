@@ -6,6 +6,8 @@ export default defineConfig({
   base: '/MyClass/',
   // proxy:'http://localhost:8000',
   plugins: [react()],
- 
+ server:{
+  host:true
+ }
  
 })

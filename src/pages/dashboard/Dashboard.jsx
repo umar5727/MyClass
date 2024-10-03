@@ -39,7 +39,7 @@ const Dashboard = () => {
     const dispatch = useDispatch()
 
     const userData = useSelector((state) => state.auth.userData)
-    const coursesData = useSelector((state) => state.auth.userCoursesData)
+    const userCoursesData = useSelector((state) => state.auth.userCoursesData)
 
 
     const userProfile = async () => {
@@ -69,7 +69,7 @@ const Dashboard = () => {
     // const userCourses = useSelector((state) => state.auth.userCoursesData)
 
     useEffect(() => {
-        if (!coursesData) {
+        if (!userCoursesData) {
             // dispatch(UserCourses(''))
             userProfile()
         }

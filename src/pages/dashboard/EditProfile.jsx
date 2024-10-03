@@ -225,37 +225,8 @@ const EditProfile = () => {
                     </div>
                     {/* email ends  */}
 
-                    {/* <div>
-              <h4>FAQs</h4>
-              <div>
-                <strong>What happens when I update my email address (or mobile number)?
-                </strong>
-                <p>Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on your updated email address (or mobile number).
-  
-                </p>
-              </div>
-              <div>
-                <strong>What happens when I update my email address (or mobile number)?
-                </strong>
-                <p>Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on your updated email address (or mobile number).
-  
-                </p>
-              </div>
-              <div>
-                <strong>What happens when I update my email address (or mobile number)?
-                </strong>
-                <p>Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on your updated email address (or mobile number).
-  
-                </p>
-              </div>
-              <div>
-                <strong>What happens when I update my email address (or mobile number)?
-                </strong>
-                <p>Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on your updated email address (or mobile number).
-  
-                </p>
-              </div>
-            </div> */}
+
+
 
                 </div>
             </div>
