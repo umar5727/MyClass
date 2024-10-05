@@ -59,7 +59,7 @@ const EditProfile = () => {
                     console.log('response: ', response)
                     console.log('res data : ', response.user)
                     dispatch(login({ userData: response.user })); //dispatching
-
+                    sessionStorage.setItem('user', JSON.stringify(response.user))
                     toast.success('update Success');
                     setUpdatedUser(response.user)
 
@@ -125,7 +125,7 @@ const EditProfile = () => {
                             <div className={`w-full ${toggleImage ? "block" : 'hidden'} flex flex-col gap-[0.5rem]`}>
                                 <button
                                     type='submit'
-                                    className={` w-full bg-blue-700 px-10 py-[.3rem] rounded-sm text-white text-lg font-medium uppercase`}
+                                    className={` w-full bg-blue-700 px-10 py-[.3rem] rounded-md text-lg text-white font-medium uppercase`}
                                     onClick={() => setToggleImage(false)}
                                 >
                                     Save</button>
@@ -161,7 +161,7 @@ const EditProfile = () => {
                                     type="text"
                                     name='firstName'
                                     placeholder='First Name'
-                                    className='h-fit text-lg px-[20px] py-[10px] rounded-md  outline-none focus-visible:outline-blue-700 focus-visible:outline-[2px] outline-offset-0 text-black capitalize'
+                                    className='h-fit text-lg px-[20px] py-[10px] rounded-md  outline-none focus-visible:outline-blue-700 focus-visible:outline-[2px] outline-offset-0 text-black capitalize disabled:cursor-not-allowed disabled:bg-gray-200 dark:disabled:bg-[rgba(239,239,239,0.3)] outline-1 outline-gray-400 dark:outline-[rgba(239,239,239,0.3)] dark:focus-visible:outline-blue-700 dark:focus-visible:outline-[2px]'
                                     value={toggleName ? firstName : userData?.fullName?.split(' ')[0]}
                                     disabled={!toggleName}
                                     onChange={(e) => setFirstName(e.target.value)}
@@ -170,12 +170,12 @@ const EditProfile = () => {
                                     type="text"
                                     name='lastName'
                                     placeholder='Last Name'
-                                    className='h-fit text-lg px-[20px] py-[10px] rounded-md  outline-none focus-visible:outline-blue-700 focus-visible:outline-[2px] outline-offset-0 text-black capitalize'
+                                    className='h-fit text-lg px-[20px] py-[10px] rounded-md  outline-none focus-visible:outline-blue-700 focus-visible:outline-[2px] outline-offset-0 text-black capitalize disabled:cursor-not-allowed disabled:bg-gray-200 dark:disabled:bg-[rgba(239,239,239,0.3)] outline-1 outline-gray-400 dark:outline-[rgba(239,239,239,0.3)] dark:focus-visible:outline-blue-700 dark:focus-visible:outline-[2px]'
                                     value={toggleName ? lastName : userData?.fullName?.split(' ')[1]}
                                     onChange={(e) => setLastName(e.target.value)}
                                     disabled={!toggleName}
                                 />
-                                <button type='submit' className={`${toggleName ? "block" : 'hidden'} bg-blue-700 px-10 py-[.5rem] rounded-sm text-lg font-medium uppercase`}>Save</button>
+                                <button type='submit' className={`${toggleName ? "block" : 'hidden'} bg-blue-700 px-10 py-[.5rem] rounded-md text-lg text-white font-medium uppercase`}>Save</button>
                             </div>
                         </form>
 
@@ -200,12 +200,12 @@ const EditProfile = () => {
                                     type="text"
                                     name='email'
                                     placeholder='Email'
-                                    className='text-lg px-[20px] py-[10px] rounded-md  outline-none focus-visible:outline-blue-700 focus-visible:outline-[2px] outline-offset-0 text-black'
+                                    className='text-lg px-[20px] py-[10px] rounded-md  outline-none focus-visible:outline-blue-700 focus-visible:outline-[2px] outline-offset-0 text-black disabled:cursor-not-allowed disabled:bg-gray-200 dark:disabled:bg-[rgba(239,239,239,0.3)] outline-1 outline-gray-400 dark:outline-[rgba(239,239,239,0.3)] dark:focus-visible:outline-blue-700 dark:focus-visible:outline-[2px]'
                                     value={toggleEmail ? email : userData.email}
                                     disabled={!toggleEmail}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
-                                <button type='submit' className={`${toggleEmail ? "block" : 'hidden'} bg-blue-700 px-10 py-[.5rem] rounded-sm text-lg font-medium uppercase`}>Save</button>
+                                <button type='submit' className={`${toggleEmail ? "block" : 'hidden'} bg-blue-700 px-10 py-[.5rem] rounded-md text-lg text-white font-medium uppercase`}>Save</button>
                             </div>
                         </form>
                     </div>
@@ -225,16 +225,16 @@ const EditProfile = () => {
                         <form onSubmit={handleSubmit}>
                             <div className='flex gap-10'>
                                 <input
-                                    type="number"
+                                    type="tel"
                                     name='number'
                                     placeholder='Contact Number'
-                                    className='removeArrow text-lg px-[20px] py-[10px] rounded-md  outline-none focus-visible:outline-blue-700 focus-visible:outline-[2px] outline-offset-0 text-black '
+                                    className='removeArrow text-lg px-[20px] py-[10px] rounded-md  outline-none focus-visible:outline-blue-700 focus-visible:outline-[2px] outline-offset-0 text-black disabled:cursor-not-allowed disabled:bg-gray-200 dark:disabled:bg-[rgba(239,239,239,0.3)] outline-1 outline-gray-400 dark:outline-[rgba(239,239,239,0.3)] dark:focus-visible:outline-blue-700 dark:focus-visible:outline-[2px]'
                                     maxLength={10}
                                     value={toggleContact ? contactNumber : userData.contactNumber}
                                     disabled={!toggleContact}
                                     onChange={(e) => setContactNumber(e.target.value)}
                                 />
-                                <button type='submit' className={`${toggleContact ? "block" : 'hidden'} bg-blue-700 px-10 py-[.5rem] rounded-sm text-lg font-medium uppercase`}>Save</button>
+                                <button type='submit' className={`${toggleContact ? "block" : 'hidden'} bg-blue-700 px-10 py-[.5rem] rounded-md text-lg text-white font-medium uppercase`}>Save</button>
                             </div>
                         </form>
                     </div>

@@ -3,9 +3,9 @@ import Button from "../Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFaceSmile } from "@fortawesome/free-regular-svg-icons";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../app/features/authSlice";
-
+import { useSelector } from "react-redux";
+// images import 
+import dummyUser from '/user/user-dummy.webp'
 const Profile = () => {
   const [profile, setProfile] = useState(false);
   // const [user, setUser] = useState
@@ -27,7 +27,7 @@ const Profile = () => {
   const userData = useSelector((state) => state.auth.userData);
   const loginstatus = useSelector((state) => state.auth.status);
 
-
+  console.log('avatart from profile :  ', userData.avatar)
   useEffect(() => {
     // store ends
     const handler = (e) => {
@@ -47,17 +47,16 @@ const Profile = () => {
   return (
     <section ref={profileRef} className="relative z-[90]">
       <div
-        className=" bg-primary rounded-full w-10 h-10 justify-center items-center cursor-pointer hover:opacity-80 overflow-hidden"
+        className=" rounded-full w-10 h-10 justify-center items-center cursor-pointer hover:opacity-80 overflow-hidden"
         onClick={() => setProfile(!profile)}
       >
         {
           userData.avatar
             ?
-            <img src={userData.avatar} alt="#" />
+            <img src={userData.avatar} alt="avatar" />
             :
-            <FontAwesomeIcon
-              icon={faFaceSmile}
-              className="w-full h-full  bg-primary text-white rounded-full"
+            <img src={dummyUser} alt='avatar'
+              className="w-full h-full text-white rounded-full"
             />
         }
       </div>
