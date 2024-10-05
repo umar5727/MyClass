@@ -32,7 +32,7 @@ const GotoTop = () => {
                 <button type='button'
                     onClick={handleClick}
                     className={`lightShadow cursor-pointer w-12 h-12 fixed right-5 bottom-5  transition-all duration-300 bg-primary-light text-primary hover:text-white hover:bg-primary z-50 rounded-lg 
-        animate-bounce  hover:animate-none    
+        animate-bounce  hover:animate-none   
         `}
 
                 >

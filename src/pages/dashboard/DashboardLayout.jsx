@@ -1,10 +1,16 @@
-import { faBasketShopping, faBell, faBook, faBorderAll, faCartShopping, faCheckCircle, faClipboardCheck, faGear, faMedal, faPencilSquare, faQuestionCircle, faSignOut, faStar, faTv, faUserGraduate, faUserGroup, } from '@fortawesome/free-solid-svg-icons';
+import { faBasketShopping, faBell, faBook, faBorderAll, faCartShopping, faCheckCircle, faGear, faPencilSquare, faQuestionCircle, faSignOut, faStar, faTv, faUserGraduate, faUserGroup, } from '@fortawesome/free-solid-svg-icons';
+import { faRectangleList } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
 import { Button } from '../../components';
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import { faRectangleList } from '@fortawesome/free-regular-svg-icons';
+// redux import 
+import { useSelector } from 'react-redux';
+
+// images import 
+import dummyUser from '/user/user-dummy.webp'
+import bannerImg from '/studentBanner.jpg'
 
 const DashboardLayout = () => {
     const userData = useSelector((state) => state.auth.userData)
@@ -14,36 +20,34 @@ const DashboardLayout = () => {
     const [studentsCount, setStudentsCount] = useState(0)
 
     useEffect(() => {
-
-
         if (userData.role === 'instructor') {
             setFields([
-                { name: "DashBoard", slug: "/MyClass/InstructorDashboard", icon: faBorderAll, },
-                { name: "My Courses", slug: "/MyClass/InstructorDashboard/myCourses", icon: faBasketShopping },
+                { name: "DashBoard", slug: "/MyClass/user/InstructorDashboard", icon: faBorderAll, },
+                { name: "My Courses", slug: "/MyClass/user/InstructorDashboard/myCourses", icon: faBasketShopping },
                 { name: "Students", slug: "/students", icon: faUserGroup },
                 { name: "Reviews", slug: "/#", icon: faStar },
                 { name: "Notification", slug: "/#", icon: faBell },
                 { name: "Create Quiz", slug: "/#", icon: faQuestionCircle },
                 // { name: "Create Course", slug: "/MyClass/InstructorDashboard/createCourse" },
-                { name: "Edit Profile", slug: "/MyClass/InstructorDashboard/editProfile", icon: faPencilSquare },
+                { name: "Edit Profile", slug: "/MyClass/user/InstructorDashboard/editProfile", icon: faPencilSquare },
                 { name: "Remove Student", slug: "/#" },
-                { name: "Sign Out", slug: "/MyClass/signOut", icon: faSignOut },
+                { name: "Sign Out", slug: "/MyClass/user/signOut", icon: faSignOut },
             ])
         }
         else {
             setFields(
                 [
-                    { name: "Dashboard", slug: "/MyClass/dashboard", icon: faBorderAll, },
+                    { name: "Dashboard", slug: "/MyClass/user/dashboard", icon: faBorderAll, },
+                    { name: "My Courses", slug: "/MyClass/user/dashboard/myCourses", icon: faBasketShopping },
+                    { name: "Edit Profile", slug: "/MyClass/user/dashboard/editProfile", icon: faPencilSquare },
                     { name: "My Subscriptions", slug: "/#", icon: faRectangleList },
-                    { name: "My Courses", slug: "/MyClass/dashboard/myCourses", icon: faBasketShopping },
                     { name: "Course Resume", slug: "/#", icon: faQuestionCircle },
                     { name: "Quiz", slug: "/#", icon: faQuestionCircle },
                     { name: "Wishlist", slug: "/#", icon: faCartShopping },
                     { name: "Reviews", slug: "/#", icon: faStar },
-                    { name: "Edit Profile", slug: "/MyClass/dashboard/editProfile", icon: faPencilSquare },
                     { name: "Notification", slug: "/#", icon: faBell },
                     { name: "Settings", slug: "/#", icon: faGear },
-                    { name: "Sign Out", slug: "/#", icon: faSignOut },
+                    { name: "Sign Out", slug: "/MyClass/user/signOut", icon: faSignOut },
                 ]
             )
         }
@@ -65,20 +69,20 @@ const DashboardLayout = () => {
         <div className="mt-5 font-medium">
             <div className='w-screen my-0 m-[calc(-50vw+50%)] '>
 
-                <img src="./studentBanner.jpg" alt="banner" className='w-full h-52 object-cover' />
+                <img src={bannerImg} alt="banner" className='w-full h-52 object-cover' />
             </div>
             {/* top starts  */}
             <section className="top flex justify-between items-center ">
                 <div className="flex gap-4 items-center">
-                    <div className='relative -top-4'>
+                    <div className='relative -top-4 w-28 aspect-square overflow-hidden rounded-full'>
                         {/* image from backend */}
                         {
                             userData.avatar ?
-                                <img src={userData.avatar} alt="" className="w-28 rounded-full" />
+                                <img src={userData.avatar} alt="" className="w-full  " />
                                 :
                                 <div className="w-28 bg-white rounded-full flex justify-center items-center p-1 overflow-hidden aspect-square" >
 
-                                    <img src="user/user-dummy.webp" alt="user" className='w-full aspect-square' />
+                                    <img src={dummyUser} alt="user" className='w-full aspect-square' />
                                 </div>
                         }
                     </div>
@@ -137,7 +141,7 @@ const DashboardLayout = () => {
                                     icon={faBook}
                                     className="pr-2 text-primary-purple"
                                 />
-                                <span>{userCourses.length}</span> {/* backend data */}
+                                <span>{userCourses?.length}</span> {/* backend data */}
                                 courses
                             </div>
                             {/* courses end s */}

@@ -12,6 +12,7 @@ import {
 } from "../components";
 import Loading from "../components/Loading";
 import FetchCourses from "../utils/FetchCourses";
+import { useSelector } from "react-redux";
 const Home = () => {
   const products = [
     {
@@ -89,6 +90,8 @@ const Home = () => {
     window.scrollTo(0, 0);
 
   }, []);
+
+
   return (
 
 
@@ -96,6 +99,8 @@ const Home = () => {
     //   <Chips value={chips} onChange={(e) => setChips(e.value)} placeholder="Enter Cities" />
 
     // </div>
+
+
     <main className=" dark:bg-boot-dark ">
       <FetchCourses />
       {/* Home */}
@@ -107,7 +112,8 @@ const Home = () => {
 
       <Add />  {/* advirtisment  */}
 
-      <Loading /> {/* testing  */}
+      {/* <Loading /> */}
+      {/* testing  */}
 
       {/* trending courses        */}
 
@@ -123,6 +129,7 @@ const Home = () => {
 
       <FeedbackContainer />    {/* feedback  */}
     </main>
+
   );
 };
 

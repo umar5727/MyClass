@@ -55,8 +55,8 @@ const Dashboard = () => {
                 body: JSON.stringify({ "userId": userData._id })
             })
             const courseData = await response.json();
-            console.log('courses pipline : ', courseData)
-            console.log('\n pipline : ', courseData.userCourses)
+            // console.log('courses pipline : ', courseData)
+            // console.log('\n pipline : ', courseData.userCourses)
             // const courseData = response.courses
             const userCoursesData = courseData.userCourses
             dispatch(UserCourses({ userCoursesData }))

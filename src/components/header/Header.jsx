@@ -15,8 +15,8 @@ const Header = () => {
   const user = useSelector((state) => state.auth.userData);
 
   // useEffect starts 
-
   useEffect(() => {
+    console.log('user from header : ', user)
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       if (scrollPosition >= 500) {

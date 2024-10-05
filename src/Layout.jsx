@@ -7,7 +7,7 @@ import GotoTop from './components/GotoTop'
 import { LoadingContextProvider, NavContextProvider } from './context'
 import { Loading } from './components'
 import { useDispatch, useSelector } from 'react-redux'
-import { login, logout } from './app/features/authSlice'
+import { isLoading, login, logout, stopLoading } from './app/features/authSlice'
 import { base_url } from './constants/constant'
 
 import toast, { Toaster } from 'react-hot-toast';
@@ -21,48 +21,76 @@ const Layout = () => {
   const courseData = useSelector((state) => state.course.courseData)
 
   const alreadyUser = useSelector((state) => state.auth.userData)
-  useEffect(() => {
-    // console.log('\nbefore fetch from layout : ', alreadyUser)
 
-    if (!alreadyUser) {
-      const checkUser = async () => {
-        const refreshToken = document.cookie
-        //fetching user
-        if (!refreshToken) {
-          return ''
-        }
-        const currentUser = await fetch(base_url + "/users/refreshAccessToken ", {
-          mode: "cors",
-          method: "POST",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ refreshToken })
-        })
-        // when user is fetched we update the state
-        const existUser = await currentUser.json();
-        if (existUser.data) {
-          const userData = existUser.data.user;
-          dispatch(login({ userData }));
-          navigate('/MyClass/dashboard')
-        } else {
-          dispatch(logout());
 
-        }
+  console.log('initial user : ', alreadyUser)
+  const checkUser = async () => {
+    try {
+      const refreshToken = document.cookie
+      //fetching user
+      if (!refreshToken) {
+        return ''
       }
-      checkUser();
+      const currentUser = await fetch(base_url + "/users/refreshAccessToken ", {
+        mode: "cors",
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ refreshToken })
+      })
+      // when user is fetched we update the state
+      const existUser = await currentUser.json();
+      if (existUser.data) {
+        const userData = await existUser.data.user;
+        dispatch(login({ userData }));
+        // navigate('/MyClass/dashboard')
+      }
+    } catch (error) {
+      console.log("layout ", error)
+    } finally {
+      setTimeout(() => {
+
+        dispatch(stopLoading())
+
+      }, 500)
+    }
+  }
+
+  useEffect(() => {
+    console.log('userData : ', alreadyUser)
+    console.log('\nbefore fetch from layout : ', alreadyUser)
+    if (!alreadyUser) {
+      console.log('userData not : ', alreadyUser)
+      const localUser = JSON.parse(sessionStorage.getItem('user'));
+      if (localUser) {
+        dispatch(login({ userData: localUser }))
+      } else {
+        dispatch(isLoading())
+        checkUser();
+      }
+    } else {
+      dispatch(logout());
     }
   }, [])
 
   useEffect(() => {
     AOS.init({ duration: '1500' })
   }, [])
+
+  const loading = useSelector((state) => state.auth.isLoading)
+  console.log('loading : ', loading)
+  if (loading) {
+    return <Loading />
+  }
   return (
     <>
+
       <LoadingContextProvider>
         <NavContextProvider >       {/* context provider for practice  */}
           {/* <Loading /> */}
+
           <Header />
           <Container>
             <Toaster
@@ -79,8 +107,11 @@ const Layout = () => {
           <GotoTop />
           <Footer />
 
+
         </NavContextProvider >
       </LoadingContextProvider >
+
+
     </>
 
   )

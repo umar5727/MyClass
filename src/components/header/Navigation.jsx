@@ -13,10 +13,10 @@ const Navigation = ({ }) => {
     { name: "Contact Us", slug: "/MyClass/contact" }
   ];
   if (userData?.role === 'instructor') {
-    navItems.push({ name: "Dashboard", slug: "/MyClass/InstructorDashboard" })
+    navItems.push({ name: "Dashboard", slug: "/MyClass/user/InstructorDashboard" })
   }
   else if (userData?.role === 'learner') {
-    navItems.push({ name: "Dashboard", slug: "/MyClass/dashboard" })
+    navItems.push({ name: "Dashboard", slug: "/MyClass/user/dashboard" })
   }
 
   var className = "hidden";

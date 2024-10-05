@@ -9,7 +9,7 @@ import {
   createRoutesFromElements,
 
 } from "react-router-dom";
-import { Login, ProtectedUser, Signout, Signup } from "./components";
+import { Loading, Login, ProtectedUser, Signout, Signup } from "./components";
 
 
 
@@ -27,6 +27,7 @@ function App() {
     createRoutesFromElements(
       <Route path="/MyClass/" element={<Layout />}>
         <Route path="" element={<Home />} />
+        {/* <Route path="" element={<Loading />} /> */}
         <Route path="courses" element={<Courses />} />
         <Route path="about-us" element={<AboutUs />} />
         <Route path="contact" element={<Contact />} />
@@ -37,22 +38,23 @@ function App() {
         <Route path="signup" element={<Signup />} />
         <Route path="login" element={<Login />} />
         <Route path="InstructorSignUp" element={<InstructorSignUp />} />
-        <Route element={<ProtectedUser />} >
-          {/* Protected user route */}
-          <Route path="signOut" element={<Signout />} />
-          <Route path="/MyClass/dashboard/" element={<DashboardLayout />} >
-            <Route path="" element={<Dashboard />} />
-            <Route path="myCourses" element={<MyCourses />} />
-            <Route path='editProfile' element={<EditProfile />} />
-          </Route>
-          <Route path="/MyClass/InstructorDashboard/" element={<DashboardLayout />} >
-            <Route path="" element={<InstructorDashboard />} />
-            <Route path="myCourses" element={<MyCourses />} />
-            <Route path='editProfile' element={<EditProfile />} />
-          </Route>
-          <Route path='/MyClass/InstructorDashboard/createCourse' element={<CreateCourse />} />
+        {/* Protected user route */}
 
+        <Route path="/MyClass/user/" element={<ProtectedUser />} >
+          <Route path="signOut" element={<Signout />} />
+          <Route path="dashboard/" element={<DashboardLayout />} exact>
+            <Route path="" element={<Dashboard />} exact />
+            <Route path="myCourses" element={<MyCourses />} />
+            <Route path='editProfile' element={<EditProfile />} />
+          </Route>
+          <Route path="/MyClass/user/InstructorDashboard/" element={<DashboardLayout />} >
+            <Route path="" element={<InstructorDashboard />} exact />
+            <Route path="myCourses" element={<MyCourses />} />
+            <Route path='editProfile' element={<EditProfile />} />
+          </Route>
+          <Route path='/MyClass/user/InstructorDashboard/createCourse' element={<CreateCourse />} />
         </Route>
+
         <Route path='*' element={<ErrorPage />} />
       </Route>,
     ),
@@ -62,9 +64,9 @@ function App() {
   useEffect(() => {
 
   }, []);
-
   return (
     <>
+
       <RouterProvider router={router} />
     </>
   );

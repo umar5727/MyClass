@@ -1,12 +1,17 @@
 // import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import React, { useEffect, useState } from 'react'
 // import { baseUrl } from '../../../../../constant/constant'
 import toast from 'react-hot-toast'
 import { base_url } from '../../constants/constant'
+import { login } from '../../app/features/authSlice'
+// images import 
+import dummyUser from '/user/user-dummy.webp'
+
 
 const EditProfile = () => {
     const userData = useSelector((state) => state.auth.userData)
+    const dispatch = useDispatch()
     // const [avatar, setAvatar] = useState(userData?.avatar)
     const [updatedUser, setUpdatedUser] = useState('')
     const [firstName, setFirstName] = useState('')
@@ -18,10 +23,10 @@ const EditProfile = () => {
     const [toggleContact, setToggleContact] = useState(false)
     const [toggleImage, setToggleImage] = useState(false)
     const [image, setImage] = useState(null)
-
+    console.log('user data redux ', userData)
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const userId = updatedUser._id
+        const userId = userData._id
         const fullName = firstName + " " + lastName
 
         try {
@@ -31,7 +36,7 @@ const EditProfile = () => {
                 const formdata = new FormData();
                 formdata.append("userId", userId);
                 if (image) {
-                    formdata.append("profileImage", image);
+                    formdata.append("avatar", image);
                 }
                 if (fullName) {
                     formdata.append("fullName", fullName);
@@ -43,17 +48,21 @@ const EditProfile = () => {
                     formdata.append("contactNumber", contactNumber);
                 }
 
-                const res = await fetch(`${baseUrl}/users/updatePersonalInfo`, {
+                const res = await fetch(`${base_url}/users/updateProfile`, {
+                    mode: "cors",
                     method: 'POST',
+                    credentials: "include",
                     body: formdata
-
                 })
                 if (res.ok) {
-
                     const response = await res.json()
                     console.log('response: ', response)
+                    console.log('res data : ', response.user)
+                    dispatch(login({ userData: response.user })); //dispatching
+
                     toast.success('update Success');
-                    setUpdatedUser(response.updatedUser)
+                    setUpdatedUser(response.user)
+
                     setContactNumber('')
                     setFirstName('')
                     setLastName('')
@@ -63,15 +72,16 @@ const EditProfile = () => {
                     setToggleEmail(false)
                     setToggleContact(false)
                     setToggleImage(false)
+
                 }
                 else {
-                    toast.error("Can't update right now");
+                    toast.error("Can't update right now ");
 
                 }
             }
         } catch (error) {
-            toast.error("Can't update right now");
-
+            toast.error("Can't update right now ");
+            console.log(error)
         }
 
     }
@@ -84,13 +94,18 @@ const EditProfile = () => {
             <div>
                 <div className='flex flex-col gap-10 relative'>
                     <form onSubmit={handleSubmit} className='text-black absolute right-0 top-0 w-28 '>
-                        <div className={`  flex flex-col gap-[0.5rem]`}>
-                            <div className='w-full overflow-hidden rounded-md'>
+                        <div className='w-full h-full flex flex-col gap-[0.5rem]'>
+                            <div className='w-28 !h-28 overflow-hidden rounded-md'>
                                 <label
                                     htmlFor="profileImage"
-                                    className='w-full aspect-square cursor-pointer'
+                                    className='group/label relative w-28 h-28 cursor-pointer'
                                     onClick={() => setToggleImage(true)}
                                 >
+                                    {/* filter starts  */}
+                                    <div className='hidden group-hover/label:flex absolute top-0 left-0 bg-black/40 w-full h-28  justify-center items-center'>
+                                        <div className='text-white text-lg text-center w-fit px-4 py-1 font-bold bg-primary-dark rounded-md'>Edit</div>
+                                    </div>
+                                    {/* filter ends  */}
                                     <input
                                         type="file"
                                         id='profileImage'
@@ -99,10 +114,10 @@ const EditProfile = () => {
                                     />
                                     {image
                                         ?
-                                        <img src={URL.createObjectURL(image)} alt="profile" className='w-full aspect-square hover:scale-125 duration-300' />
+                                        <img src={URL.createObjectURL(image)} alt="profile" className='w-full h-full hover:scale-125 duration-300' />
                                         :
                                         <div className=' bg-gray-100 aspect-square  duration-300 hover:bg-white hover:text-gray-500'>
-                                            <img src={updatedUser.profileImage || '../user/user-dummy.webp'} alt="dummy" className='w-full ' />
+                                            <img src={userData?.avatar || dummyUser} alt="dummy" className='w-full ' />
                                         </div>
                                     }
                                 </label>

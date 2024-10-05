@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import H1 from "./heading/H1";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-import { login } from "../app/features/authSlice";
+import { isLoading, login, stopLoading } from "../app/features/authSlice";
 import { base_url } from "../constants/constant";
 
 const Login = () => {
@@ -18,7 +18,7 @@ const Login = () => {
 
 
   const loginHandler = async (data) => {
-
+    dispatch(isLoading())
     setError(""); //when submit form clearing the error and starting login process
 
     const email = data.email;
@@ -48,18 +48,23 @@ const Login = () => {
 
       console.log("if user: ", userData.fullName);
       dispatch(login({ userData })); //dispatching
+      setTimeout(() => {
 
-      console.log("\n role: ", userData.role)
+        dispatch(stopLoading())
+      }, 500)
+      sessionStorage.setItem('user', JSON.stringify(userData));
+      // console.log("\n role: ", userData.role)
       // setPopup(false)
       // setPopup(true)
       if (userData.role === 'instructor') {
         navigate('/MyClass/InstructorDashboard')
       } else {
-        navigate('/MyClass/dashboard')
+        navigate('/MyClass/user/dashboard')
       }
 
     } catch (error) {
       console.log('\nerror form backend : ', error)
+      dispatch(stopLoading())
       setError(error.message)
     }
 
