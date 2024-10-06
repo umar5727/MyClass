@@ -1,10 +1,51 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button } from '../../components'
-import { useSelector } from 'react-redux'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { base_url } from '../../constants/constant'
+import { UserCourses } from '../../app/features/authSlice'
 const MyCourses = ({ }) => {
-    const userCourses = useSelector((state) => state.auth.userCoursesData)
+    const dispatch = useDispatch()
+
     const userData = useSelector((state) => state.auth.userData)
+    const userCoursesData = useSelector((state) => state.auth.userCoursesData)
+
+
+    const userProfile = async () => {
+        try {
+            const response = await fetch(base_url + '/users/userProfile', {
+                mode: 'cors',
+                method: 'POST',
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json",
+
+                },
+                body: JSON.stringify({ "userId": userData._id })
+            })
+            const courseData = await response.json();
+            // console.log('courses pipline : ', courseData)
+            // console.log('\n pipline : ', courseData.userCourses)
+            // const courseData = response.courses
+            const userCoursesData = courseData.userCourses
+            dispatch(UserCourses({ userCoursesData }))
+
+        } catch (error) {
+            console.log('courses fetch error : ', error)
+        }
+    }
+
+    // const userCourses = useSelector((state) => state.auth.userCoursesData)
+
+    useEffect(() => {
+        if (!userCoursesData) {
+            // dispatch(UserCourses(''))
+            userProfile()
+        }
+
+    }, [])
+
+
+    const userCourses = useSelector((state) => state.auth.userCoursesData)
     // console.log(userCourses[0].thumbNail, userCourses[0].title)
     console.log(userData.role)
     return (

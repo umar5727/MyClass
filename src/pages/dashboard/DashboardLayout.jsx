@@ -40,13 +40,13 @@ const DashboardLayout = () => {
                     { name: "Dashboard", slug: "/MyClass/user/dashboard", icon: faBorderAll, },
                     { name: "My Courses", slug: "/MyClass/user/dashboard/myCourses", icon: faBasketShopping },
                     { name: "Edit Profile", slug: "/MyClass/user/dashboard/editProfile", icon: faPencilSquare },
-                    { name: "My Subscriptions", slug: "/#", icon: faRectangleList },
-                    { name: "Course Resume", slug: "/#", icon: faQuestionCircle },
+                    { name: "Assignments", slug: "/#", icon: faRectangleList },
+                    { name: "Paused Courses", slug: "/#", icon: faQuestionCircle },
                     { name: "Quiz", slug: "/#", icon: faQuestionCircle },
                     { name: "Wishlist", slug: "/#", icon: faCartShopping },
                     { name: "Reviews", slug: "/#", icon: faStar },
                     { name: "Notification", slug: "/#", icon: faBell },
-                    { name: "Settings", slug: "/#", icon: faGear },
+                    // { name: "Settings", slug: "/#", icon: faGear },
                     { name: "Sign Out", slug: "/MyClass/user/signOut", icon: faSignOut },
                 ]
             )

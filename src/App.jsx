@@ -16,10 +16,12 @@ import { Loading, Login, ProtectedUser, Signout, Signup } from "./components";
 const DashboardLayout = lazy(() => import('./pages/dashboard/DashboardLayout'))
 const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'))     //lazy loading Dashboard
 const MyCourses = lazy(() => import("./pages/dashboard/MyCourses"));
-const CreateCourse = lazy(() => import('./pages/dashboard/CreateCourse'))
 const EditProfile = lazy(() => import('./pages/dashboard/EditProfile'))
+// InstructorDashboard 
 const InstructorDashboard = lazy(() => import('./pages/dashboard/InstructorDashboard'))
-
+const CreateCourse = lazy(() => import('./pages/dashboard/CreateCourse'))
+// AdminDashboard
+const AdminDashboard = lazy(() => import('./pages/admin-site/Dashboard'))
 
 function App() {
   const courses = useSelector((state) => state.course.courseData)
@@ -53,17 +55,16 @@ function App() {
             <Route path='editProfile' element={<EditProfile />} />
           </Route>
           <Route path='/MyClass/user/InstructorDashboard/createCourse' element={<CreateCourse />} />
-        </Route>
+        </Route >
 
+        <Route path="/MyClass/Admin/" >
+          <Route path="" element={<AdminDashboard />} />
+        </Route>
         <Route path='*' element={<ErrorPage />} />
       </Route>,
     ),
   );
 
-
-  useEffect(() => {
-
-  }, []);
   return (
     <>
 
