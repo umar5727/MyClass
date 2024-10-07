@@ -14,7 +14,7 @@ const fields = [
   { name: "Notifications", slug: "/#", icon: faBell },
   // { name: "Create Course", slug: "/MyClass/InstructorDashboard/createCourse" },
   { name: "Edit Profile", slug: "/MyClass/user/InstructorDashboard/editProfile", icon: faPencilSquare },
-  { name: "Sign Out", slug: "/MyClass/user/signOut", icon: faSignOut },
+  { name: "Sign Out", slug: "/MyClass/Admin/signOut", icon: faSignOut },
 ]
 // useEffect(() => {
 //     setStudentsCount(0)

@@ -73,21 +73,38 @@ const TwoColumnHero = () => {
       </div>
 
       {/* Right Column - Full Image */}
-      <div className="lg:w-2/5 flex justify-center relative overflow-hidden">
+      <div className="lg:w-2/5 flex justify-center relative">
         <div className="">
           <FontAwesomeIcon icon={faReact}
-            className="absolute text-5xl text-primary font-extrabold left-0 top-28  hover:animate-spin-slow z-40"
-            data-aos='fade-left'
+            className="absolute text-5xl text-primary font-extrabold left-0 top-28  hover:animate-spin-slow z-50"
+            data-aos='fade-right'
+            data-aos-duration='1800'
           />
         </div>
         <div>
-          <img src="figma.svg" alt="#" className="absolute w-10 right-32 top-10 z-50 hover:animate-shake"
-            data-aos='fade-left'
+          <img
+            src="figma.svg"
+            alt="figma"
+            className="absolute w-10 right-32 top-10 z-[90] hover:animate-shake md:right-20"
+            data-aos='fade-down'
           />
 
         </div>
-        <div>
-          <img src="angular.svg" alt="#" className="absolute w-14 right-0 top-52 z-50 hover:animate-shake" />
+        <div
+          className="absolute right-0 top-52 z-50"
+          data-aos='fade-left'
+          data-aos-duration='1800'
+        >
+          <img src="nextjs.svg" alt="next" className="relative w-12 z-50 hover:animate-shake  rounded-full" />
+          <div className="bg-white w-11 h-11 rounded-full absolute top-[2px] left-[2px] z-10"></div>
+        </div>
+        <div
+          className="absolute left-0 bottom-10 z-50"
+          data-aos='fade-up'
+          data-aos-duration='1800'
+        >
+          <img src="node-js.svg" alt="node" className="relative w-12 z-50 hover:animate-shake  rounded-full" />
+          {/* <div className="bg-white w-11 h-11 rounded-full absolute top-[2px] left-[2px] z-10"></div> */}
         </div>
         {/* logos ends */}
         <div>
@@ -106,6 +123,7 @@ const TwoColumnHero = () => {
             alt=""
             className="mainImg rounded-bl-[166px] rounded-br-[180px] overflow-hidden  z-40 relative "
             data-aos='fade-left'
+            data-aos-duration='800'
           />
         </div>
       </div>

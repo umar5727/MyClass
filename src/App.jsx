@@ -21,7 +21,7 @@ const EditProfile = lazy(() => import('./pages/dashboard/EditProfile'))
 const InstructorDashboard = lazy(() => import('./pages/dashboard/InstructorDashboard'))
 const CreateCourse = lazy(() => import('./pages/dashboard/CreateCourse'))
 // AdminDashboard
-const AdminDashboard = lazy(() => import('./pages/admin-site/Dashboard'))
+const AdminDashboard = lazy(() => import('./pages/admin-site/AdminDashboard'))
 
 function App() {
   const courses = useSelector((state) => state.course.courseData)
@@ -59,7 +59,10 @@ function App() {
 
         <Route path="/MyClass/Admin/" >
           <Route path="" element={<AdminDashboard />} />
+          <Route path="signOut" element={<Signout />} />
         </Route>
+
+
         <Route path='*' element={<ErrorPage />} />
       </Route>,
     ),

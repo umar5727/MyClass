@@ -36,7 +36,7 @@ const GotoTop = () => {
         `}
 
                 >
-                    <FontAwesomeIcon icon={faArrowUp} />
+                    <FontAwesomeIcon icon={faArrowUp} className='text-xl' />
                 </button>
             )
 
