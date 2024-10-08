@@ -68,7 +68,7 @@ const AboutUs = () => {
           <div className="lg:w-2/5 flex justify-center relative overflow-hidden">
             <div className="relative  ">
               <img
-                src="/MyClass/self-without-bg.png"
+                src="self-without-bg.png"
                 alt=""
                 className="mainImg rounded-b-full overflow-hidden  z-40 relative "
               />

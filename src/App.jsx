@@ -22,12 +22,12 @@ const InstructorDashboard = lazy(() => import('./pages/dashboard/InstructorDashb
 const CreateCourse = lazy(() => import('./pages/dashboard/CreateCourse'))
 // AdminDashboard
 const AdminDashboard = lazy(() => import('./pages/admin-site/AdminDashboard'))
+const AllCourses = lazy(() => import('./pages/admin-site/Courses'))
 
 function App() {
-  const courses = useSelector((state) => state.course.courseData)
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/MyClass/" element={<Layout />}>
+      <Route path="/" element={<Layout />}>
         <Route path="" element={<Home />} />
         {/* <Route path="" element={<Loading />} /> */}
         <Route path="courses" element={<Courses />} />
@@ -35,36 +35,39 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route
           path="courses/:courseId"    //dynamic course route
-          element={<ProductPage courses={courses} />}
+          element={<ProductPage />}
         />
         <Route path="signup" element={<Signup />} />
         <Route path="login" element={<Login />} />
         <Route path="InstructorSignUp" element={<InstructorSignUp />} />
         {/* Protected user route */}
 
-        <Route path="/MyClass/user/" element={<ProtectedUser />} >
+        <Route path="/user/" element={<ProtectedUser />} >
           <Route path="signOut" element={<Signout />} />
           <Route path="dashboard/" element={<DashboardLayout />} exact>
             <Route path="" element={<Dashboard />} exact />
             <Route path="myCourses" element={<MyCourses />} />
             <Route path='editProfile' element={<EditProfile />} />
           </Route>
-          <Route path="/MyClass/user/InstructorDashboard/" element={<DashboardLayout />} >
+          <Route path="/user/InstructorDashboard/" element={<DashboardLayout />} >
             <Route path="" element={<InstructorDashboard />} exact />
             <Route path="myCourses" element={<MyCourses />} />
             <Route path='editProfile' element={<EditProfile />} />
           </Route>
-          <Route path='/MyClass/user/InstructorDashboard/createCourse' element={<CreateCourse />} />
+          <Route path='/user/InstructorDashboard/createCourse' element={<CreateCourse />} />
         </Route >
 
-        <Route path="/MyClass/Admin/" >
-          <Route path="" element={<AdminDashboard />} />
+        <Route path="/Admin/" element={<AdminDashboard />} >
+          <Route path="dashboard" element={''} />
           <Route path="signOut" element={<Signout />} />
+          <Route path='courses' element={<AllCourses />} />
+          {/* <Route path='Notification' element={<AdminNotification />} /> */}
         </Route>
 
 
         <Route path='*' element={<ErrorPage />} />
       </Route>,
+
     ),
   );
 

@@ -22,24 +22,24 @@ const DashboardLayout = () => {
     useEffect(() => {
         if (userData.role === 'instructor') {
             setFields([
-                { name: "DashBoard", slug: "/MyClass/user/InstructorDashboard", icon: faBorderAll, },
-                { name: "My Courses", slug: "/MyClass/user/InstructorDashboard/myCourses", icon: faBasketShopping },
+                { name: "DashBoard", slug: "/user/InstructorDashboard", icon: faBorderAll, },
+                { name: "My Courses", slug: "/user/InstructorDashboard/myCourses", icon: faBasketShopping },
                 { name: "Students", slug: "/students", icon: faUserGroup },
                 { name: "Reviews", slug: "/#", icon: faStar },
                 { name: "Notification", slug: "/#", icon: faBell },
                 { name: "Create Quiz", slug: "/#", icon: faQuestionCircle },
-                // { name: "Create Course", slug: "/MyClass/InstructorDashboard/createCourse" },
-                { name: "Edit Profile", slug: "/MyClass/user/InstructorDashboard/editProfile", icon: faPencilSquare },
+                // { name: "Create Course", slug: "/InstructorDashboard/createCourse" },
+                { name: "Edit Profile", slug: "/user/InstructorDashboard/editProfile", icon: faPencilSquare },
                 { name: "Remove Student", slug: "/#" },
-                { name: "Sign Out", slug: "/MyClass/user/signOut", icon: faSignOut },
+                { name: "Sign Out", slug: "/user/signOut", icon: faSignOut },
             ])
         }
         else {
             setFields(
                 [
-                    { name: "Dashboard", slug: "/MyClass/user/dashboard", icon: faBorderAll, },
-                    { name: "My Courses", slug: "/MyClass/user/dashboard/myCourses", icon: faBasketShopping },
-                    { name: "Edit Profile", slug: "/MyClass/user/dashboard/editProfile", icon: faPencilSquare },
+                    { name: "Dashboard", slug: "/user/dashboard", icon: faBorderAll, },
+                    { name: "My Courses", slug: "/user/dashboard/myCourses", icon: faBasketShopping },
+                    { name: "Edit Profile", slug: "/user/dashboard/editProfile", icon: faPencilSquare },
                     { name: "Assignments", slug: "/#", icon: faRectangleList },
                     { name: "Paused Courses", slug: "/#", icon: faQuestionCircle },
                     { name: "Quiz", slug: "/#", icon: faQuestionCircle },
@@ -47,7 +47,7 @@ const DashboardLayout = () => {
                     { name: "Reviews", slug: "/#", icon: faStar },
                     { name: "Notification", slug: "/#", icon: faBell },
                     // { name: "Settings", slug: "/#", icon: faGear },
-                    { name: "Sign Out", slug: "/MyClass/user/signOut", icon: faSignOut },
+                    { name: "Sign Out", slug: "/user/signOut", icon: faSignOut },
                 ]
             )
         }
@@ -155,12 +155,12 @@ const DashboardLayout = () => {
                     {
                         userData.role === 'instructor'
                             ?
-                            <Link to='/MyClass/InstructorDashboard/createCourse'
+                            <Link to='/InstructorDashboard/createCourse'
                             >
                                 <Button className="hover:text-white">Create a Course</Button>
                             </Link>
                             :
-                            <Link to="/MyClass/dashboard/myCourses" >
+                            <Link to="/dashboard/myCourses" >
                                 <Button className="hover:text-white">View My Courses</Button>
                             </Link>
                     }

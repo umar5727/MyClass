@@ -10,7 +10,7 @@ const ProtectedUser = () => {
     const userData = useSelector((state) => state.auth.userData)    //using redux 
     // const localUser = localStorage.getItem('localUser')  //using localStorage
 
-    return userData ? (<Outlet />) : (<Navigate to={'/MyClass/'} />)
+    return userData ? (<Outlet />) : (<Navigate to={'/'} />)
 }
 
 export default ProtectedUser

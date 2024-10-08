@@ -39,7 +39,7 @@ const ProductCard = ({ product, index }) => {
         {/* category ends  */}
 
         <div className=" ">
-          <Link to='/MyClass/course'>
+          <Link to='/course'>
             <h3 className="font-bold text-xl transition-colors duration-300  cursor-pointer hover:text-primary ">{product.name}</h3>
           </Link>
           <p className="text-primary-text-normal text-sm dark:text-primary-text-normal-dark">{product.description}</p>

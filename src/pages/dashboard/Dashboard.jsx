@@ -39,7 +39,7 @@ const Dashboard = () => {
 
     return (
 
-        <>
+        <section className='flex flex-col gap-8'>
             {/* small card starts  */}
             <section className="rightSide col-span-3  rounded-md">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6  ">
@@ -69,7 +69,7 @@ const Dashboard = () => {
             />
 
 
-        </>
+        </section>
     );
 }
 

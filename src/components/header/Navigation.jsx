@@ -7,16 +7,16 @@ const Navigation = ({ }) => {
   const userData = useSelector((state) => state.auth.userData)
   const { navToggle, setNavToggle } = useContext(NavContext);
   const navItems = [
-    { name: "Home", slug: "/MyClass/" },
-    { name: "Courses", slug: "/MyClass/courses" },
-    { name: "About Us", slug: "/MyClass/about-us" },
-    { name: "Contact Us", slug: "/MyClass/contact" }
+    { name: "Home", slug: "/" },
+    { name: "Courses", slug: "/courses" },
+    { name: "About Us", slug: "/about-us" },
+    { name: "Contact Us", slug: "/contact" }
   ];
   if (userData?.role === 'instructor') {
-    navItems.push({ name: "Dashboard", slug: "/MyClass/user/InstructorDashboard" })
+    navItems.push({ name: "Dashboard", slug: "/user/InstructorDashboard" })
   }
   else if (userData?.role === 'learner') {
-    navItems.push({ name: "Dashboard", slug: "/MyClass/user/dashboard" })
+    navItems.push({ name: "Dashboard", slug: "/user/dashboard" })
   }
 
   var className = "hidden";

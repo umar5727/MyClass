@@ -29,7 +29,7 @@ const FetchCourses = () => {
             fetchData();
         }
 
-    }, [])
+    }, [allCourses])
 }
 
 export default FetchCourses

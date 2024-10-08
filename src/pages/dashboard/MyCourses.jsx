@@ -49,7 +49,7 @@ const MyCourses = ({ }) => {
     // console.log(userCourses[0].thumbNail, userCourses[0].title)
     console.log(userData.role)
     return (
-        <section className="my-8">
+        <section className="">
 
             <div className="border border-primary-text-normal rounded-md">
                 <div className="flex justify-between border-b  border-primary-text-normal p-4">

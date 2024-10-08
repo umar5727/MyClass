@@ -57,9 +57,9 @@ const Login = () => {
       // setPopup(false)
       // setPopup(true)
       if (userData.role === 'instructor') {
-        navigate('/MyClass/InstructorDashboard')
+        navigate('/InstructorDashboard')
       } else {
-        navigate('/MyClass/user/dashboard')
+        navigate('/user/dashboard')
       }
 
     } catch (error) {

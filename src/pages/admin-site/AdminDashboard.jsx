@@ -6,15 +6,15 @@ import { useSelector } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const fields = [
-  { name: "DashBoard", slug: "/MyClass/user/InstructorDashboard", icon: faBorderAll, },
-  { name: "Courses", slug: "/MyClass/user/InstructorDashboard/myCourses", icon: faBasketShopping },
-  { name: "Students", slug: "/students", icon: faUserGroup },
-  { name: "Instructors", slug: "/#", icon: faUserGroup },
-  { name: "Blocked Users", slug: "/#", icon: faQuestionCircle },
-  { name: "Notifications", slug: "/#", icon: faBell },
-  // { name: "Create Course", slug: "/MyClass/InstructorDashboard/createCourse" },
-  { name: "Edit Profile", slug: "/MyClass/user/InstructorDashboard/editProfile", icon: faPencilSquare },
-  { name: "Sign Out", slug: "/MyClass/Admin/signOut", icon: faSignOut },
+  { name: "DashBoard", slug: "./dashboard", icon: faBorderAll, },
+  { name: "Courses", slug: "./courses", icon: faBasketShopping },
+  { name: "Students", slug: "./students", icon: faUserGroup },
+  { name: "Instructors", slug: "./", icon: faUserGroup },
+  { name: "Blocked Users", slug: "./", icon: faQuestionCircle },
+  { name: "Notifications", slug: "./", icon: faBell },
+  // { name: "Create Course", slug: "/InstructorDashboard/createCourse" },
+  { name: "Edit Profile", slug: "/user/InstructorDashboard/editProfile", icon: faPencilSquare },
+  { name: "Sign Out", slug: "/Admin/signOut", icon: faSignOut },
 ]
 // useEffect(() => {
 //     setStudentsCount(0)

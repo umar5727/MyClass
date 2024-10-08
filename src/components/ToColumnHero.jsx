@@ -65,7 +65,7 @@ const TwoColumnHero = () => {
         </div>
 
         <Link
-          to="/MYClass/login"
+          to="/login"
           data-aos='fade-up'
         >
           <Button>Get Started</Button>
@@ -119,7 +119,7 @@ const TwoColumnHero = () => {
             />
           </figure>
           <img
-            src="/MyClass/self-without-bg.png"
+            src="/self-without-bg.png"
             alt=""
             className="mainImg rounded-bl-[166px] rounded-br-[180px] overflow-hidden  z-40 relative "
             data-aos='fade-left'

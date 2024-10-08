@@ -44,7 +44,7 @@ const Course = ({ courseData, withPrice, index }) => {
                 </div>
 
                 {/* card content starts  */}
-                <Link key={index} to={`/MyClass/courses/${courseData._id}`} className='grow'>
+                <Link key={index} to={`/courses/${courseData._id}`} className='grow'>
                     <div className="px-6 py-4 flex flex-col gap-2 text-sm h-full">
                         <div className="flex justify-between  items-center">
                             <p className={`${color} ${color} rounded-lg px-4 py-1  font-semibold mr-2`}>

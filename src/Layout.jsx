@@ -14,6 +14,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import FetchCourses from './utils/FetchCourses'
 
 const Layout = () => {
   const dispatch = useDispatch()
@@ -90,7 +91,7 @@ const Layout = () => {
       <LoadingContextProvider>
         <NavContextProvider >       {/* context provider for practice  */}
           {/* <Loading /> */}
-
+          <FetchCourses />
           <Header />
           <Container>
             <Toaster
