@@ -8,7 +8,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-const Product = ({ image, name, difficulty, description, lectures, mentors, time, price, category, mentorImg }) => {
+const Product = ({ image, name, difficulty, description, lectures, mentors, time, price, category, mentorImg, height = 'h-full' }) => {
   const [like, setLike] = useState(false);
   let textColor = '';
   let bgColor = '';
@@ -25,14 +25,14 @@ const Product = ({ image, name, difficulty, description, lectures, mentors, time
     }
   }
   return (
-    <div className="lightShadow rounded-lg w-full h-full bg-white dark:bg-card-dark-bg overflow-hidden">
+    <div className={`lightShadow rounded-lg w-full bg-white dark:bg-card-dark-bg  flex flex-col ${height}`}>
       <img
         className="w-full  object-cover object-center bg-red-700 aspect-[3/2]"
         src={image}
         alt={name}
       />
       {/* card content starts  */}
-      <div className="px-6 py-4 flex flex-col gap-2 text-sm">
+      <div className="px-6 py-4 flex flex-col gap-2 text-sm flex-grow">
         <div className="flex justify-between items-center">
           <div className="flex gap2">
             {
@@ -59,7 +59,7 @@ const Product = ({ image, name, difficulty, description, lectures, mentors, time
             {name}
           </h3>
         </Link>
-        <div className="flex-grow ">
+        <div className=" flex-grow">
           {
             description
               ?
@@ -106,10 +106,17 @@ const Product = ({ image, name, difficulty, description, lectures, mentors, time
             <img src={mentorImg} alt="mentor" className="w-7 h-7 rounded-full" />
             <span className="">{mentors?.split(' ')[0]}</span>
           </div>
-          <div className="text-primary-green font-bold text-xl">
-            <FontAwesomeIcon icon={faIndianRupee} className="text-primary-green" />
-            <span className="ps-1 text-2xl">{price}</span>
-          </div>
+          {
+            price ?
+              <div className="text-primary-green font-bold text-xl">
+                <FontAwesomeIcon icon={faIndianRupee} className="text-primary-green" />
+                <span className="ps-1 text-2xl">{price}</span>
+              </div>
+              :
+              <div className="text-primary-green font-bold text-2xl">
+                FREE
+              </div>
+          }
           {/* ${product.price ends} */}
         </div>
         {/* footer ends  */}

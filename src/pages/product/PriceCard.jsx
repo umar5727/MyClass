@@ -39,12 +39,12 @@ const PriceCard = ({ duration, department, totalLectures = 0, price = 0, totalEn
     {
       svg: faUser,
       title: 'Enrolled',
-      content: `${totalEnrolled} students`
+      content: `${totalEnrolled} Students`
     },
     {
       svg: faClock,
       title: 'Duration',
-      content: `${duration} hours`
+      content: `${duration} Hours`
     },
     {
       svg: faPager,
@@ -53,7 +53,7 @@ const PriceCard = ({ duration, department, totalLectures = 0, price = 0, totalEn
     },
     {
       svg: faFile,
-      title: 'Categories',
+      title: 'Department',
       content: department
     },
     {
@@ -68,14 +68,14 @@ const PriceCard = ({ duration, department, totalLectures = 0, price = 0, totalEn
     },
   ];
   return (
-    <div className=" border border-primary-border-light w-full xl:w-[350px] rounded-lg h-fit text-primary-text-heading dark:text-primary-text-normal-dark text-base font-normal ">
-      <H2 className=" ml-6 mt-4 dark:text-white">Course Features</H2>
+    <div className=" border border-primary-border-light w-full xl:w-[350px] rounded-lg h-fit text-primary-text-heading dark:text-primary-text-normal-dark text-xl font-normal ">
+      <H2 className=" dark:text-white text-center pt-6">Course Features</H2>
       {/* fretures starts  */}
-      <div className="m-6">
+      <div className="p-6 flex flex-col gap-3">
         {
           features.map((item, index) => (
 
-            <div className="flex items-center gap-2 pb-2 " key={index}>
+            <div className="flex items-center gap-3 " key={index}>
               <FontAwesomeIcon icon={item.svg} className="text-sm dark:text-white" />
               <span>
                 <strong className="dark:text-white">{item.title} : </strong> {item.content}
@@ -87,15 +87,15 @@ const PriceCard = ({ duration, department, totalLectures = 0, price = 0, totalEn
       {/* features ends  */}
 
       {/* price starts  */}
-      <div className="bg-primary-light flex flex-col justify-center items-center px-4 py-8">
-        <div className="dark:text-white mb-2 w-full flex justify-between px-2">
+      <div className="bg-primary-light flex flex-col justify-between items-center py-4">
+        <div className="dark:text-white w-full flex justify-between px-6 mb-4">
           <h3 className="pr-1 font-bold text-2xl ">Price:</h3>
           <span className="text-2xl font-medium" >
             {
               price ?
                 <span>₹ {price}</span>
                 :
-                <span className="text-green-500 pl-2">FREE</span>
+                <span className="text-green-500 ">FREE</span>
             }
 
           </span>
@@ -103,10 +103,10 @@ const PriceCard = ({ duration, department, totalLectures = 0, price = 0, totalEn
         </div>
         <div
           onClick={handleClick}
+          className="w-full px-6"
         >
-
           <Button
-            className="w-full hover:text-white mt-2"
+            className="w-full hover:text-white"
           >ENROLL COURSE</Button>
         </div>
       </div>

@@ -31,9 +31,9 @@ const TabsProduct = () => {
     // console.log(index);
   };
   return (
-    <section className=" mb-12">
+    <section className="flex-grow ">
       <div
-        className={`grid grid-cols-2 lg:grid-cols-4 w-full lg:justify-center   rounded-lg text-primary`}
+        className={`grid grid-cols-2 lg:grid-cols-4 w-full lg:justify-center rounded-lg text-primary`}
       >
         {tabInfo.map((item, index) => (
           <Button

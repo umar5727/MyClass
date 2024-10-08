@@ -44,9 +44,9 @@ const ProductPage = () => {
   }, [!newCourse]);
   return (
     <>
-      <section className="flex flex-col gap-6 lg:gap-0 lg:flex-row py-10">
+      <section className="flex flex-col gap-6 lg:gap-8 lg:flex-row w-full h-max my-10 ">
         {/* Left Column */}
-        <div className="lg:w-4/6 xl:w-[70%] py-8  flex flex-col gap-2 items-center text-center lg:text-left lg:items-start md:py-0">
+        <div className="lg:w-4/6 xl:w-[70%] py-8 flex flex-col gap-2 items-center text-center lg:text-left lg:items-start md:py-0 flex-grow">
           <h1 className="text-3xl md:text-4xl font-bold  text-primary-text-heading dark:text-white">
             {newCourse?.title}
           </h1>
@@ -61,8 +61,8 @@ const ProductPage = () => {
         </div>
 
         {/* Right Column -  */}
-        <div className="lg:w-2/6 md:w-1/2  xl:w-[30%]  flex flex-col items-start lg:items-end gap-10 overflow-hidden pt-12">
-          <div className="lg:pl-8 w-full">
+        <div className="lg:w-2/6 md:w-1/2  xl:w-[30%]  flex flex-col items-start lg:items-end gap-10 pt-12  ">
+          <div className="w-full">
 
             <PriceCard
               duration={newCourse?.duration}
@@ -75,23 +75,29 @@ const ProductPage = () => {
           </div>
           {/* PriceCard ends  */}
 
-          <div className="w-full lg:pl-8">
-            <H2 className="mb-5">Tranding Courses</H2>
+          <div className="w-full ">
+            <H2 className="mb-5 text-center">Tranding Courses</H2>
             <Product
-              name="Web Development"
-              mentors="Umar"
-              category="beginner"
-              image="../student4.jpg"
-              time="3 Hours"
-              lectures={12}
-              price={1500}
+              name={coursesData[6]?.title}
+              mentors={coursesData[6]?.instructor}
+              mentorImg={coursesData[6]?.thumbNail}
+              category={coursesData[6]?.department}
+              difficulty={coursesData[6]?.difficulty}
+              description={coursesData[6]?.shortDescription}
+              image={coursesData[6]?.thumbNail}
+              time={coursesData[6]?.duration}
+              lectures={coursesData[6]?.totalLectures}
+              price={coursesData[6]?.price}
+              height="h-fit"
             />
           </div>
           {/* tranding course ends  */}
         </div>
       </section>
+
+
       {/* more course starts  */}
-      <div className="w-full grid sm:grid-cols-2 gap-5 lg:grid-cols-3 xl:grid-cols-4 pt-5 mb-16">
+      <div className="w-full grid sm:grid-cols-2 gap-5 lg:grid-cols-3 2xl:grid-cols-4 pt-5 mb-16">
         {
           coursesData?.map((field) => (
             <div key={field._id}>
