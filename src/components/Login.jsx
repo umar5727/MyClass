@@ -53,9 +53,11 @@ const Login = () => {
         dispatch(stopLoading())
       }, 500)
       sessionStorage.setItem('user', JSON.stringify(userData));
-      localStorage.setItem('accessToken', resData.data.accessToken)
-      localStorage.setItem('refreshToken', resData.data.refreshToken)
-      // console.log("\n role: ", userData.role)
+      const { refreshToken } = resData;
+      const { accessToken } = resData;
+      localStorage.setItem('accessToken', accessToken)
+      localStorage.setItem('refreshToken', refreshToken)
+      // console.log("\n login data : ", resData.data, '\n', resData.data.refreshToken)
       // setPopup(false)
       // setPopup(true)
       if (userData.role === 'instructor') {

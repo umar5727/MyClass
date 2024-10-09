@@ -27,8 +27,10 @@ import { isLoading, login, stopLoading } from "../../app/features/authSlice"
 
       dispatch(login({ userData }));
 
-      localStorage.setItem('refreshToken',existUser.refreshToken)
-      localStorage.setItem('accessToken',existUser.accessToken)
+      const {refreshToken} = existUser;
+      const {accessToken} = existUser;
+      localStorage.setItem('accessToken', accessToken)
+      localStorage.setItem('refreshToken', refreshToken)
       // navigate('/MyClass/dashboard')
     }
   } catch (error) {
