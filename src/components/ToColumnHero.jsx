@@ -85,7 +85,7 @@ const TwoColumnHero = () => {
           <img
             src="figma.svg"
             alt="figma"
-            className="absolute w-10 right-32 top-10 z-[90] hover:animate-shake md:right-20"
+            className="absolute w-10 right-32 top-10 z-[20] hover:animate-shake md:right-20"
             data-aos='fade-down'
           />
 

@@ -1,7 +1,8 @@
 {
-  "homepage": "https://umar5727.github.io/MyClass/",
+  "homepage": "https://umarmyclass.netlify.app/",
   "name": "myclass",
   "private": true,
+  "proxy" : "https://myclass-backend.onrender.com",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
