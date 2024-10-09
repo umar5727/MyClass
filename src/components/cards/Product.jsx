@@ -8,8 +8,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-const Product = ({ image, name, difficulty, description, lectures, mentors, time, price, category, mentorImg, height = 'h-full' }) => {
+const Product = ({ image, name, difficulty, description, lectures, mentors, time, price = 100, category, mentorImg, height = 'h-full', discountPrice }) => {
   const [like, setLike] = useState(false);
+  // adding color to difficulty 
   let textColor = '';
   let bgColor = '';
   if (difficulty) {
@@ -25,12 +26,15 @@ const Product = ({ image, name, difficulty, description, lectures, mentors, time
     }
   }
   return (
-    <div className={`lightShadow rounded-lg w-full bg-white dark:bg-card-dark-bg  flex flex-col ${height}`}>
-      <img
-        className="w-full  object-cover object-center bg-red-700 aspect-[3/2]"
-        src={image}
-        alt={name}
-      />
+    <div className={`group/product lightShadow rounded-lg overflow-hidden w-full bg-white dark:bg-card-dark-bg flex flex-col ${height} hover:shadow-product duration-300`}>
+      <div className="w-full aspect-[3/2] overflow-hidden">
+
+        <img
+          className="group-hover/product:scale-125 duration-300 w-full h-full object-cover object-center bg-red-700 "
+          src={image}
+          alt={name}
+        />
+      </div>
       {/* card content starts  */}
       <div className="px-6 py-4 flex flex-col gap-2 text-sm flex-grow">
         <div className="flex justify-between items-center">
@@ -42,7 +46,10 @@ const Product = ({ image, name, difficulty, description, lectures, mentors, time
               {difficulty}
             </p>
           </div>
-          <div className="text-primary-danger cursor-pointer" onClick={() => setLike(!like)}>
+          <div className="text-primary-danger cursor-pointer"
+            title="add to wishlist"
+            onClick={() => setLike(!like)}
+          >
 
             {
               !like
@@ -100,20 +107,21 @@ const Product = ({ image, name, difficulty, description, lectures, mentors, time
 
         {price ? <hr /> : null}
 
-        <div className=" flex justify-between items-center">
-          <div className="flex items-center gap-1 w-3/5 overflow-hidden">
-            {/* <FontAwesomeIcon icon={faFaceSmile} className="text-primary-green" /> */}
+        <div className=" flex justify-end items-center">
+          {/* <div className="flex items-center gap-1 w-3/5 overflow-hidden">
             <img src={mentorImg} alt="mentor" className="w-7 h-7 rounded-full" />
             <span className="">{mentors?.split(' ')[0]}</span>
-          </div>
+          </div> */}
+          <span className="line-through mr-5 text-xl text-gray-500 font-semibold">₹ {price}</span>
           {
-            price ?
+            discountPrice ?
               <div className="text-primary-green font-bold text-xl">
                 <FontAwesomeIcon icon={faIndianRupee} className="text-primary-green" />
-                <span className="ps-1 text-2xl">{price}</span>
+                <span className="ps-1 text-2xl">{discountPrice}</span>
               </div>
               :
               <div className="text-primary-green font-bold text-2xl">
+                <span>{discountPrice}</span>
                 FREE
               </div>
           }

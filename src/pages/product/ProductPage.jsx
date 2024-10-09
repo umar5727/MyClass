@@ -112,6 +112,7 @@ const ProductPage = () => {
                 time={field.duration}
                 lectures={field.totalLectures}
                 price={field.price}
+                discountPrice={field.discountPrice}
               />
             </div>
           ))

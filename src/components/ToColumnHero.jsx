@@ -99,9 +99,10 @@ const TwoColumnHero = () => {
           <div className="bg-white w-11 h-11 rounded-full absolute top-[2px] left-[2px] z-10"></div>
         </div>
         <div
-          className="absolute left-0 bottom-10 z-50"
+          className="absolute left-0 bottom-20 z-50"
           data-aos='fade-up'
           data-aos-duration='1800'
+          data-aos-offset='80'
         >
           <img src="node-js.svg" alt="node" className="relative w-12 z-50 hover:animate-shake  rounded-full" />
           {/* <div className="bg-white w-11 h-11 rounded-full absolute top-[2px] left-[2px] z-10"></div> */}
@@ -122,8 +123,8 @@ const TwoColumnHero = () => {
             src="/self-without-bg.png"
             alt=""
             className="mainImg rounded-bl-[166px] rounded-br-[180px] overflow-hidden  z-40 relative "
-            data-aos='fade-left'
-            data-aos-duration='800'
+            data-aos='zoom-in'
+            data-aos-duration='1000'
           />
         </div>
       </div>

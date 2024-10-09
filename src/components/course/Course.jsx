@@ -1,5 +1,6 @@
 
 import { faCalendar, faClock, faHeart, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as heartRegular, } from "@fortawesome/free-regular-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
@@ -34,34 +35,40 @@ const Course = ({ courseData, withPrice, index }) => {
         <div className=''>
             <div
 
-                className="group flex flex-col lightShadow rounded-lg  w-full bg-white dark:bg-card-dark-bg  overflow-hidden h-full duration-200 hover:rotate-1 ">
-                <div className="overflow-hidden">
+                className="group flex flex-col lightShadow rounded-lg  w-full bg-white dark:bg-card-dark-bg  overflow-hidden h-full duration-200 hover:rotate-1 hover:shadow-product">
+                <div className="w-full aspect-[3/2] overflow-hidden">
                     <img
-                        className="w-full aspect-[16/12] object-cover object-center bg-red-700 duration-500 group-hover:scale-105"
+                        className="w-full h-full object-cover object-center bg-red-700 duration-500 group-hover:scale-105"
                         src={courseData.thumbNail}
                         alt={courseData.title}
                     />
                 </div>
 
                 {/* card content starts  */}
-                <Link key={index} to={`/courses/${courseData._id}`} className='grow'>
-                    <div className="px-6 py-4 flex flex-col gap-2 text-sm h-full">
-                        <div className="flex justify-between  items-center">
-                            <p className={`${color} ${color} rounded-lg px-4 py-1  font-semibold mr-2`}>
-                                {courseData.difficulty}
-                            </p>
-                            <div className="text-primary-danger cursor-pointer" onClick={() => setLike(!like)}>
 
-                                {
-                                    !like
-                                        ? <FontAwesomeIcon icon={faHeart} />
-                                        : <FontAwesomeIcon icon={faHeart} />
-                                }
-                            </div>
+                <div className="px-6 py-4 flex flex-col gap-2 text-sm grow">
+                    <div className="flex justify-between  items-center">
+                        <p className={`${color} ${color} rounded-lg px-4 py-1  font-semibold mr-2`}>
+                            {courseData.difficulty}
+                        </p>
+                        <div className="text-primary-danger cursor-pointer"
+                            onClick={() => setLike(!like)}
+                            title='add to wishlist'
+                        >
+
+                            {
+                                like
+                                    ? <FontAwesomeIcon icon={faHeart} />
+                                    : <FontAwesomeIcon icon={heartRegular} />
+                            }
                         </div>
-                        {/* category ends  */}
-
-                        <div className=" flex-1  ">
+                    </div>
+                    {/* category ends  */}
+                    <Link
+                        key={index}
+                        to={`/courses/${courseData._id}`}
+                        className='flex flex-col gap-2 grow'>
+                        <div className=" grow  ">
 
                             <h3 className="font-bold text-xl transition-colors duration-300  cursor-pointer hover:text-primary capitalize">{courseData.title}</h3>
 
@@ -126,8 +133,8 @@ const Course = ({ courseData, withPrice, index }) => {
                             }
                         </div>
                         {/* footer ends  */}
-                    </div>
-                </Link>
+                    </Link>
+                </div>
             </div>
         </div>
     )

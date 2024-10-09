@@ -57,6 +57,7 @@ export default {
         'custom': '0 0 20px 0px rgba(29,58,83,0.15)',
         'more': '0 2 20px rgba(29,58,83,0.25)',
         'icon': '0px 0px 5px rgba(29,58,83,0.25)',
+        'product': '0px 0px 10px rgba(6, 106, 201, 1)'
       },
       backgroundImage: {
         'banner': 'url(./studentBanner.jpg)'

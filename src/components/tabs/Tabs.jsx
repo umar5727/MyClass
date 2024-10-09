@@ -108,7 +108,7 @@ const Tabs = () => {
         {
           (indexData?.length) ?
             indexData.map((course, index) => (
-              <Course courseData={course} key={index} withPrice={false} />
+              <Course courseData={course} key={course._id} withPrice={false} />
             ))
             :
             <div className="pb-20 col-span-4 text-center dark:text-white text-3xl">More Courses are comming soon...</div>
