@@ -45,7 +45,7 @@ const InstructorDashboard = () => {
   const userData = useSelector((state) => state.auth.userData)
   const coursesData = useSelector((state) => state.auth.userCoursesData)
 
-
+  const accessToken = localStorage.getItem('accessToken')
   const userProfile = async () => {
     try {
       const response = await fetch(base_url + '/users/instructorProfile', {
@@ -56,7 +56,7 @@ const InstructorDashboard = () => {
           "Content-Type": "application/json",
 
         },
-        body: JSON.stringify({ "userId": userData._id })
+        body: JSON.stringify({ "userId": userData._id, accessToken })
       })
       const courseData = await response.json();
       console.log('courses pipline : ', courseData)

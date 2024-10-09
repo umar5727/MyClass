@@ -53,6 +53,8 @@ const Login = () => {
         dispatch(stopLoading())
       }, 500)
       sessionStorage.setItem('user', JSON.stringify(userData));
+      localStorage.setItem('accessToken', resData.data.accessToken)
+      localStorage.setItem('refreshToken', resData.data.refreshToken)
       // console.log("\n role: ", userData.role)
       // setPopup(false)
       // setPopup(true)

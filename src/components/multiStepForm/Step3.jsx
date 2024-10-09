@@ -6,7 +6,7 @@ import { base_url } from "../../constants/constant";
 function Step3({ formData }) {
     const navigate = useNavigate()
     const userData = useSelector((state) => state.auth.userData)
-
+    const accessToken = localStorage.getItem('accessToken')
     const handleClick = async () => {
         const reqData = new FormData()
         reqData.append('title', formData.title)
@@ -19,6 +19,7 @@ function Step3({ formData }) {
         reqData.append('discountPrice', formData.discountPrice)
         reqData.append('thumbNail', formData.courseImage)
         reqData.append('instructor', userData._id)
+        reqData.append('accessToken', accessToken)
 
         // console.log('reqData : ', reqData)
         const createCourses = await fetch(base_url + "/courses/createCourse", {

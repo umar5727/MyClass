@@ -5,7 +5,8 @@ import { isLoading, login, stopLoading } from "../../app/features/authSlice"
   const dispatch = useDispatch()
   dispatch(isLoading())
   try {
-    const refreshToken = document.cookie
+    // const refreshToken = document.cookie
+    const refreshToken = localStorage.getItem('refreshToken')
     //fetching user
     if (!refreshToken) {
       return ''
@@ -23,7 +24,11 @@ import { isLoading, login, stopLoading } from "../../app/features/authSlice"
     const existUser = await currentUser.json();
     if (existUser.data) {
       const userData = await existUser.data.user;
+
       dispatch(login({ userData }));
+
+      localStorage.setItem('refreshToken',existUser.refreshToken)
+      localStorage.setItem('accessToken',existUser.accessToken)
       // navigate('/MyClass/dashboard')
     }
   } catch (error) {

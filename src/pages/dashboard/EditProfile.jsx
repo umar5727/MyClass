@@ -28,13 +28,14 @@ const EditProfile = () => {
         e.preventDefault();
         const userId = userData._id
         const fullName = firstName + " " + lastName
-
+        const accessToken = localStorage.getItem('accessToken')
         try {
             if (firstName || lastName || email || contactNumber || image) {
                 const data = { userId, fullName, email, contactNumber, profileImage: image }
                 console.log("image:", image)
                 const formdata = new FormData();
                 formdata.append("userId", userId);
+                formdata.append("accessToken", accessToken);
                 if (image) {
                     formdata.append("avatar", image);
                 }
