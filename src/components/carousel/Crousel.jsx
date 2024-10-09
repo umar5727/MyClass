@@ -3,145 +3,148 @@
 import React, { useEffect, useState } from "react";
 
 import Product from "../cards/Product";
+import { useSelector } from "react-redux";
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoSlider, setAutoSlider] = useState(true);
   const [duration, setDuration] = useState("500ms");
   const [width, setwidth] = useState(100);
-  const items = [
-    {
-      name: "JavaScript: Full first",
-      image: "student2.jpg",
+  // const items = [
+  //   {
+  //     name: "JavaScript: Full first",
+  //     image: "student2.jpg",
 
-      // price: 19.99,
+  //     // price: 19.99,
 
-      difficulty: "Beginner",
-      category: "Development",
-      time: "3h",
-      lectures: 15,
-      price: 300,
-      mentors: "Umar Khan",
-    },
-    {
-      name: "JavaScript: Full second",
-      image: "student2.jpg",
+  //     difficulty: "Beginner",
+  //     category: "Development",
+  //     time: "3h",
+  //     lectures: 15,
+  //     price: 300,
+  //     mentors: "Umar Khan",
+  //   },
+  //   {
+  //     name: "JavaScript: Full second",
+  //     image: "student2.jpg",
 
-      // price: 19.99,
+  //     // price: 19.99,
 
-      difficulty: "Beginner",
-      category: "Design",
-      time: "4h",
-      lectures: 25,
-      price: 300,
-      mentors: "Umar Khan",
-    },
-    {
-      name: "JavaScript: Full third",
-      image: "student2.jpg",
+  //     difficulty: "Beginner",
+  //     category: "Design",
+  //     time: "4h",
+  //     lectures: 25,
+  //     price: 300,
+  //     mentors: "Umar Khan",
+  //   },
+  //   {
+  //     name: "JavaScript: Full third",
+  //     image: "student2.jpg",
 
-      // price: 19.99,
+  //     // price: 19.99,
 
-      difficulty: "Beginner",
-      category: "Design",
-      time: "4h",
-      lectures: 25,
-      price: 300,
-      mentors: "Umar Khan",
-    },
-    {
-      name: "JavaScript: Full fourth",
-      image: "student2.jpg",
+  //     difficulty: "Beginner",
+  //     category: "Design",
+  //     time: "4h",
+  //     lectures: 25,
+  //     price: 300,
+  //     mentors: "Umar Khan",
+  //   },
+  //   {
+  //     name: "JavaScript: Full fourth",
+  //     image: "student2.jpg",
 
-      // price: 19.99,
+  //     // price: 19.99,
 
-      difficulty: "Beginner",
-      category: "Design",
-      time: "fourth",
-      lectures: 25,
-      price: 300,
-      mentors: "Umar Khan",
-    },
-    {
-      name: "JavaScript: Full fifth",
-      image: "student2.jpg",
+  //     difficulty: "Beginner",
+  //     category: "Design",
+  //     time: "fourth",
+  //     lectures: 25,
+  //     price: 300,
+  //     mentors: "Umar Khan",
+  //   },
+  //   {
+  //     name: "JavaScript: Full fifth",
+  //     image: "student2.jpg",
 
-      // price: 19.99,
+  //     // price: 19.99,
 
-      difficulty: "Beginner",
-      category: "Design",
-      time: "4h",
-      lectures: 25,
-      price: 300,
-      mentors: "Umar Khan",
-    },
-    {
-      name: "JavaScript: Full sixth",
-      image: "student2.jpg",
+  //     difficulty: "Beginner",
+  //     category: "Design",
+  //     time: "4h",
+  //     lectures: 25,
+  //     price: 300,
+  //     mentors: "Umar Khan",
+  //   },
+  //   {
+  //     name: "JavaScript: Full sixth",
+  //     image: "student2.jpg",
 
-      // price: 19.99,
+  //     // price: 19.99,
 
-      difficulty: "Beginner",
-      category: "Design",
-      time: "4h",
-      lectures: 25,
-      price: 300,
-      mentors: "Umar Khan",
-    },
-    {
-      name: "JavaScript: Full first",
-      image: "student2.jpg",
+  //     difficulty: "Beginner",
+  //     category: "Design",
+  //     time: "4h",
+  //     lectures: 25,
+  //     price: 300,
+  //     mentors: "Umar Khan",
+  //   },
+  //   {
+  //     name: "JavaScript: Full first",
+  //     image: "student2.jpg",
 
-      // price: 19.99,
+  //     // price: 19.99,
 
-      difficulty: "Beginner",
-      category: "Development",
-      time: "3h",
-      lectures: 15,
-      price: 300,
-      mentors: "Umar Khan",
-    },
-    {
-      name: "JavaScript: Full second",
-      image: "student2.jpg",
+  //     difficulty: "Beginner",
+  //     category: "Development",
+  //     time: "3h",
+  //     lectures: 15,
+  //     price: 300,
+  //     mentors: "Umar Khan",
+  //   },
+  //   {
+  //     name: "JavaScript: Full second",
+  //     image: "student2.jpg",
 
-      // price: 19.99,
+  //     // price: 19.99,
 
-      difficulty: "Beginner",
-      category: "Design",
-      time: "4h",
-      lectures: 25,
-      price: 300,
-      mentors: "Umar Khan",
-    },
-    {
-      name: "JavaScript: Full third",
-      image: "student2.jpg",
+  //     difficulty: "Beginner",
+  //     category: "Design",
+  //     time: "4h",
+  //     lectures: 25,
+  //     price: 300,
+  //     mentors: "Umar Khan",
+  //   },
+  //   {
+  //     name: "JavaScript: Full third",
+  //     image: "student2.jpg",
 
-      // price: 19.99,
+  //     // price: 19.99,
 
-      difficulty: "Beginner",
-      category: "Design",
-      time: "4h",
-      lectures: 25,
-      price: 300,
-      mentors: "Umar Khan",
-    },
-    {
-      name: "JavaScript: Full fourth",
-      image: "student2.jpg",
+  //     difficulty: "Beginner",
+  //     category: "Design",
+  //     time: "4h",
+  //     lectures: 25,
+  //     price: 300,
+  //     mentors: "Umar Khan",
+  //   },
+  //   {
+  //     name: "JavaScript: Full fourth",
+  //     image: "student2.jpg",
 
-      // price: 19.99,
+  //     // price: 19.99,
 
-      difficulty: "Beginner",
-      category: "Design",
-      time: "fourth",
-      lectures: 25,
-      price: 300,
-      mentors: "Umar Khan",
-    },
-  ];
+  //     difficulty: "Beginner",
+  //     category: "Design",
+  //     time: "fourth",
+  //     lectures: 25,
+  //     price: 300,
+  //     mentors: "Umar Khan",
+  //   },
+  // ];
 
+  const coursesData = useSelector((state) => state.course.courseData)
+  console.log('crousel :', coursesData)
   // const nextSlide = () => {
   //   setCurrentIndex((prevIndex) => (prevIndex + 1) % 6);
   //   console.log(currentIndex);
@@ -150,6 +153,7 @@ const Carousel = () => {
   // const prevSlide = () => {
   //   setCurrentIndex((prevIndex) => (prevIndex - 1 + 7) % 7);
   // };
+
 
   const stopAutoSlider = () => {
     setAutoSlider(false);
@@ -203,23 +207,34 @@ const Carousel = () => {
             transitionDuration: `${duration}`,
           }}
         >
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className="shadow-more w-full md:w-3/6 lg:w-2/6 px-3 flex-shrink-0 "
-            >
-              <Product
-                name={item.name}
-                category={item.category}
-                difficulty={item.difficulty}
-                image={item.image}
-                lectures={item.lectures}
-                mentors={item.mentors}
-                price={item.price}
-                time={item.time}
-              />
-            </div>
-          ))}
+          {
+            coursesData?.map((field, index) => {
+              if (index >= 10) {
+                return;
+              }
+              return (
+                <div
+                  key={field._id}
+                  className="shadow-more w-full md:w-3/6 lg:w-2/6 px-3 flex-shrink-0 "
+                >
+                  <Product
+                    courseId={field._id}
+                    name={field.title}
+                    // mentors={field.instructor}
+                    // mentorImg={field.thumbNail}
+                    category={field.department}
+                    difficulty={field.difficulty}
+                    description={field.shortDescription}
+                    image={field.thumbNail}
+                    time={field.duration}
+                    lectures={field.totalLectures}
+                    price={field.price}
+                    discountPrice={field.discountPrice}
+                  />
+                </div>
+              )
+            }
+            )}
         </div>
       </div>
       {/*            

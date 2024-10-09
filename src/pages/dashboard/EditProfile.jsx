@@ -102,7 +102,7 @@ const EditProfile = () => {
                                     onClick={() => setToggleImage(true)}
                                 >
                                     {/* filter starts  */}
-                                    <div className='hidden group-hover/label:flex absolute top-0 left-0 bg-black/40 w-full h-28  justify-center items-center'>
+                                    <div className='opacity-0 group-hover/label:opacity-100 duration-300 absolute top-0 left-0 bg-black/40 w-full h-28 flex justify-center items-center'>
                                         <div className='text-white text-lg text-center w-fit px-4 py-1 font-bold bg-primary-dark rounded-md'>Edit</div>
                                     </div>
                                     {/* filter ends  */}

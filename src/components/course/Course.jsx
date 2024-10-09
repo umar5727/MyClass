@@ -38,7 +38,7 @@ const Course = ({ courseData, withPrice, index }) => {
                 className="group flex flex-col lightShadow rounded-lg  w-full bg-white dark:bg-card-dark-bg  overflow-hidden h-full duration-200 hover:rotate-1 hover:shadow-product">
                 <div className="w-full aspect-[3/2] overflow-hidden">
                     <img
-                        className="w-full h-full object-cover object-center bg-red-700 duration-500 group-hover:scale-105"
+                        className="w-full h-full object-cover object-center bg-red-700 duration-500 group-hover:scale-125"
                         src={courseData.thumbNail}
                         alt={courseData.title}
                     />

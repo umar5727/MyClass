@@ -9,27 +9,27 @@ import { UserCourses } from '../../app/features/authSlice';
 
 
 const Dashboard = () => {
-
+    const userCourses = useSelector((state) => state.auth.userCoursesData)
     const cards = [
         {
             className: "bg-primary-yellow-light",
-            number: 20,
-            numberSpan: "+",
-            title: "Total Courses",
+            number: userCourses?.length,
+            numberSpan: "",
+            title: "Total Courses Enrolled",
             iconClassName: "text-primary-yellow  text-6xl",
             iconName: faTv,
         },
         {
             className: "bg-primary-purple-light",
             number: 60,
-            numberSpan: "K",
+            numberSpan: "",
             title: "Complete lessons",
             iconClassName: "text-primary-purple text-6xl",
             iconName: faClipboardCheck,
         },
         {
             className: "bg-primary-info-light",
-            number: 10,
+            number: 0,
             numberSpan: "+",
             title: "Achieved Certificates",
             iconClassName: "text-primary-info text-6xl",

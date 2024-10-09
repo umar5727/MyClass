@@ -8,7 +8,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-const Product = ({ image, name, difficulty, description, lectures, mentors, time, price = 100, category, mentorImg, height = 'h-full', discountPrice }) => {
+const Product = ({ courseId, image, name, difficulty, description, lectures, mentors, time, price = 100, category, mentorImg, height = 'h-full', discountPrice }) => {
   const [like, setLike] = useState(false);
   // adding color to difficulty 
   let textColor = '';
@@ -30,7 +30,7 @@ const Product = ({ image, name, difficulty, description, lectures, mentors, time
       <div className="w-full aspect-[3/2] overflow-hidden">
 
         <img
-          className="group-hover/product:scale-125 duration-300 w-full h-full object-cover object-center bg-red-700 "
+          className="group-hover/product:scale-125 duration-300 w-full h-full object-cover object-center  "
           src={image}
           alt={name}
         />
@@ -61,7 +61,7 @@ const Product = ({ image, name, difficulty, description, lectures, mentors, time
         {/* category ends  */}
 
         {/* <div className=" "> */}
-        <Link to='/course'>
+        <Link to={`/courses/${courseId}`}>
           <h3 className="font-bold text-xl transition-colors duration-300  cursor-pointer hover:text-primary capitalize ">
             {name}
           </h3>
