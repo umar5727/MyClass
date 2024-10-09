@@ -87,8 +87,8 @@ const PriceCard = ({ duration, department, totalLectures = 0, price = 0, totalEn
       {/* features ends  */}
 
       {/* price starts  */}
-      <div className="bg-primary-light flex flex-col justify-between items-center py-4">
-        <div className="dark:text-white w-full flex justify-between px-6 mb-4">
+      <div className="bg-primary-light flex flex-col justify-between items-center py-4  lg:py-6">
+        <div className="dark:text-white w-full flex justify-between px-6 mb-4 lg:mb-6">
           <h3 className="pr-1 font-bold text-2xl ">Price:</h3>
           <span className="text-2xl font-medium" >
             {

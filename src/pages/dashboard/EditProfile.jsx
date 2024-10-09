@@ -23,7 +23,7 @@ const EditProfile = () => {
     const [toggleContact, setToggleContact] = useState(false)
     const [toggleImage, setToggleImage] = useState(false)
     const [image, setImage] = useState(null)
-    console.log('user data redux ', userData)
+    // console.log('user data redux ', userData)
     const handleSubmit = async (e) => {
         e.preventDefault();
         const userId = userData._id
@@ -31,8 +31,8 @@ const EditProfile = () => {
         const accessToken = localStorage.getItem('accessToken')
         try {
             if (firstName || lastName || email || contactNumber || image) {
-                const data = { userId, fullName, email, contactNumber, profileImage: image }
-                console.log("image:", image)
+
+                // console.log("image:", image)
                 const formdata = new FormData();
                 formdata.append("userId", userId);
                 formdata.append("accessToken", accessToken);
@@ -57,8 +57,8 @@ const EditProfile = () => {
                 })
                 if (res.ok) {
                     const response = await res.json()
-                    console.log('response: ', response)
-                    console.log('res data : ', response.user)
+                    // console.log('response: ', response)
+                    // console.log('res data : ', response.user)
                     dispatch(login({ userData: response.user })); //dispatching
                     sessionStorage.setItem('user', JSON.stringify(response.user))
                     toast.success('update Success');

@@ -36,7 +36,7 @@ const Layout = () => {
       const currentUser = await fetch(base_url + "/users/refreshAccessToken ", {
         mode: "cors",
         method: "POST",
-        credentials: "include",
+        // credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },

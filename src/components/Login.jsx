@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { isLoading, login, stopLoading } from "../app/features/authSlice";
 import { base_url } from "../constants/constant";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -38,10 +39,12 @@ const Login = () => {
       // fetch ends
       console.log('status : ', response.status)
       if (response.status >= 400) {     //if the response is error
+        toast.error('Login failed');
         const errorData = await response.json(); // Parse error details
         setError(() => errorData.message)
         throw new Error(errorData.message || 'user not found '); // Provide user-friendly message
       }
+      toast.success('Login Success');
       const resData = await response.json(); //taking the json values form response
 
       const userData = resData.data.user; //storing usedata in useData
@@ -55,9 +58,9 @@ const Login = () => {
       sessionStorage.setItem('user', JSON.stringify(userData));
       const { refreshToken } = resData;
       const { accessToken } = resData;
-      localStorage.setItem('accessToken', accessToken)
-      localStorage.setItem('refreshToken', refreshToken)
-      // console.log("\n login data : ", resData.data, '\n', resData.data.refreshToken)
+      localStorage.setItem('accessToken', resData.data.accessToken)
+      localStorage.setItem('refreshToken', resData.data.refreshToken)
+      // console.log("\n login data : ", resData.data, '\n', resData.data.refreshToken, refreshToken)
       // setPopup(false)
       // setPopup(true)
       if (userData.role === 'instructor') {
