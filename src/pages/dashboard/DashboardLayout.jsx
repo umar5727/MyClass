@@ -155,12 +155,12 @@ const DashboardLayout = () => {
                     {
                         userData.role === 'instructor'
                             ?
-                            <Link to='/InstructorDashboard/createCourse'
+                            <Link to='/user/InstructorDashboard/createCourse'
                             >
                                 <Button className="hover:text-white">Create a Course</Button>
                             </Link>
                             :
-                            <Link to="/dashboard/myCourses" >
+                            <Link to="/user/dashboard/myCourses" >
                                 <Button className="hover:text-white">View My Courses</Button>
                             </Link>
                     }

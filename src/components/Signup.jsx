@@ -49,9 +49,11 @@ const Signup = ({ role = 'learner' }) => {
     formData.append("fullName", fullName);
     formData.append("email", email);
     formData.append("password", password);
-    formData.append("avatar", avatar);
     formData.append("role", role);
+    if (avatar) {
 
+      formData.append("avatar", avatar);
+    }
     try {
       const signUp = await fetch(base_url + "/users/register", {
         // mode: "no-cors",
@@ -69,7 +71,7 @@ const Signup = ({ role = 'learner' }) => {
       const response = await signUp.json();
       console.log(response, "\n  data from backend \n");
 
-      navigate("/MyClass/login");
+      navigate("/login");
     } catch (error) {
       console.log(error.message)
       setError(error.message)
@@ -191,7 +193,7 @@ const Signup = ({ role = 'learner' }) => {
         </form>
         <div className="mt-6 text-center">
           <span>Already a user? </span>
-          <Link to={"/MyClass/login"} className="text-primary hover:underline font-bold">
+          <Link to={"/login"} className="text-primary hover:underline font-bold">
             Log in
           </Link>
         </div>

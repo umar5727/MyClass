@@ -6,6 +6,7 @@ import { faCalendar, faFaceSmile, faHeart, faIndianRupee, faRupee, faStar } from
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Wishlist from "../wishlist/Wishlist";
 
 
 const Product = ({ courseId, image, name, difficulty, description, lectures, mentors, time, price = 100, category, mentorImg, height = 'h-full', discountPrice }) => {
@@ -46,17 +47,10 @@ const Product = ({ courseId, image, name, difficulty, description, lectures, men
               {difficulty}
             </p>
           </div>
-          <div className="text-primary-danger cursor-pointer"
-            title="add to wishlist"
-            onClick={() => setLike(!like)}
-          >
 
-            {
-              !like
-                ? <FontAwesomeIcon icon={regular} />
-                : <FontAwesomeIcon icon={faHeart} />
-            }
-          </div>
+          <Wishlist />
+
+
         </div>
         {/* category ends  */}
 

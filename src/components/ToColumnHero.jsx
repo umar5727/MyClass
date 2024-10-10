@@ -15,7 +15,7 @@ const TwoColumnHero = () => {
         <div
           data-aos='fade-right'
         >
-          <img src="node.png" alt="#" className="absolute w-14 aspect-square right-1/2 bottom-14 z-50 hover:animate-shake " />
+          <img src="node.png" alt="node" className="absolute w-14 aspect-square right-1/2 bottom-14 z-50 hover:animate-shake " />
         </div>
       </div>
       {/* logos ends  */}

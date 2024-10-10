@@ -4,6 +4,7 @@ const initialState = {
     status: false,
     userData: null,
     userCoursesData: null,
+    wishlist:null,
     isLoading:false
 }
 
@@ -26,6 +27,9 @@ const authSlice = createSlice({
             state.status = false;
             state.userData = null;
         },
+        setWishlist:(state, action)=>{
+            state.wishlist = action.payload.wishlist
+        },
         isLoading:(state, action)=>{
             state.isLoading =true
         },
@@ -35,6 +39,6 @@ const authSlice = createSlice({
     }
 })
 
-export const { login, logout, UserCourses,isLoading,stopLoading } = authSlice.actions;
+export const { login, logout, UserCourses,isLoading,stopLoading, setWishlist } = authSlice.actions;
 
 export default authSlice.reducer;

@@ -2,21 +2,24 @@ import React, { useContext, useEffect, useState } from "react";
 import Button from "./Button";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import H1 from "./heading/H1";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-import { isLoading, login, stopLoading } from "../app/features/authSlice";
+import { isLoading, login, setWishlist, stopLoading } from "../app/features/authSlice";
 import { base_url } from "../constants/constant";
 import toast from "react-hot-toast";
 
+
 const Login = () => {
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const [error, setError] = useState("");
   const [popup, setPopup] = useState(false);
 
+  const Loading = useSelector((state) => state.auth.isLoading)
 
   const loginHandler = async (data) => {
     dispatch(isLoading())
@@ -37,32 +40,29 @@ const Login = () => {
         body: JSON.stringify({ email, password }),
       });
       // fetch ends
-      console.log('status : ', response.status)
+
       if (response.status >= 400) {     //if the response is error
-        toast.error('Login failed');
         const errorData = await response.json(); // Parse error details
         setError(() => errorData.message)
-        throw new Error(errorData.message || 'user not found '); // Provide user-friendly message
+        throw new Error(errorData.message || 'user not found ');// Provide user-friendly message
       }
+
       toast.success('Login Success');
       const resData = await response.json(); //taking the json values form response
-
       const userData = resData.data.user; //storing usedata in useData
-
-      console.log("if user: ", userData.fullName);
+      const wishlist = resData.data.wishlist;
+      console.log("if user login : ", wishlist);
       dispatch(login({ userData })); //dispatching
+      dispatch(setWishlist({ wishlist }))
       setTimeout(() => {
 
         dispatch(stopLoading())
       }, 500)
       sessionStorage.setItem('user', JSON.stringify(userData));
-      const { refreshToken } = resData;
-      const { accessToken } = resData;
+
       localStorage.setItem('accessToken', resData.data.accessToken)
       localStorage.setItem('refreshToken', resData.data.refreshToken)
-      // console.log("\n login data : ", resData.data, '\n', resData.data.refreshToken, refreshToken)
-      // setPopup(false)
-      // setPopup(true)
+
       if (userData.role === 'instructor') {
         navigate('/InstructorDashboard')
       } else {
@@ -71,6 +71,7 @@ const Login = () => {
 
     } catch (error) {
       console.log('\nerror form backend : ', error)
+      toast.error('Login failed');
       dispatch(stopLoading())
       setError(error.message)
     }
@@ -184,19 +185,25 @@ const Login = () => {
                 <></>
             }
           </div>
+
           <div className="grid grid-cols-2 mt-2 gap-1">
             <Button className="!px-0 hover:text-white min-w-fit ">
               Forgot Password?
             </Button>
             <Button type="submit" className=" self-center hover:text-white !px-0 min-w-fit ">
+
               Submit
             </Button>
+
           </div>
+
+
+          {/* <Loading /> */}
         </form>
 
         <div className="mt-10  text-center">
           <span>Create New Account: </span>
-          <Link to='/MyClass/signup' className="font-bold text-blue-700 hover:underline ">
+          <Link to='/signup' className="font-bold text-blue-700 hover:underline ">
             Sign Up
           </Link>
         </div>

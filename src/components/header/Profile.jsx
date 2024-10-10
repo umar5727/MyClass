@@ -23,7 +23,7 @@ const Profile = () => {
     var className = "hidden";
   }
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
   const loginstatus = useSelector((state) => state.auth.status);
 
