@@ -9,79 +9,75 @@ import { setWishlist } from '../../app/features/authSlice';
 import useFetchData from '../../utils/fetch/useFetchData';
 import toast from 'react-hot-toast';
 import { base_url } from '../../constants/constant';
+import useWishlist from '../../hooks/useWishlist';
+
+
 
 const Wishlist = ({ courseId }) => {
+  const { addToWishlist, removeFromWishlist } = useWishlist({ courseId: courseId });
+  // const { status, error } = useWishlist({ url: 'addWishlist', courseId: courseId })
+  // function AddToWishlist() {
 
-  const state = {
-    idle: 'idle',
-    Loading: 'loading',
-    Error: 'error',
-    success: 'success'
-  }
-  const [status, setStatus] = useState(state.idle)
-  const [error, setError] = useState(null)
+  //   // const { status, error } = useWishlistFetch({ url: 'addToWishlist', courseId: courseId });
+
+
+  //   if (status === 'loding') {
+  //   }
+  //   if (status === 'error') {
+  //     toast.error('Not able to Add')
+  //     console.log('wishlist error : ', error)
+  //   }
+  //   if (status === 'success') {
+  //     toast.success('Added to Wishlist')
+  //   }
+  // }
 
   const [display, setDisplay] = useState(false)
 
   const wishlistData = useSelector((state) => state.auth.wishlist)
   const dispatch = useDispatch()
+  // async function HandleClick() {
+  //   // setStatus(state.Loading)
+  //   if (display) {
+  //     const wishlist = wishlistData?.filter((list) => {
+  //       return list != courseId
+  //     })
+  //     dispatch(setWishlist({ wishlist }))
+  //     console.log('list clicked ', wishlist)
 
-  async function handleClick() {
-    setStatus(state.Loading)
-    if (display) {
-      const wishlist = wishlistData?.filter((list) => {
-        return list != courseId
-      })
-      dispatch(setWishlist({ wishlist }))
-      console.log('list clicked ', wishlist)
+  //   } else {
 
-    } else {
+  //     // adding courseId to wishlist 
 
-      // adding courseId to wishlist 
-      try {
-        const accessToken = localStorage.getItem('accessToken')
-        const res = await fetch(`${base_url}/wishlist/addToWishlist`, {
-          mode: 'cors',
-          method: 'POST',
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ accessToken, courseId: courseId })
-        })
+  //     const { status, error } = useWishlistFetch({ url: 'addToWishlist', courseId: courseId });
+  //     if (status === 'loding') {
+  //     }
+  //     if (status === 'error') {
+  //       toast.error('Not able to Add')
+  //       console.log('wishlist error : ', error)
+  //     }
+  //     if (status === 'success') {
+  //       toast.success('Added to Wishlist')
+  //     }
+  //   }
 
-        if (!res.ok) {
-          const response = await res.json()
-          throw new Error(response.message || 'not found')
-        }
-        const response = await res.json()
-
-        dispatch(setWishlist({ wishlist: response.wishlist }))
-        toast.success('Added to Wishlist')
-        sessionStorage.setItem('wishlist', JSON.stringify(response.wishlist))
-      } catch (err) {
-        toast.error('Not able to Add', error)
-        setError(err.message)
-      }
-
-    }
-
-    setDisplay(!display)
-  }
+  //   setDisplay(!display)
+  // }
   useEffect(() => {
     wishlistData?.forEach(list => {
-      if (courseId === list._id) {
+      if (courseId === list) {
 
         setDisplay(true)
       }
 
     });
   }, [wishlistData])
-
+  // console.log('display wishlist : ', display)
 
   return (
     <div className="text-primary-danger cursor-pointer"
       title="add to wishlist"
-      onClick={handleClick}
+      onClick={display ? removeFromWishlist : addToWishlist}
     >
 
       {

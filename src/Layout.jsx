@@ -52,8 +52,7 @@ const Layout = () => {
         const userData = await existUser.data.user;
         dispatch(login({ userData }));
         dispatch(setWishlist({ wishlist: existUser.data.wishlist }))
-        const { refreshToken } = existUser;
-        const { accessToken } = existUser;
+        const { accessToken, refreshToken } = existUser;
         localStorage.setItem('accessToken', accessToken)
         localStorage.setItem('refreshToken', refreshToken)
         // navigate('/MyClass/dashboard')

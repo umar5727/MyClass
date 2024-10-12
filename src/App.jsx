@@ -17,6 +17,7 @@ const DashboardLayout = lazy(() => import('./pages/dashboard/DashboardLayout'))
 const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'))     //lazy loading Dashboard
 const MyCourses = lazy(() => import("./pages/dashboard/MyCourses"));
 const EditProfile = lazy(() => import('./pages/dashboard/EditProfile'))
+const Wishlist = lazy(() => import('./pages/dashboard/Wishlist'))
 // InstructorDashboard 
 const InstructorDashboard = lazy(() => import('./pages/dashboard/InstructorDashboard'))
 const CreateCourse = lazy(() => import('./pages/dashboard/CreateCourse'))
@@ -48,6 +49,7 @@ function App() {
             <Route path="" element={<Dashboard />} exact />
             <Route path="myCourses" element={<MyCourses />} />
             <Route path='editProfile' element={<EditProfile />} />
+            <Route path='wishlist' element={<Wishlist />} />
           </Route>
           <Route path="/user/InstructorDashboard/" element={<DashboardLayout />} >
             <Route path="" element={<InstructorDashboard />} exact />

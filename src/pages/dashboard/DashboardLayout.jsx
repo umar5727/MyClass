@@ -38,12 +38,12 @@ const DashboardLayout = () => {
             setFields(
                 [
                     { name: "Dashboard", slug: "/user/dashboard", icon: faBorderAll, },
-                    { name: "My Courses", slug: "/user/dashboard/myCourses", icon: faBasketShopping },
-                    { name: "Edit Profile", slug: "/user/dashboard/editProfile", icon: faPencilSquare },
+                    { name: "My Courses", slug: "myCourses", icon: faBasketShopping },
+                    { name: "Edit Profile", slug: "editProfile", icon: faPencilSquare },
+                    { name: "Wishlist", slug: "wishlist", icon: faCartShopping },
                     { name: "Assignments", slug: "./", icon: faRectangleList },
                     { name: "Paused Courses", slug: "./", icon: faQuestionCircle },
                     { name: "Quiz", slug: "./", icon: faQuestionCircle },
-                    { name: "Wishlist", slug: "./", icon: faCartShopping },
                     { name: "Reviews", slug: "./", icon: faStar },
                     { name: "Notification", slug: "./", icon: faBell },
                     // { name: "Settings", slug: "/#", icon: faGear },
