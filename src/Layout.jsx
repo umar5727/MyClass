@@ -7,7 +7,7 @@ import GotoTop from './components/GotoTop'
 import { LoadingContextProvider, NavContextProvider } from './context'
 import { Loading } from './components'
 import { useDispatch, useSelector } from 'react-redux'
-import { isLoading, login, logout, stopLoading } from './app/features/authSlice'
+import { isLoading, login, logout, setWishlist, stopLoading } from './app/features/authSlice'
 import { base_url } from './constants/constant'
 
 import toast, { Toaster } from 'react-hot-toast';
@@ -16,16 +16,20 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import FetchCourses from './utils/FetchCourses'
 
+
+
+
+
 const Layout = () => {
+
   const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const courseData = useSelector((state) => state.course.courseData)
 
   const alreadyUser = useSelector((state) => state.auth.userData)
 
 
   console.log('initial user : ', alreadyUser)
   const checkUser = async () => {
+
     try {
       // const refreshToken = document.cookie
       const refreshToken = localStorage.getItem('refreshToken')
@@ -47,7 +51,7 @@ const Layout = () => {
       if (existUser.data) {
         const userData = await existUser.data.user;
         dispatch(login({ userData }));
-
+        dispatch(setWishlist({ wishlist: existUser.data.wishlist }))
         const { refreshToken } = existUser;
         const { accessToken } = existUser;
         localStorage.setItem('accessToken', accessToken)
@@ -65,14 +69,16 @@ const Layout = () => {
     }
   }
 
+
+
   useEffect(() => {
-    console.log('userData : ', alreadyUser)
-    console.log('\nbefore fetch from layout : ', alreadyUser)
     if (!alreadyUser) {
       console.log('userData not : ', alreadyUser)
       const localUser = JSON.parse(sessionStorage.getItem('user'));
       if (localUser) {
+        const wishlist = JSON.parse(sessionStorage.getItem('wishlist'));
         dispatch(login({ userData: localUser }))
+        dispatch(setWishlist({ wishlist }))
       } else {
         dispatch(isLoading())
         checkUser();

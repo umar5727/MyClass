@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Course from "../course/Course";
+import useFetch from "../../utils/fetch/useFetchData";
 
 const Tabs = () => {
+
+
   const courseData = useSelector((state) => state.course.courseData)
   const [tabState, setTabState] = useState(0);
   const [indexData, setIndexData] = useState(null)

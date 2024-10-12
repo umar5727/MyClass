@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import { InsideViewport } from '../InsideViewport';
+import Wishlist from '../wishlist/Wishlist';
 // import { useSelector } from 'react-redux'
 
 const Course = ({ courseData, withPrice, index }) => {
@@ -51,17 +52,7 @@ const Course = ({ courseData, withPrice, index }) => {
                         <p className={`${color} ${color} rounded-lg px-4 py-1  font-semibold mr-2`}>
                             {courseData.difficulty}
                         </p>
-                        <div className="text-primary-danger cursor-pointer"
-                            onClick={() => setLike(!like)}
-                            title='add to wishlist'
-                        >
-
-                            {
-                                like
-                                    ? <FontAwesomeIcon icon={faHeart} />
-                                    : <FontAwesomeIcon icon={heartRegular} />
-                            }
-                        </div>
+                        <Wishlist courseId={courseData._id} />
                     </div>
                     {/* category ends  */}
                     <Link

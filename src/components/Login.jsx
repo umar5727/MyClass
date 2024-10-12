@@ -54,11 +54,9 @@ const Login = () => {
       console.log("if user login : ", wishlist);
       dispatch(login({ userData })); //dispatching
       dispatch(setWishlist({ wishlist }))
-      setTimeout(() => {
 
-        dispatch(stopLoading())
-      }, 500)
       sessionStorage.setItem('user', JSON.stringify(userData));
+      sessionStorage.setItem('wishlist', JSON.stringify(wishlist));
 
       localStorage.setItem('accessToken', resData.data.accessToken)
       localStorage.setItem('refreshToken', resData.data.refreshToken)

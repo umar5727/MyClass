@@ -144,7 +144,7 @@ const Carousel = () => {
   // ];
 
   const coursesData = useSelector((state) => state.course.courseData)
-  console.log('crousel :', coursesData)
+  // console.log('crousel :', coursesData)
   // const nextSlide = () => {
   //   setCurrentIndex((prevIndex) => (prevIndex + 1) % 6);
   //   console.log(currentIndex);

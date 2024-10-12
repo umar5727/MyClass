@@ -48,7 +48,7 @@ const Product = ({ courseId, image, name, difficulty, description, lectures, men
             </p>
           </div>
 
-          <Wishlist />
+          <Wishlist courseId={courseId} />
 
 
         </div>
