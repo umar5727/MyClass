@@ -41,7 +41,7 @@ const ProductPage = () => {
     fetchData();
 
     window.scrollTo(0, 0);
-  }, [!newCourse]);
+  }, []);
   return (
     <>
       <section className="flex flex-col items-center gap-6 lg:items-start lg:gap-8 lg:flex-row w-full h-max my-10 ">
@@ -77,19 +77,24 @@ const ProductPage = () => {
 
           <div className="w-full ">
             <H2 className="mb-5 text-center">Tranding Courses</H2>
-            <Product
-              name={coursesData[6]?.title}
-              mentors={coursesData[6]?.instructor}
-              mentorImg={coursesData[6]?.thumbNail}
-              category={coursesData[6]?.department}
-              difficulty={coursesData[6]?.difficulty}
-              description={coursesData[6]?.shortDescription}
-              image={coursesData[6]?.thumbNail}
-              time={coursesData[6]?.duration}
-              lectures={coursesData[6]?.totalLectures}
-              price={coursesData[6]?.price}
-              height="h-fit"
-            />
+
+            {
+              coursesData ?
+                <Product
+                  name={coursesData[0].title}
+                  mentors={coursesData[0].instructor}
+                  mentorImg={coursesData[0].thumbNail}
+                  category={coursesData[0].department}
+                  difficulty={coursesData[0].difficulty}
+                  description={coursesData[0].shortDescription}
+                  image={coursesData[0].thumbNail}
+                  time={coursesData[0].duration}
+                  lectures={coursesData[0].totalLectures}
+                  price={coursesData[0].price}
+                  height="h-fit"
+                />
+                : ''
+            }
           </div>
           {/* tranding course ends  */}
         </div>

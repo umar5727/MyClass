@@ -15,12 +15,16 @@ import toast, { Toaster } from 'react-hot-toast';
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import FetchCourses from './utils/FetchCourses'
+import { useMyCourses } from './hooks/myCourses/useMyCourses'
 
 
 
 
 
 const Layout = () => {
+
+  useMyCourses()
+
 
   const dispatch = useDispatch()
 
@@ -33,30 +37,37 @@ const Layout = () => {
     try {
       // const refreshToken = document.cookie
       const refreshToken = localStorage.getItem('refreshToken')
+      const accessToken = localStorage.getItem('accessToken')
       //fetching user
       if (!refreshToken) {
         return ''
       }
-      const currentUser = await fetch(base_url + "/users/refreshAccessToken ", {
+      const res = await fetch(base_url + "/users/refreshAccessToken ", {
         mode: "cors",
         method: "POST",
-        // credentials: "include",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ refreshToken })
+        body: JSON.stringify({ refreshToken, accessToken })
       })
       // when user is fetched we update the state
-      const existUser = await currentUser.json();
-      if (existUser.data) {
+      const existUser = await res.json();
+      if (!res.ok) {
+        navigate('/')
+      } else {
         const userData = await existUser.data.user;
         dispatch(login({ userData }));
         dispatch(setWishlist({ wishlist: existUser.data.wishlist }))
         const { accessToken, refreshToken } = existUser;
+
+        console.log('refresh: ', accessToken, refreshToken)
+
         localStorage.setItem('accessToken', accessToken)
         localStorage.setItem('refreshToken', refreshToken)
-        // navigate('/MyClass/dashboard')
+        navigate('../')
       }
+
     } catch (error) {
       console.log("layout ", error)
     } finally {

@@ -4,8 +4,9 @@ const initialState = {
     status: false,
     userData: null,
     userCoursesData: null,
-    wishlist:null,
-    isLoading:false
+    wishlist: null,
+    isLoading: false,
+    MyCourses: null
 }
 
 const authSlice = createSlice({
@@ -16,29 +17,32 @@ const authSlice = createSlice({
             // console.log('data from authSlice: ', state.userData, " : ", action.payload.userData)
             state.status = true;
             state.userData = action.payload.userData;
-           
-                state.isLoading =false
-           
+
+            state.isLoading = false
+
         },
         UserCourses: (state, action) => {
             state.userCoursesData = action.payload.userCoursesData
+        },
+        getMyCourses: (state, action) => {
+            state.MyCourses = action.payload.myCourses
         },
         logout: (state) => {
             state.status = false;
             state.userData = null;
         },
-        setWishlist:(state, action)=>{
+        setWishlist: (state, action) => {
             state.wishlist = action.payload.wishlist
         },
-        isLoading:(state, action)=>{
-            state.isLoading =true
+        isLoading: (state, action) => {
+            state.isLoading = true
         },
-        stopLoading:(state, action)=>{
-            state.isLoading =false
+        stopLoading: (state, action) => {
+            state.isLoading = false
         }
     }
 })
 
-export const { login, logout, UserCourses,isLoading,stopLoading, setWishlist } = authSlice.actions;
+export const { login, logout, UserCourses, isLoading, stopLoading, setWishlist, getMyCourses } = authSlice.actions;
 
 export default authSlice.reducer;

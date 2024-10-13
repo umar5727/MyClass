@@ -98,7 +98,8 @@ const DashboardLayout = () => {
                         </div>
                         <div className="flex gap-5">
                             {
-                                userData.role === 'instructor' ?
+                                userData.role === 'instructor'
+                                    ?
                                     // {/* reviews starts */}
                                     <div className="flex gap-2 items-center ">
                                         <div className="flex items-center reviews">
@@ -115,7 +116,7 @@ const DashboardLayout = () => {
                                             </div>
                                             /5.0
                                         </div>
-                            //  {/* reviews end s */}
+                                                //  {/* reviews end s */}
                                         <div>
                                             <FontAwesomeIcon
                                                 icon={faUserGraduate}

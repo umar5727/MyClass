@@ -1,20 +1,23 @@
 import { faClipboard, faClock, faFile, faPager, faTags, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../components/Button";
 import { H2 } from "../../components";
 import { base_url } from "../../constants/constant";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useEnrollFetch } from "../../hooks/enrollFetch/useEnrollFetch";
 
-const PriceCard = ({ duration, department, totalLectures = 0, price = 0, totalEnrolled = 1, courseId, }) => {
+const PriceCard = ({ duration, department, totalLectures = 0, price = 0, totalEnrolled = 0, courseId, }) => {
+  const [enrolleds, setEnrolleds] = useState(totalEnrolled)
   const userData = useSelector((state) => state.auth.userData)
+  const userCourses = useSelector((state) => state.auth.MyCourses)
   const navigate = useNavigate()
-
+  console.log('usercourse frm price card', userCourses, '\ncourse id ', courseId)
   const handleClick = async () => {
 
     if (!userData?._id) {
-      navigate("/MyClass/login")
+      navigate("/login")
     }
     try {
       const response = await fetch(base_url + `/enrolled/${courseId}/addEnrolled`, {
@@ -39,7 +42,7 @@ const PriceCard = ({ duration, department, totalLectures = 0, price = 0, totalEn
     {
       svg: faUser,
       title: 'Enrolled',
-      content: `${totalEnrolled} Students`
+      content: `${enrolleds || totalEnrolled} Students`
     },
     {
       svg: faClock,
@@ -67,13 +70,23 @@ const PriceCard = ({ duration, department, totalLectures = 0, price = 0, totalEn
       content: 'Ethan Dean'
     },
   ];
+
+  const { status, enrollFetch } = useEnrollFetch(courseId)
+  useEffect(() => {
+    if (status === 'success') {
+
+      setEnrolleds((prev) => prev + 1)
+    }
+
+  }, [status])
+
   return (
     <div className=" border border-primary-border-light w-full xl:w-[350px] rounded-lg h-fit text-primary-text-heading dark:text-primary-text-normal-dark text-xl font-normal ">
       <H2 className=" dark:text-white text-center pt-6">Course Features</H2>
       {/* fretures starts  */}
       <div className="p-6 flex flex-col gap-3">
         {
-          features.map((item, index) => (
+          features?.map((item, index) => (
 
             <div className="flex items-center gap-3 " key={index}>
               <FontAwesomeIcon icon={item.svg} className="text-sm dark:text-white" />
@@ -101,14 +114,26 @@ const PriceCard = ({ duration, department, totalLectures = 0, price = 0, totalEn
           </span>
 
         </div>
-        <div
-          onClick={handleClick}
-          className="w-full px-6"
-        >
-          <Button
-            className="w-full hover:text-white"
-          >ENROLL COURSE</Button>
-        </div>
+        {
+          userCourses?.some(enroll => enroll.course === courseId) ?
+            <div
+              // onClick={}
+              className="w-full px-6"
+            >
+              <Button
+                className="w-full hover:text-white"
+              >Start Learning</Button>
+            </div>
+            :
+            <div
+              onClick={enrollFetch}
+              className="w-full px-6"
+            >
+              <Button
+                className="w-full hover:text-white"
+              >ENROLL COURSE</Button>
+            </div>
+        }
       </div>
     </div>
   );

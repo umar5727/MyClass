@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit"
+import MyCourses from "../../pages/dashboard/MyCourses";
 
 const initialState = {
     id: "",
     status: false,
-    courseData: null
+    courseData: null,
+
 }
 
 const courseSlice = createSlice({
@@ -13,7 +15,8 @@ const courseSlice = createSlice({
         getCourse: (state, action) => {
             state.status = true
             state.courseData = action.payload.courseData;
-        }
+        },
+
     }
 })
 
