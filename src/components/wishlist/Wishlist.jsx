@@ -1,6 +1,6 @@
 
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import { faHeart as regular } from "@fortawesome/free-regular-svg-icons";
+import { faCheckCircle, faHeart as regular } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import React, { useEffect, useState } from 'react'
@@ -16,28 +16,42 @@ const Wishlist = ({ courseId }) => {
   const [display, setDisplay] = useState(false)
 
   const wishlistData = useSelector((state) => state.auth.wishlist)
-
+  const userCourses = useSelector((state) => state.auth.MyCourses)
+  const userCoursesId = userCourses?.map((enroll) => enroll.course.toString())
 
   useEffect(() => {
     setDisplay(wishlistData.includes(courseId))
 
   }, [wishlistData])
 
-
+  // console.log('wishlist data ', wishlistData)
   return (
-    <div className="text-primary-danger cursor-pointer"
-      title="add to wishlist"
-      onClick={display ? removeFromWishlist : addToWishlist}
-    >
-
+    <>
       {
-        display
+        userCoursesId?.includes(courseId)
           ?
-          <FontAwesomeIcon icon={faHeart} />
+          <div
+            className="text-green-600 font-extrabold text-base"
+            title='Already Enrolled'
+          >
+            <FontAwesomeIcon icon={faCheckCircle} />
+          </div >
           :
-          <FontAwesomeIcon icon={regular} />
+          <div className="text-primary-danger cursor-pointer"
+            title="add to wishlist"
+            onClick={display ? removeFromWishlist : addToWishlist}
+          >
+
+            {
+              display
+                ?
+                <FontAwesomeIcon icon={faHeart} />
+                :
+                <FontAwesomeIcon icon={regular} />
+            }
+          </div>
       }
-    </div>
+    </>
   )
 }
 

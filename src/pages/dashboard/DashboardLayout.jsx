@@ -16,7 +16,7 @@ const DashboardLayout = () => {
     const userData = useSelector((state) => state.auth.userData)
     const [fields, setFields] = useState([])
 
-    const userCourses = useSelector((state) => state.auth.userCoursesData)
+    const userCourses = useSelector((state) => state.auth.MyCourses)
     const [studentsCount, setStudentsCount] = useState(0)
 
     useEffect(() => {
@@ -142,7 +142,7 @@ const DashboardLayout = () => {
                                     icon={faBook}
                                     className="pr-2 text-primary-purple"
                                 />
-                                <span>{userCourses?.length}</span> {/* backend data */}
+                                <span className='font-bold '>{userCourses?.length}</span> {/* backend data */}
                                 courses
                             </div>
                             {/* courses end s */}

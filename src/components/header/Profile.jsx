@@ -27,7 +27,7 @@ const Profile = () => {
   const userData = useSelector((state) => state.auth.userData);
   const loginstatus = useSelector((state) => state.auth.status);
 
-  console.log('avatart from profile :  ', userData.avatar)
+
   useEffect(() => {
     // store ends
     const handler = (e) => {

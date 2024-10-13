@@ -16,7 +16,7 @@ const Header = () => {
 
   // useEffect starts 
   useEffect(() => {
-    console.log('user from header : ', user)
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       if (scrollPosition >= 500) {

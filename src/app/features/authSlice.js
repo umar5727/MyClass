@@ -18,7 +18,7 @@ const authSlice = createSlice({
             state.status = true;
             state.userData = action.payload.userData;
 
-            state.isLoading = false
+            // state.isLoading = false
 
         },
         UserCourses: (state, action) => {
@@ -38,6 +38,7 @@ const authSlice = createSlice({
             state.isLoading = true
         },
         stopLoading: (state, action) => {
+
             state.isLoading = false
         }
     }

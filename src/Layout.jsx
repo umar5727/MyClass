@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { isLoading, login, logout, setWishlist, stopLoading } from './app/features/authSlice'
 import { base_url } from './constants/constant'
 
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -25,13 +25,11 @@ const Layout = () => {
 
   useMyCourses()
 
-
   const dispatch = useDispatch()
 
   const alreadyUser = useSelector((state) => state.auth.userData)
+  const loading = useSelector((state) => state.auth.isLoading)
 
-
-  console.log('initial user : ', alreadyUser)
   const checkUser = async () => {
 
     try {
@@ -61,8 +59,6 @@ const Layout = () => {
         dispatch(setWishlist({ wishlist: existUser.data.wishlist }))
         const { accessToken, refreshToken } = existUser;
 
-        console.log('refresh: ', accessToken, refreshToken)
-
         localStorage.setItem('accessToken', accessToken)
         localStorage.setItem('refreshToken', refreshToken)
         navigate('../')
@@ -81,16 +77,18 @@ const Layout = () => {
 
 
 
+
+
   useEffect(() => {
     if (!alreadyUser) {
-      console.log('userData not : ', alreadyUser)
+      dispatch(isLoading())
       const localUser = JSON.parse(sessionStorage.getItem('user'));
       if (localUser) {
         const wishlist = JSON.parse(sessionStorage.getItem('wishlist'));
         dispatch(login({ userData: localUser }))
         dispatch(setWishlist({ wishlist }))
       } else {
-        dispatch(isLoading())
+
         checkUser();
       }
     } else {
@@ -102,11 +100,6 @@ const Layout = () => {
     AOS.init({ duration: '1500' })
   }, [])
 
-  const loading = useSelector((state) => state.auth.isLoading)
-  console.log('loading : ', loading)
-  if (loading) {
-    return <Loading />
-  }
   return (
     <>
 
@@ -114,6 +107,7 @@ const Layout = () => {
         <NavContextProvider >       {/* context provider for practice  */}
           {/* <Loading /> */}
           <FetchCourses />
+          <Loading />
           <Header />
           <Container>
             <Toaster

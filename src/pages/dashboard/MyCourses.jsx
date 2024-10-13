@@ -1,51 +1,37 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '../../components'
 import { useDispatch, useSelector } from 'react-redux'
 import { base_url } from '../../constants/constant'
 import { UserCourses } from '../../app/features/authSlice'
 const MyCourses = ({ }) => {
-    const dispatch = useDispatch()
+
 
     const userData = useSelector((state) => state.auth.userData)
-    const userCoursesData = useSelector((state) => state.auth.userCoursesData)
+    const userCourses = useSelector((state) => state.auth.MyCourses)
+    const allCourses = useSelector((state) => state.course.courseData)
+    const [courses, setCourses] = useState(null)
 
-    const accessToken = localStorage.getItem('accessToken')
-    const userProfile = async () => {
-        try {
-            const response = await fetch(base_url + '/users/userProfile', {
-                mode: 'cors',
-                method: 'POST',
-                credentials: "include",
-                headers: {
-                    "Content-Type": "application/json",
 
-                },
-                body: JSON.stringify({ "userId": userData._id, accessToken })
-            })
-            const courseData = await response.json();
-
-            const userCoursesData = courseData.userCourses
-            dispatch(UserCourses({ userCoursesData }))
-
-        } catch (error) {
-            console.log('courses fetch error : ', error)
-        }
-    }
-
-    // const userCourses = useSelector((state) => state.auth.userCoursesData)
+    // const userList = allCourses.filter(num => userCourses.some(course => course._id === num._id))
+    // .map(num => {
+    //     const matchingCourse = userCourses.find(course => course._id === num._id);
+    //     return { ...num, enrolledDate: matchingCourse.createdAt };
+    // });
 
     useEffect(() => {
-        if (!userCoursesData) {
-            // dispatch(UserCourses(''))
-            userProfile()
-        }
+        setCourses(
+            // allCourses.filter((course) => userCourses?.includes(course._id))
+            allCourses.filter(num => userCourses.some(course => course.course === num._id)).map((num) => {
+                const matchingCourse = userCourses.find(course => course.course === num._id);
+                return { ...num, enrolledDate: matchingCourse.createdAt };
+            })
+        )
 
-    }, [])
+    }, [userCourses])
 
 
-    const userCourses = useSelector((state) => state.auth.userCoursesData)
-    // console.log(userCourses[0].thumbNail, userCourses[0].title)
-    console.log(userData.role)
+
+
     return (
         <section className="">
 
@@ -53,7 +39,7 @@ const MyCourses = ({ }) => {
                 <div className="flex justify-between border-b  border-primary-text-normal p-4">
                     <div>
                         <h2 className="text-2xl font-semibold">
-                            Most Selling Courses
+                            Enrolled Courses
                         </h2>
                     </div>
                     <div>
@@ -75,7 +61,7 @@ const MyCourses = ({ }) => {
                             {
 
                                 userData.role != 'instructor' ?
-                                    <div className="text-center">Completed Lectures</div>
+                                    <div className="text-center">Duration</div>
                                     :
                                     <div className="text-center">Total Enrolleds</div>
                             }
@@ -88,15 +74,15 @@ const MyCourses = ({ }) => {
                         <div className="flex flex-col mb-2">
                             {
                                 userData.role != 'instructor' ?
-                                    userCourses?.map((course, index) => (
+                                    courses?.map((course, index) => (
                                         <div key={index} className='grid grid-cols-6  rounded-md  p-2 py-4   border-b-2 border-primary-light hover:bg-primary-light'>
                                             <div className="col-span-3 flex gap-2 items-center">
                                                 <div className='w-[100px] '>
-                                                    <img src={course.courseDetails.thumbNail} alt="thumbnail" className='rounded-md' />
+                                                    <img src={course.thumbNail} alt="thumbnail" className='rounded-md' />
                                                 </div>
                                                 <div className='font-bold'>
                                                     <div>
-                                                        {course.courseDetails.title}
+                                                        {course.title}
 
                                                     </div>
                                                     <div>
@@ -105,14 +91,14 @@ const MyCourses = ({ }) => {
                                                 </div>
                                             </div>
                                             {/* course title ends  */}
-                                            <div className="flex items-center justify-center"> {course.courseDetails.totalLectures} </div>
-                                            <div className=" flex items-center justify-center">0</div>
-                                            <div className=" flex items-center justify-center">{course.createdAt.slice(0, 10)}</div>
+                                            <div className="flex items-center justify-center"> {course.totalLectures} </div>
+                                            <div className=" flex items-center justify-center">{course.duration} h</div>
+                                            <div className=" flex items-center justify-center">{course.enrolledDate?.slice(0, 10)}</div>
                                         </div>
                                     ))
                                     :
                                     userCourses?.map((course, index) => (
-                                        // { console.log(course.title) }
+
                                         <div key={index} className='grid grid-cols-6  rounded-md  p-2 py-4   border-b-2 border-primary-light hover:bg-primary-light'>
                                             <div className="col-span-3 flex gap-2 items-center">
                                                 <div className='w-[100px] '>

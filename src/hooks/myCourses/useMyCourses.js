@@ -31,7 +31,7 @@ export const useMyCourses = () => {
         throw new Error({ message: courseData.message })
       }
       const myCourses = courseData.myCourses
-      console.log('mycourses', myCourses)
+
       dispatch(getMyCourses({ myCourses }))
     } catch (error) {
       console.log('courses fetch error : ', error)

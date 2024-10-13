@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Button } from '../../components'
+import { Link } from 'react-router-dom'
 
 const Wishlist = () => {
   const wishlist = useSelector((state) => state.auth.wishlist)
@@ -12,7 +13,7 @@ const Wishlist = () => {
       wishlist.includes(course._id)
     ))
   }, [wishlist])
-  console.log('wishlist data :: ', wishlistData)
+  // console.log('wishlist data :: ', wishlist)
   return (
 
     <section className="">
@@ -55,26 +56,32 @@ const Wishlist = () => {
                   // {console.log(course.title)}
                   <div
                     key={index}
-                    className='grid grid-cols-6  rounded-md  p-2 py-4   border-b-2 border-primary-light hover:bg-primary-light'>
-                    <div className="col-span-3 flex gap-2 items-center">
-                      <div className='w-[100px] '>
-                        <img src={course.thumbNail} alt="thumbnail" className='rounded-md' />
-                      </div>
-                      <div className='font-bold'>
-                        <div>
-                          {course.title}
+                    className=' rounded-md  p-2 py-4 border-b-2 border-primary-light hover:bg-primary-light'
 
+                  >
+                    <Link
+                      to={`/courses/${course._id}`}
+                      className='grid grid-cols-6 '
+                    >
+
+                      <div className="col-span-3 flex gap-2 items-center">
+                        <div className='w-[100px] '>
+                          <img src={course.thumbNail} alt="thumbnail" className='rounded-md' />
                         </div>
-                        <div>
-                          {/* {course.} */}
+                        <div className='font-bold'>
+                          <div>
+                            {course.title}
+                          </div>
+                          <div>
+                            {/* {course.} */}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    {/* course title ends  */}
-                    <div className="flex items-center justify-center"> {course.totalLectures} </div>
-                    <div className=" flex items-center justify-center">{course.difficulty}</div>
-
-                    <div className=" flex items-center justify-center">{course.discountPrice || 'FREE'}</div>
+                      {/* course title ends  */}
+                      <div className="flex items-center justify-center"> {course.totalLectures} </div>
+                      <div className=" flex items-center justify-center">{course.difficulty}</div>
+                      <div className=" flex items-center justify-center">{course.discountPrice || 'FREE'}</div>
+                    </Link>
                   </div>
                 )
 

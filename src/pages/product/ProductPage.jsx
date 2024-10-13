@@ -26,17 +26,16 @@ const ProductPage = () => {
           "Content-Type": "application/json",
         },
       })
-      // const Data = 
+
       const { courseData } = await response.json();
-      // setTotalEnrolled('')
-      console.log('course find by id : ', courseData?.totalEnrolls)
+
 
       setNewCourse(courseData)
     } catch (error) {
-      console.log('courses fetch error : ', error)
+
     }
   }
-  console.log('new course data', coursesData)
+
   useEffect(() => {
     fetchData();
 

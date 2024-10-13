@@ -9,7 +9,8 @@ import { UserCourses } from '../../app/features/authSlice';
 
 
 const Dashboard = () => {
-    const userCourses = useSelector((state) => state.auth.userCoursesData)
+
+    const userCourses = useSelector((state) => state.auth.MyCourses)
     const cards = [
         {
             className: "bg-primary-yellow-light",
