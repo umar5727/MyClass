@@ -64,13 +64,14 @@ const Wishlist = ({ courseId }) => {
   //   setDisplay(!display)
   // }
   useEffect(() => {
-    wishlistData?.forEach(list => {
-      if (courseId === list) {
+    setDisplay(wishlistData.includes(courseId))
 
-        setDisplay(true)
-      }
+    // if (courseId === list) {
 
-    });
+    //   setDisplay(true)
+    // }
+    // });
+    console.log("inside useEffect ", wishlistData)
   }, [wishlistData])
   // console.log('display wishlist : ', display)
 

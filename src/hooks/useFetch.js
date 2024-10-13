@@ -10,26 +10,31 @@ const useFetch = () => {
   }
   const [response, setResponse] = useState(null)
   const [error, setError] = useState(null)
-  const [status, setStatus] = useState(state.idle)
+  const [status, setStatus] = useState('idle')
   // console.log('useFetch ')
   const fetchData = async ({url,options}) => {
-    setStatus(state.loading)
+    
+    setStatus('loading')
     try {
       
       const res = await fetch(`${base_url}/${url}`, options)
 
-      const response = await res.json();
+      const Response = await res.json();
 
-      if (res.ok) {
-        setStatus(state.success)
-        setResponse(response)
-      }else{
-
-        setStatus(state.error)
-        setError(response)
+      if (!res.ok) {
+        console.log('userFetch error')
+        throw new Error(Response.message)
       }
+      
+
+        setStatus('success')
+        setResponse(Response)
+      
+
+      
     } catch (error) {
-      setStatus(state.error)
+      console.log('userFetch error')
+      setStatus('error')
       setError(error)
     }
 
