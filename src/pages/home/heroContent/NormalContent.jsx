@@ -1,13 +1,10 @@
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { Button } from '../../../components'
 import { Link } from 'react-router-dom'
-import { Button } from '../../components'
 
-
-const HeroContent = () => {
+const NormalContent = () => {
   return (
     <div className="lg:w-3/5 py-8  flex flex-col gap-8 justify-center items-center text-center lg:text-left lg:items-start md:py-0 relative">
       <div>
@@ -63,4 +60,4 @@ const HeroContent = () => {
   )
 }
 
-export default HeroContent
+export default NormalContent

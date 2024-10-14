@@ -22,7 +22,7 @@ const Dashboard = () => {
         },
         {
             className: "bg-primary-purple-light",
-            number: 60,
+            number: 0,
             numberSpan: "",
             title: "Complete lessons",
             iconClassName: "text-primary-purple text-6xl",

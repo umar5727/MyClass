@@ -6,12 +6,12 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 import { faReact } from "@fortawesome/free-brands-svg-icons";
-import HeroContent from "../pages/home/HeroContent";
+import HeroContent from "../pages/home/heroContent/HeroContent";
 
 const TwoColumnHero = () => {
   return (
     <section className="flex flex-col gap-6 lg:gap-0 lg:flex-row py-10 relative">
-      {/* logos */}
+      {/* background image */}
       <div>
         <div
           data-aos='fade-right'
@@ -19,7 +19,7 @@ const TwoColumnHero = () => {
           <img src="node.png" alt="node" className="absolute w-14 aspect-square right-1/2 bottom-14 z-50 hover:animate-shake " />
         </div>
       </div>
-      {/* logos ends  */}
+      {/* background image ends  */}
       {/* Left Column */}
       <HeroContent />
 
