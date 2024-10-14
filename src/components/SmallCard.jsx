@@ -19,7 +19,8 @@ const SmallCard = ({
     >
       <div className="w-fit flex justify-center items-center">{children}</div>
       <div className="w-fit text-primary-text-heading font-semibold flex justify-center flex-col text-lg dark:text-white">
-        <div className="flex ">
+        <div className="flex justify-center text-2xl">
+
           <NumberDisplay number={number} speed={speed} />
           <span>{numberSpan}</span>
         </div>

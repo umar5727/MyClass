@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useSignout } from '../../hooks/signout/useSignout'
 
 const fields = [
-  { name: "DashBoard", slug: "./", icon: faBorderAll, },
+  { name: "DashBoard", slug: "", icon: faBorderAll, },
   { name: "Courses", slug: "courses", icon: faBasketShopping },
   { name: "Students", slug: "students", icon: faUserGroup },
   { name: "Instructors", slug: "Instructors", icon: faUserGroup },
@@ -31,11 +31,11 @@ export default function Dashboard() {
   const { signOutHandler } = useSignout()
   // const [studentsCount, setStudentsCount] = useState(0)
   return (
-    <section>
-      <div className="mt-5 font-medium">
-        <main className="grid grid-cols-4 gap-7 mt-7 mb-10">
-          <section className="leftSide ">
-            <div className="flex flex-col gap-[10px] p-5 bg-primary-light rounded-md">
+    <section className=''>
+      <div className="my-5 font-medium">
+        <main className="flex gap-7 ">
+          <section className="leftSide w-[300px] h-full ">
+            <div className="w-full flex flex-col gap-[10px] p-5 bg-primary-light rounded-md h-full">
               {fields.map((field, index) => (
                 <NavLink
                   end        //'end' when the path ends exactly with that target path. 
@@ -48,7 +48,7 @@ export default function Dashboard() {
                 </NavLink>
               ))}
               <Button
-                className={`flex gap-2 items-center py-2 !px-4 transition duration-500 text-primary hover:text-white hover:bg-primary rounded-md dark:text-white border-none !justify-start hover:scale-110`}
+                className={`flex gap-2 items-center py-2 !px-4 !transition duration-500 text-primary hover:text-white hover:bg-primary rounded-md dark:text-white border-none !justify-start hover:scale-110`}
                 onClick={signOutHandler}
               >
                 <FontAwesomeIcon icon={faSignOut} />
@@ -58,7 +58,7 @@ export default function Dashboard() {
           </section>
           {/* left side ends  */}
 
-          <div className="col-span-3">
+          <div className="grow rounded-md  ">
 
             <Outlet />
           </div>

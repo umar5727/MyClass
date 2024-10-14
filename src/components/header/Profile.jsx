@@ -100,11 +100,11 @@ const Profile = () => {
           {profileItem.map((item, index) => (
             <li
               key={index}
-              className=" rounded-md font-medium text-gray-300 overflow-hidden"
+              className=" rounded-md dark:text-gray-300 text-gray-700 overflow-hidden font-bold"
             >
               <NavLink
                 to={item.slug}
-                className="inline-block w-full px-4 py-2 hover:bg-primary-light  dark:hover:bg-primary-dark-hover transition-all duration-300 ease-in-out"
+                className="inline-block w-full px-4 py-2 hover:bg-primary-light  dark:hover:bg-primary-dark-hover transition hover:scale-105 dark:hover:text-white duration-300 ease-in-out"
                 onClick={() => setProfile(!profile)}
               >
                 <FontAwesomeIcon icon={faSignOut} className="me-2" />
@@ -113,11 +113,11 @@ const Profile = () => {
             </li>
           ))}
           <li
-            className=" rounded-md font-medium text-gray-300 "
+            className=" rounded-md font-medium dark:text-gray-300 text-gray-700 overflow-hidden "
             onClick={() => { setProfile(!profile); signOutHandler() }}
           >
             <Button
-              className="inline-block w-full !px-4 py-2 hover:bg-primary-light text-gray-300  dark:hover:bg-primary-dark-hover transition-all duration-300 ease-in-out border-none !justify-start !rounded-md"
+              className="inline-block w-full !px-4 py-2 hover:bg-primary-light !text-inherit dark:!text-gray-300 dark:hover:!text-white dark:hover:bg-primary-dark-hover hover:scale-105 !transition duration-300 ease-in-out border-none !justify-start !rounded-md"
             >
               <FontAwesomeIcon icon={faSignOut} className="me-2" />
               Log Out

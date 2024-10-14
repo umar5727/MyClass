@@ -43,7 +43,7 @@ const Navigation = ({ }) => {
               `${isActive
                 ? "bg-primary-light text-primary"
                 : "hover:bg-primary-light hover:text-primary"
-              } block px-7  py-3 rounded-lg  cursor-pointer ${liClass} transition-colors duration-300 dark:text-dark-nav`
+              } block px-7  py-3 rounded-lg cursor-pointer ${liClass} transition duration-300 dark:text-dark-nav dark:hover:text-white hover:scale-105`
             }
             onClick={() => {
               setNavToggle(false);

@@ -22,6 +22,7 @@ const InstructorDashboard = lazy(() => import('./pages/dashboard/InstructorDashb
 const CreateCourse = lazy(() => import('./pages/dashboard/CreateCourse'))
 // AdminDashboard
 const AdminDashboard = lazy(() => import('./pages/admin-site/AdminDashboard'))
+const AdDashboard = lazy(() => import('./pages/admin-site/AdDashboard'))
 const AllCourses = lazy(() => import('./pages/admin-site/Courses'))
 const AdminNotification = lazy(() => import('./pages/admin-site/Notifications'))
 const Instructors = lazy(() => import('./pages/admin-site/Instructors'))
@@ -63,6 +64,7 @@ function App() {
 
         {/* admin routes  */}
         <Route path="/Admin/" element={<AdminDashboard />} >
+          <Route path='' element={<AdDashboard />} />
           <Route path='courses' element={<AllCourses />} />
           <Route path='students' element={<Students />} />
           <Route path='Instructors' element={<Instructors />} />

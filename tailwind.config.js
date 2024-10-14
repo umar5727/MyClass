@@ -63,6 +63,7 @@ export default {
         'banner': 'url(./studentBanner.jpg)'
       },
       animation: {
+        'spin-fast': 'spin 0.6s linear infinite',
         'spin-slow': 'spin 3s linear infinite',
         'shake': 'shake 0.82s cubic-bezier(.36,.07,.19,.97) both',
       },

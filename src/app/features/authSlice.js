@@ -5,7 +5,7 @@ const initialState = {
     userData: null,
     userCoursesData: null,
     wishlist: null,
-    isLoading: false,
+    isLoading: true,
     MyCourses: null
 }
 

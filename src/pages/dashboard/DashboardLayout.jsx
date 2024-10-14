@@ -178,7 +178,7 @@ const DashboardLayout = () => {
                             <NavLink
                                 end        //'end' when the path ends exactly with that target path. 
                                 to={field.slug}
-                                className={({ isActive }) => `${isActive ? "bg-primary text-white" : ""} flex gap-2 items-center py-2 px-4 transition-colors duration-500 text-primary hover:text-white hover:bg-primary rounded-md dark:text-white `}
+                                className={({ isActive }) => `${isActive ? "bg-primary text-white" : ""} flex gap-2 items-center py-2 px-4 transition duration-500 text-primary hover:text-white hover:bg-primary rounded-md dark:text-white `}
                                 key={index}
                             >
                                 <FontAwesomeIcon icon={field.icon} />
@@ -186,7 +186,7 @@ const DashboardLayout = () => {
                             </NavLink>
                         ))}
                         <Button
-                            className={` flex gap-2 items-center py-2 !px-4 transition-colors duration-500 text-primary hover:text-white hover:bg-primary rounded-md dark:text-white outline-none border-none !justify-start`}
+                            className={` flex gap-2 items-center py-2 !px-4 !transition duration-500 text-primary hover:text-white hover:bg-primary rounded-md dark:text-white outline-none border-none !justify-start`}
                             onClick={signOutHandler}
                         >
                             <FontAwesomeIcon icon={faSignOut} />
