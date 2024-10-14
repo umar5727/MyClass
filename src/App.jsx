@@ -1,5 +1,4 @@
-import { useEffect, lazy } from "react";
-import { useSelector } from "react-redux";
+import { lazy } from "react";
 import Layout from "./Layout";
 import { AboutUs, Contact, Courses, Home, ProductPage, InstructorSignUp, ErrorPage } from "./pages";
 import {
@@ -9,7 +8,7 @@ import {
   createRoutesFromElements,
 
 } from "react-router-dom";
-import { Loading, Login, ProtectedUser, Signout, Signup } from "./components";
+import { Login, ProtectedUser, Signup } from "./components";
 
 
 
@@ -24,6 +23,10 @@ const CreateCourse = lazy(() => import('./pages/dashboard/CreateCourse'))
 // AdminDashboard
 const AdminDashboard = lazy(() => import('./pages/admin-site/AdminDashboard'))
 const AllCourses = lazy(() => import('./pages/admin-site/Courses'))
+const AdminNotification = lazy(() => import('./pages/admin-site/Notifications'))
+const Instructors = lazy(() => import('./pages/admin-site/Instructors'))
+const Students = lazy(() => import('./pages/admin-site/Students'))
+const BlockedUsers = lazy(() => import('./pages/admin-site/BlockedUsers'))
 
 function App() {
   const router = createBrowserRouter(
@@ -44,7 +47,6 @@ function App() {
         {/* Protected user route */}
 
         <Route path="/user/" element={<ProtectedUser />} >
-          <Route path="signOut" element={<Signout />} />
           <Route path="dashboard/" element={<DashboardLayout />} exact>
             <Route path="" element={<Dashboard />} exact />
             <Route path="myCourses" element={<MyCourses />} />
@@ -59,11 +61,14 @@ function App() {
           <Route path='/user/InstructorDashboard/createCourse' element={<CreateCourse />} />
         </Route >
 
+        {/* admin routes  */}
         <Route path="/Admin/" element={<AdminDashboard />} >
-          <Route path="dashboard" element={''} />
-          <Route path="signOut" element={<Signout />} />
           <Route path='courses' element={<AllCourses />} />
-          {/* <Route path='Notification' element={<AdminNotification />} /> */}
+          <Route path='students' element={<Students />} />
+          <Route path='Instructors' element={<Instructors />} />
+          <Route path='Notifications' element={<AdminNotification />} />
+          <Route path='editProfile' element={<EditProfile />} />
+          <Route path='bolcked-users' element={<BlockedUsers />} />
         </Route>
 
 

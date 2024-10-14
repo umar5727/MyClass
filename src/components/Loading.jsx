@@ -10,7 +10,7 @@ const Loading = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             dispatch(stopLoading())
-        }, 1000);
+        }, 800);
         return () => clearTimeout(timer)
     }, [loading])
 

@@ -12,22 +12,28 @@ import useWishlist from '../../hooks/useWishlist';
 
 const Wishlist = ({ courseId }) => {
   const { addToWishlist, removeFromWishlist } = useWishlist({ courseId: courseId });
-
   const [display, setDisplay] = useState(false)
 
   const wishlistData = useSelector((state) => state.auth.wishlist)
   const userCourses = useSelector((state) => state.auth.MyCourses)
+
   const userCoursesId = userCourses?.map((enroll) => enroll.course.toString())
 
   useEffect(() => {
-    setDisplay(wishlistData.includes(courseId))
+    if (!wishlistData) {
+      setDisplay(false)
+    } else {
 
+      setDisplay(wishlistData.includes(courseId))
+    }
+
+    console.log('wishlist courses ', display, "  - for couseid", courseId)
   }, [wishlistData])
 
-  // console.log('wishlist data ', wishlistData)
   return (
     <>
       {
+
         userCoursesId?.includes(courseId)
           ?
           <div

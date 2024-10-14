@@ -30,6 +30,9 @@ const authSlice = createSlice({
         logout: (state) => {
             state.status = false;
             state.userData = null;
+            state.userCoursesData = null;
+            state.wishlist = null;
+            state.MyCourses = null;
         },
         setWishlist: (state, action) => {
             state.wishlist = action.payload.wishlist

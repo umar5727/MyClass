@@ -1,4 +1,4 @@
-import { faBasketShopping, faBell, faBook, faBorderAll, faCartShopping, faCheckCircle, faGear, faPencilSquare, faQuestionCircle, faSignOut, faStar, faTv, faUserGraduate, faUserGroup, } from '@fortawesome/free-solid-svg-icons';
+import { faBasketShopping, faBell, faBook, faBorderAll, faCartShopping, faCheckCircle, faPencilSquare, faQuestionCircle, faSignOut, faStar, faUserGraduate, faUserGroup, } from '@fortawesome/free-solid-svg-icons';
 import { faRectangleList } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 // images import 
 import dummyUser from '/user/user-dummy.webp'
 import bannerImg from '/studentBanner.jpg'
+import { useSignout } from '../../hooks/signout/useSignout';
 
 const DashboardLayout = () => {
     const userData = useSelector((state) => state.auth.userData)
@@ -19,6 +20,7 @@ const DashboardLayout = () => {
     const userCourses = useSelector((state) => state.auth.MyCourses)
     const [studentsCount, setStudentsCount] = useState(0)
 
+    const { signOutHandler } = useSignout()
     useEffect(() => {
         if (userData.role === 'instructor') {
             setFields([
@@ -31,7 +33,7 @@ const DashboardLayout = () => {
                 // { name: "Create Course", slug: "/InstructorDashboard/createCourse" },
                 { name: "Edit Profile", slug: "/user/InstructorDashboard/editProfile", icon: faPencilSquare },
                 { name: "Remove Student", slug: "/#" },
-                { name: "Sign Out", slug: "/user/signOut", icon: faSignOut },
+
             ])
         }
         else {
@@ -47,7 +49,7 @@ const DashboardLayout = () => {
                     { name: "Reviews", slug: "./", icon: faStar },
                     { name: "Notification", slug: "./", icon: faBell },
                     // { name: "Settings", slug: "/#", icon: faGear },
-                    { name: "Sign Out", slug: "/user/signOut", icon: faSignOut },
+
                 ]
             )
         }
@@ -183,6 +185,13 @@ const DashboardLayout = () => {
                                 <div>{field.name}</div>
                             </NavLink>
                         ))}
+                        <Button
+                            className={` flex gap-2 items-center py-2 !px-4 transition-colors duration-500 text-primary hover:text-white hover:bg-primary rounded-md dark:text-white outline-none border-none !justify-start`}
+                            onClick={signOutHandler}
+                        >
+                            <FontAwesomeIcon icon={faSignOut} />
+                            <div>Log Out</div>
+                        </Button>
                     </div>
                 </section>
                 {/* left side ends  */}

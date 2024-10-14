@@ -19,13 +19,18 @@ const MyCourses = ({ }) => {
     // });
 
     useEffect(() => {
-        setCourses(
-            // allCourses.filter((course) => userCourses?.includes(course._id))
-            allCourses.filter(num => userCourses.some(course => course.course === num._id)).map((num) => {
-                const matchingCourse = userCourses.find(course => course.course === num._id);
-                return { ...num, enrolledDate: matchingCourse.createdAt };
-            })
-        )
+        if (!userCourses) {
+            setCourses('')
+        } else {
+
+            setCourses(
+                // allCourses.filter((course) => userCourses?.includes(course._id))
+                allCourses.filter(num => userCourses.some(course => course.course === num._id)).map((num) => {
+                    const matchingCourse = userCourses.find(course => course.course === num._id);
+                    return { ...num, enrolledDate: matchingCourse.createdAt };
+                })
+            )
+        }
 
     }, [userCourses])
 

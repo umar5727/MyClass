@@ -30,16 +30,21 @@ const Layout = () => {
   const alreadyUser = useSelector((state) => state.auth.userData)
   const loading = useSelector((state) => state.auth.isLoading)
 
+  const navigate = useNavigate()
   const checkUser = async () => {
 
+    const refreshToken = localStorage.getItem('refreshToken')
+    const accessToken = localStorage.getItem('accessToken')
+    if (!accessToken) {
+      dispatch(logout());
+      localStorage.removeItem('user')
+      localStorage.removeItem('accessToken')
+      localStorage.removeItem('refreshToken')
+      return ''
+    }
     try {
-      // const refreshToken = document.cookie
-      const refreshToken = localStorage.getItem('refreshToken')
-      const accessToken = localStorage.getItem('accessToken')
       //fetching user
-      if (!refreshToken) {
-        return ''
-      }
+
       const res = await fetch(base_url + "/users/refreshAccessToken ", {
         mode: "cors",
         method: "POST",
@@ -51,27 +56,22 @@ const Layout = () => {
       })
       // when user is fetched we update the state
       const existUser = await res.json();
-      if (!res.ok) {
-        navigate('/')
-      } else {
-        const userData = await existUser.data.user;
-        dispatch(login({ userData }));
-        dispatch(setWishlist({ wishlist: existUser.data.wishlist }))
-        const { accessToken, refreshToken } = existUser;
-
-        localStorage.setItem('accessToken', accessToken)
-        localStorage.setItem('refreshToken', refreshToken)
-        navigate('../')
+      if (res >= 400) {
+        throw new Error({ message: existUser.message })
       }
+      const userData = await existUser.data.user;
+      dispatch(login({ userData }));
+      dispatch(setWishlist({ wishlist: existUser.data.wishlist }))
+      const { newaccessToken, newrefreshToken } = existUser;
 
+      localStorage.setItem('user', userData)
+      localStorage.setItem('accessToken', newaccessToken)
+      localStorage.setItem('refreshToken', newrefreshToken)
+      navigate('../')
     } catch (error) {
-      console.log("layout ", error)
-    } finally {
-      setTimeout(() => {
-
-        dispatch(stopLoading())
-
-      }, 500)
+      navigate('/')
+      console.log("layout fetch error", error)
+      dispatch(logout());
     }
   }
 
@@ -81,19 +81,22 @@ const Layout = () => {
 
   useEffect(() => {
     if (!alreadyUser) {
+      console.log("!already User ", alreadyUser)
       dispatch(isLoading())
       const localUser = JSON.parse(sessionStorage.getItem('user'));
-      if (localUser) {
+      if (!localUser) {
+        console.log("!local User ", localUser)
+        checkUser();
+      } else {
+        console.log("local User get", localUser)
         const wishlist = JSON.parse(sessionStorage.getItem('wishlist'));
         dispatch(login({ userData: localUser }))
         dispatch(setWishlist({ wishlist }))
-      } else {
 
-        checkUser();
       }
-    } else {
-      dispatch(logout());
     }
+
+
   }, [])
 
   useEffect(() => {
