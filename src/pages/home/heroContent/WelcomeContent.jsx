@@ -13,8 +13,8 @@ const WelcomeContent = ({ fullName }) => {
         data-aos='fade-right'
       >
         <div className='flex flex-col justify-center items-center lg:block'>
-          <span>Hey!, <strong className="text-4xl md:text-6xl text-primary capitalize underline">{fullName.split(' ')[0]}</strong></span>
-          <span className="text-3xl md:text-5xl w-[90%] lg:w-[70%]">Welcome back, Pick up where you left off.</span>
+          <div >Hey!, <strong className="text-4xl md:text-6xl text-primary capitalize underline">{fullName.split(' ')[0]}</strong></div>
+          <div className="text-3xl md:text-5xl w-[90%] lg:w-[70%]">Welcome back, Pick up where you left off.</div>
         </div>
       </h1>
       <p
