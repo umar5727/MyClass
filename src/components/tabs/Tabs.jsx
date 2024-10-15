@@ -88,7 +88,7 @@ const Tabs = () => {
         <p>Choose from hundreds of courses from specialist organizations</p>
       </div>
       <div
-        className={`flex flex-wrap gap-2 w-full lg:justify-center bg-primary-light py-3 rounded-lg text-primary lg:gap-12`}
+        className={`flex flex-wrap gap-2 w-full lg:justify-center bg-primary-light py-3 rounded-lg text-primary dark:text-gray-300 lg:gap-12`}
       >
 
         {
@@ -97,7 +97,7 @@ const Tabs = () => {
               className={
                 `${item.id === tabState
                   ? " text-white bg-primary font-semibold border-none cursor-auto "
-                  : "bg-transparent font-semibold hover:text-black hover:bg-primary-light border-none"}  px-4 py-2 rounded-md cursor-pointer dark:hover:text-white capitalize lg:px-8`
+                  : "bg-transparent font-semibold  border-none"}  px-4 py-2 rounded-md cursor-pointer transition hover:text-black hover:bg-primary-light dark:hover:text-white hover:scale-105 capitalize lg:px-8 font-medium`
               }
               key={item.id}
               onClick={() => handleClick(item.id)}
@@ -107,6 +107,7 @@ const Tabs = () => {
           ))
         }
       </div>
+      {/* tab header ends  */}
       <div className="grid sm:grid-cols-2 gap-6 lg:grid-cols-3 xl:grid-cols-4 pt-5" >
         {
           (indexData?.length) ?

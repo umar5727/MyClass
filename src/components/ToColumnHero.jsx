@@ -10,16 +10,8 @@ import HeroContent from "../pages/home/heroContent/HeroContent";
 
 const TwoColumnHero = () => {
   return (
-    <section className="flex flex-col gap-6 lg:gap-0 lg:flex-row py-10 relative">
-      {/* background image */}
-      <div>
-        <div
-          data-aos='fade-right'
-        >
-          <img src="node.png" alt="node" className="absolute w-14 aspect-square right-1/2 bottom-14 z-50 hover:animate-shake " />
-        </div>
-      </div>
-      {/* background image ends  */}
+    <section className="flex flex-col gap-6 lg:gap-0 lg:flex-row py-0 lg:py-10 relative">
+
       {/* Left Column */}
       <HeroContent />
 
@@ -55,8 +47,8 @@ const TwoColumnHero = () => {
           data-aos-duration='1800'
           data-aos-offset='80'
         >
-          <img src="node-js.svg" alt="node" className="relative w-12 z-50 hover:animate-shake  rounded-full" />
-          {/* <div className="bg-white w-11 h-11 rounded-full absolute top-[2px] left-[2px] z-10"></div> */}
+          <img src="node-js.svg" alt="node" className="relative w-12 z-90 hover:animate-shake  rounded-full" />
+
         </div>
         {/* logos ends */}
         <div>

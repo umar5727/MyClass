@@ -4,7 +4,7 @@ import { faCheckCircle, faHeart as regular } from "@fortawesome/free-regular-svg
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import useWishlist from '../../hooks/useWishlist';
 
@@ -27,13 +27,11 @@ const Wishlist = ({ courseId }) => {
       setDisplay(wishlistData.includes(courseId))
     }
 
-    console.log('wishlist courses ', display, "  - for couseid", courseId)
   }, [wishlistData])
 
   return (
     <>
       {
-
         userCoursesId?.includes(courseId)
           ?
           <div
@@ -47,7 +45,6 @@ const Wishlist = ({ courseId }) => {
             title="add to wishlist"
             onClick={display ? removeFromWishlist : addToWishlist}
           >
-
             {
               display
                 ?

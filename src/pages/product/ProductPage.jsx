@@ -5,17 +5,13 @@ import { H2, Product } from "../../components";
 import { useParams } from "react-router-dom";
 import { base_url } from "../../constants/constant";
 import { useSelector } from "react-redux";
-import { UserCourses } from "../../app/features/authSlice";
 
 const ProductPage = () => {
   const coursesData = useSelector((state) => state.course.courseData)
 
   const [newCourse, setNewCourse] = useState(null)
-  const [totalEnrolled, setTotalEnrolled] = useState(0)
-
   const { courseId } = useParams();  //getting coursee id from url
 
-  // const coursesData = courses?.find((course) => course._id === courseId)
 
   const fetchData = async () => {
     try {
@@ -26,13 +22,10 @@ const ProductPage = () => {
           "Content-Type": "application/json",
         },
       })
-
       const { courseData } = await response.json();
-
-
       setNewCourse(courseData)
     } catch (error) {
-
+      console.log('product not found : ', error)
     }
   }
 
@@ -99,12 +92,11 @@ const ProductPage = () => {
         </div>
       </section>
 
-
       {/* more course starts  */}
-      <div className="w-full grid sm:grid-cols-2 gap-5 lg:grid-cols-3 2xl:grid-cols-4 pt-5 mb-16">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-5 lg:grid-cols-3 2xl:grid-cols-4 pt-5 mb-16">
         {
           coursesData?.map((field) => (
-            <div key={field._id}>
+            <div key={field._id} className="w-full">
               <Product
                 name={field.title}
                 mentors={field.instructor}

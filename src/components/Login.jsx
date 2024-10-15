@@ -62,7 +62,7 @@ const Login = () => {
       localStorage.setItem('refreshToken', resData.data.refreshToken)
 
       if (userData.role === 'instructor') {
-        navigate('/InstructorDashboard')
+        navigate('/user/InstructorDashboard')
       } else {
         navigate('/user/dashboard')
       }

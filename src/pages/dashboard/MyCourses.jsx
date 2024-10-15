@@ -1,22 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from '../../components'
-import { useDispatch, useSelector } from 'react-redux'
-import { base_url } from '../../constants/constant'
-import { UserCourses } from '../../app/features/authSlice'
-const MyCourses = ({ }) => {
+import { useSelector } from 'react-redux'
 
+const MyCourses = ({ }) => {
 
     const userData = useSelector((state) => state.auth.userData)
     const userCourses = useSelector((state) => state.auth.MyCourses)
     const allCourses = useSelector((state) => state.course.courseData)
     const [courses, setCourses] = useState(null)
-
-
-    // const userList = allCourses.filter(num => userCourses.some(course => course._id === num._id))
-    // .map(num => {
-    //     const matchingCourse = userCourses.find(course => course._id === num._id);
-    //     return { ...num, enrolledDate: matchingCourse.createdAt };
-    // });
 
     useEffect(() => {
         if (!userCourses) {
@@ -33,9 +24,6 @@ const MyCourses = ({ }) => {
         }
 
     }, [userCourses])
-
-
-
 
     return (
         <section className="">
@@ -60,18 +48,18 @@ const MyCourses = ({ }) => {
                     {/* course content */}
                     <div className="px-4 flex flex-col ">
                         {/* row */}
-                        <div className="grid grid-cols-6 justify-center py-3 bg-black rounded-md text-white ">
+                        <div className="grid grid-cols-1 lg:grid-cols-6 justify-center py-3 bg-black rounded-md text-white ">
                             <div className="col-span-3 ps-4">Course Name</div>
-                            <div className="text-center">Total Lectures</div>
+                            <div className="hidden lg:block text-center">Total Lectures</div>
                             {
 
                                 userData.role != 'instructor' ?
-                                    <div className="text-center">Duration</div>
+                                    <div className="hidden lg:block text-center">Duration</div>
                                     :
-                                    <div className="text-center">Total Enrolleds</div>
+                                    <div className="hidden lg:block text-center">Total Enrolleds</div>
                             }
                             {/* <div className="px-5">Period</div> */}
-                            <div className="text-center">Starting Date</div>
+                            <div className="hidden lg:blocks text-center">Starting Date</div>
                         </div>
                         {/* coursess header ends */}
                         {/* row */}
@@ -80,12 +68,12 @@ const MyCourses = ({ }) => {
                             {
                                 userData.role != 'instructor' ?
                                     courses?.map((course, index) => (
-                                        <div key={index} className='grid grid-cols-6  rounded-md  p-2 py-4   border-b-2 border-primary-light hover:bg-primary-light'>
-                                            <div className="col-span-3 flex gap-2 items-center">
-                                                <div className='w-[100px] '>
-                                                    <img src={course.thumbNail} alt="thumbnail" className='rounded-md' />
+                                        <div key={index} className='grid grid-cols-1 lg:grid-cols-6  rounded-md p-1 lg:p-2 py-4   border-b-2 border-primary-light hover:bg-primary-light'>
+                                            <div className="lg:col-span-3 flex gap-2 items-center">
+                                                <div className='w-[50px] lg:w-[100px] flex-0'>
+                                                    <img src={course.thumbNail} alt="thumbnail" className='w-full rounded-md' />
                                                 </div>
-                                                <div className='font-bold'>
+                                                <div className='font-bold grow'>
                                                     <div>
                                                         {course.title}
 
@@ -96,15 +84,15 @@ const MyCourses = ({ }) => {
                                                 </div>
                                             </div>
                                             {/* course title ends  */}
-                                            <div className="flex items-center justify-center"> {course.totalLectures} </div>
-                                            <div className=" flex items-center justify-center">{course.duration} h</div>
-                                            <div className=" flex items-center justify-center">{course.enrolledDate?.slice(0, 10)}</div>
+                                            <div className="hidden lg:flex items-center justify-center "> {course.totalLectures} </div>
+                                            <div className="hidden lg:flex items-center justify-center">{course.duration} h</div>
+                                            <div className=" hidden lg:flex items-center justify-center">{course.enrolledDate?.slice(0, 10)}</div>
                                         </div>
                                     ))
                                     :
                                     userCourses?.map((course, index) => (
 
-                                        <div key={index} className='grid grid-cols-6  rounded-md  p-2 py-4   border-b-2 border-primary-light hover:bg-primary-light'>
+                                        <div key={index} className='grid grid-cols-1 lg:grid-cols-6  rounded-md  p-2 py-4   border-b-2 border-primary-light hover:bg-primary-light'>
                                             <div className="col-span-3 flex gap-2 items-center">
                                                 <div className='w-[100px] '>
                                                     <img src={course.thumbNail} alt="thumbnail" className='rounded-md' />
@@ -120,10 +108,10 @@ const MyCourses = ({ }) => {
                                                 </div>
                                             </div>
                                             {/* course title ends  */}
-                                            <div className="flex items-center justify-center"> {course.totalLectures} </div>
-                                            <div className=" flex items-center justify-center">{course.studentsCount}</div>
+                                            <div className="hidden lg:flex items-center justify-center"> {course.totalLectures} </div>
+                                            <div className=" hidden lg:flex items-center justify-center">{course.studentsCount}</div>
 
-                                            <div className=" flex items-center justify-center">{course.createdAt.slice(0, 10)}</div>
+                                            <div className=" hidden lg:flex items-center justify-center">{course.createdAt.slice(0, 10)}</div>
                                         </div>
                                     )
 
