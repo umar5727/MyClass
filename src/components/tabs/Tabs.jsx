@@ -97,7 +97,7 @@ const Tabs = () => {
               className={
                 `${item.id === tabState
                   ? " text-white bg-primary font-semibold border-none cursor-auto "
-                  : "bg-transparent font-semibold  border-none"}  px-4 py-2 rounded-md cursor-pointer transition hover:text-black hover:bg-primary-light dark:hover:text-white hover:scale-105 capitalize lg:px-8 font-medium`
+                  : "bg-transparent font-semibold  border-none"}  px-4 py-2 rounded-md cursor-pointer transition hover:text-black hover:bg-primary-light dark:hover:text-white hover:scale-105 capitalize lg:px-8 font-semibold`
               }
               key={item.id}
               onClick={() => handleClick(item.id)}

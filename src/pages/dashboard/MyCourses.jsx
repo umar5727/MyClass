@@ -59,7 +59,9 @@ const MyCourses = ({ }) => {
                                     <div className="hidden lg:block text-center">Total Enrolleds</div>
                             }
                             {/* <div className="px-5">Period</div> */}
-                            <div className="hidden lg:blocks text-center">Starting Date</div>
+                            <div className="hidden lg:block text-center">
+                                Starting Date
+                            </div>
                         </div>
                         {/* coursess header ends */}
                         {/* row */}
@@ -92,8 +94,8 @@ const MyCourses = ({ }) => {
                                     :
                                     userCourses?.map((course, index) => (
 
-                                        <div key={index} className='grid grid-cols-1 lg:grid-cols-6  rounded-md  p-2 py-4   border-b-2 border-primary-light hover:bg-primary-light'>
-                                            <div className="col-span-3 flex gap-2 items-center">
+                                        <div key={index} className='grid grid-cols-1 lg:grid-cols-6 rounded-md p-2 py-4 border-b-2 border-primary-light hover:bg-primary-light'>
+                                            <div className="lg:col-span-3 flex gap-2 items-center">
                                                 <div className='w-[100px] '>
                                                     <img src={course.thumbNail} alt="thumbnail" className='rounded-md' />
                                                 </div>
@@ -108,10 +110,12 @@ const MyCourses = ({ }) => {
                                                 </div>
                                             </div>
                                             {/* course title ends  */}
-                                            <div className="hidden lg:flex items-center justify-center"> {course.totalLectures} </div>
-                                            <div className=" hidden lg:flex items-center justify-center">{course.studentsCount}</div>
+                                            <div className="hidden lg:flex items-center justify-center"> {course?.totalLectures} </div>
+                                            <div className=" hidden lg:flex items-center justify-center">{course?.studentsCount}</div>
+                                            <div className=" hidden lg:flex items-center justify-center">
+                                                {course?.createdAt.slice(0, 10)}
+                                            </div>
 
-                                            <div className=" hidden lg:flex items-center justify-center">{course.createdAt.slice(0, 10)}</div>
                                         </div>
                                     )
 
