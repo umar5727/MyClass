@@ -27,7 +27,7 @@ const Product = ({ courseId, image, name, difficulty, description, lectures, men
     }
   }
   return (
-    <div className={`group/product lightShadow rounded-lg overflow-hidden w-full bg-white dark:bg-card-dark-bg flex flex-col ${height} hover:shadow-product duration-300`}>
+    <div className={`group/product lightShadow rounded-lg  w-full bg-white dark:bg-card-dark-bg flex flex-col ${height} hover:shadow-product duration-300`}>
       <div className="w-full aspect-[3/2] overflow-hidden">
 
         <img

@@ -28,7 +28,7 @@ import Loading from "./Loading";
 import ProtectedUser from "./ProtectedUser";
 import Input from "./Input";
 import Course from "./course/Course";
-
+import Popup from "./popups/Popup"
 export {
     Header,
     Button,
@@ -58,4 +58,5 @@ export {
     ProtectedUser,
     Input,
     Course,
-}
+    Popup,
+}   

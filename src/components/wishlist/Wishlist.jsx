@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import useWishlist from '../../hooks/useWishlist';
+import Popup from '../popups/Popup';
 
 
 
@@ -35,22 +36,28 @@ const Wishlist = ({ courseId }) => {
         userCoursesId?.includes(courseId)
           ?
           <div
-            className="text-green-600 font-extrabold text-base"
-            title='Already Enrolled'
+            className='group/wishlist z-50 text-green-600 font-extrabold text-base relative'
           >
+            <Popup text="Already Enrolled" />
             <FontAwesomeIcon icon={faCheckCircle} />
           </div >
           :
-          <div className="text-primary-danger cursor-pointer"
-            title="add to wishlist"
+          <div className="group/wishlist text-primary-danger cursor-pointer relative"
+
             onClick={display ? removeFromWishlist : addToWishlist}
           >
             {
               display
                 ?
-                <FontAwesomeIcon icon={faHeart} />
+                <div>
+                  <Popup text="Remove from Wishlist" />
+                  <FontAwesomeIcon icon={faHeart} />
+                </div>
                 :
-                <FontAwesomeIcon icon={regular} />
+                <div>
+                  <Popup text="Add to Wishlist" />
+                  <FontAwesomeIcon icon={regular} />
+                </div>
             }
           </div>
       }
